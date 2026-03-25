@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo de Conversão</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sora:wght@100..800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /*DEFINIDOS*/
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            background-color: #eeeeee;
+            color: #D9D9D9;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: url(fonts/Inter_18pt-Medium.woff2) format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: url(fonts/Inter_18pt-Bold.woff2);
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Inter';
+            src: url(fonts/Inter_18pt-Regular.woff2);
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        .blur-up,
+        .blur-down,
+        .blur-left,
+        .blur-right {
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+
+
+
+        /* ---- HERO Critical CSS ---- */
+
+        /*------ CELULARES PEQUENOS ------*/
+
+        /*--- PRÉ-DEFINIDOS ---*/
+
+        .separation-section {
+            width: 100%;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .separation-section svg {
+            scale: 1.7;
+        }
+
+
+
+        /* TEXTOS */
+
+        h1 {
+            font-size: 25px;
+            text-align: left;
+            width: 100%;
+            font-family: 'Inter';
+            font-weight: 400;
+            line-height: 30px;
+            color: #171717;
+            margin: 0;
+        }
+
+
+        h2 {
+            font-family: 'Inter';
+            font-size: 25px;
+            font-weight: 400;
+            color: #171717;
+            line-height: 30px;
+        }
+
+
+        h2 span {
+            font-weight: 700;
+            color: #2641EA;
+        }
+
+        h3 {
+            font-family: 'Inter';
+            font-size: 20px;
+            font-weight: 400;
+            color: #171717;
+            line-height: 25px;
+        }
+
+
+        p {
+            font-family: 'Inter';
+            font-size: 15px;
+            color: #4B4B4B;
+            font-weight: 300;
+            line-height: 20px;
+        }
+
+
+        /* CENTRO DE CONTEÚDO */
+        .content {
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        .secao-1 {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .secao-1 picture,
+        .secao-1 .fundo1 {
+            position: absolute;
+            width: 100%;
+            height: 110vh;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            z-index: -5;
+        }
+
+
+        .secao-1 .content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 40px;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .secao-1 .content-secao1 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            gap: 15px;
+        }
+
+        .secao-1 .content .content-secao1 p {
+            text-align: left;
+            color: #4B4B4B;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 20px;
+        }
+
+        .person {
+            position: absolute;
+            top: 82%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 68vh;
+            /* usa viewport height para manter proporção */
+            max-height: 700px;
+            width: auto;
+
+            z-index: -3;
+        }
+
+        .notification {
+            position: absolute;
+            width: 60%;
+            max-width: 300px;
+
+            top: 80%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            z-index: 2;
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+        }
+
+        .notification.atras {
+            position: absolute;
+            width: 60%;
+            max-width: 300px;
+
+            top: 69%;
+            left: 50%;
+
+            transform: translate(-60%, 20%);
+            z-index: -4;
+            filter: blur(2px);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+        }
+
+        .notification.abaixo {
+            position: absolute;
+            width: 60%;
+            max-width: 300px;
+
+            top: 81%;
+            left: 50%;
+
+            transform: translate(-30%, 70%);
+            filter: blur(1px);
+
+            z-index: 2;
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+        }
+
+
+        .secao-1 .content img {
+            width: 240px;
+        }
+
+
+        .content-secao-1 {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        .secao-1 .content h1 span {
+            font-style: normal;
+            font-weight: 700;
+            color: #2641EA;
+        }
+
+
+        /*------ CELULAR MAIOR ------*/
+        @media (min-width: 400px) {
+            /*--- PRÉ-DEFINIDOS ---*/
+
+            /* TEXTOS */
+
+            h1 {
+                font-size: 25px;
+                text-align: left;
+                width: 100%;
+                font-family: 'Inter';
+                font-weight: 400;
+                line-height: 30px;
+                color: #171717;
+                margin: 0;
+            }
+
+
+            h2 {
+                font-family: 'Inter';
+                font-size: 25px;
+                font-weight: 400;
+                color: #171717;
+                line-height: 30px;
+            }
+
+
+            h2 span {
+                font-weight: 700;
+                color: #2641EA;
+            }
+
+            h3 {
+                font-family: 'Inter';
+                font-size: 20px;
+                font-weight: 400;
+                color: #171717;
+                line-height: 25px;
+            }
+
+
+            p {
+                font-family: 'Inter';
+                font-size: 15px;
+                color: #4B4B4B;
+                font-weight: 300;
+                line-height: 20px;
+            }
+
+
+            /* CENTRO DE CONTEÚDO */
+            .content {
+                width: 90%;
+                height: 100%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+
+            .secao-1 {
+                width: 100%;
+                height: 100vh;
+                position: relative;
+                overflow: hidden;
+                margin-bottom: -60px;
+            }
+
+
+            .secao-1 picture,
+            .secao-1 .fundo1 {
+                position: absolute;
+                width: 100%;
+                height: 110vh;
+                object-fit: cover;
+                top: 0;
+                left: 0;
+                z-index: -5;
+            }
+
+
+            .secao-1 .content {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                margin-top: 40px;
+                min-height: 100vh;
+                text-align: center;
+            }
+
+            .secao-1 .content-secao1 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .secao-1 .content .content-secao1 p {
+                text-align: left;
+                color: #4B4B4B;
+                font-weight: 300;
+                font-size: 15px;
+                line-height: 20px;
+            }
+
+            .person {
+                position: absolute;
+                top: 70%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                height: 68vh;
+                /* usa viewport height para manter proporção */
+                max-height: 700px;
+                width: auto;
+
+                z-index: -3;
+            }
+
+            .notification {
+                position: absolute;
+                width: 60%;
+
+                top: 75%;
+                left: 50%;
+
+                transform: translate(-50%, -50%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.atras {
+                position: absolute;
+                width: 60%;
+
+                top: 63%;
+                left: 50%;
+
+                transform: translate(-60%, 20%);
+                z-index: -4;
+                filter: blur(2px);
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.abaixo {
+                position: absolute;
+                width: 60%;
+
+                top: 76%;
+                left: 50%;
+
+                transform: translate(-30%, 70%);
+
+                z-index: 2;
+                filter: blur(1px);
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+
+            .content-secao-1 {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+            .secao-1 .content h1 span {
+                font-style: normal;
+                font-weight: 700;
+                color: #2641EA;
+            }
+        }
+
+        /*------ TABLET ------*/
+        @media (min-width: 440px) and (max-width: 768px) {
+
+
+            .separation-section {
+                width: 100%;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+            .separation-section svg {
+                scale: 1.5;
+            }
+
+            .content {
+                width: 80%;
+            }
+
+
+
+            .person {
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                height: 68vh;
+                /* usa viewport height para manter proporção */
+                max-height: 700px;
+                width: auto;
+
+                z-index: -3;
+            }
+
+            .notification {
+                position: absolute;
+                width: 60%;
+
+                top: 75%;
+                left: 50%;
+
+                transform: translate(-50%, -50%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.atras {
+                position: absolute;
+                width: 59%;
+                max-width: 300px;
+
+                top: 60%;
+                left: 50%;
+
+                transform: translate(-60%, 20%);
+                z-index: -4;
+                filter: blur(2px);
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.abaixo {
+                position: absolute;
+                width: 60%;
+                max-width: 300px;
+
+                top: 76%;
+                left: 50%;
+
+                transform: translate(-30%, 70%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+                filter: blur(1px);
+            }
+
+        }
+
+        /*------ NOTEBOOK ------*/
+        @media (min-width: 1024px) {
+
+            /*--- PRÉ-DEFINIDOS ---*/
+
+            .separation-section {
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+            .separation-section svg {
+                scale: 1;
+            }
+
+
+            /* TEXTOS */
+
+            h1 {
+                font-size: 35px;
+                text-align: left;
+                width: 95%;
+                font-family: 'Inter';
+                font-weight: 400;
+                line-height: 40px;
+                color: #171717;
+                margin: 0;
+            }
+
+
+            h2 {
+                font-family: 'Inter';
+                font-size: 35px;
+                font-weight: 400;
+                color: #171717;
+                line-height: 40px;
+            }
+
+
+            h2 span {
+                font-weight: 700;
+                color: #2641EA;
+            }
+
+            h3 {
+                font-family: 'Inter';
+                font-size: 25px;
+                font-weight: 400;
+                color: #171717;
+                line-height: 30px;
+            }
+
+
+            p {
+                font-family: 'Inter';
+                font-size: 18px;
+                color: #4B4B4B;
+                font-weight: 300;
+                line-height: 23px;
+            }
+
+
+            /* CENTRO DE CONTEÚDO */
+            .content {
+                width: 70%;
+                height: 100%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+
+            .secao-1 {
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+                margin-bottom: -65px;
+            }
+
+
+            .secao-1 picture,
+            .secao-1 .fundo1 {
+                position: absolute;
+                width: 100%;
+                height: 110vh;
+                object-fit: cover;
+                top: 0;
+                left: 0;
+                z-index: -5;
+            }
+
+
+            .secao-1 .content {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .secao-1 .content-secao1 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                width: 60%;
+                gap: 25px;
+                margin-bottom: 100px;
+            }
+
+            .secao-1 .content .content-secao1 p {
+                text-align: left;
+                color: #4B4B4B;
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 20px;
+            }
+
+            .person {
+                position: absolute;
+                top: 58%;
+                left: 90%;
+                transform: translate(-50%, -50%);
+
+                height: 100vh;
+                /* usa viewport height para manter proporção */
+                max-height: 100%;
+                width: auto;
+
+                z-index: -3;
+            }
+
+            .notification {
+                position: absolute;
+                width: 60%;
+
+                top: 65%;
+                left: 77%;
+
+                transform: translate(-50%, -50%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.atras {
+                position: absolute;
+                width: 59%;
+                max-width: 300px;
+
+                top: 50%;
+                left: 84%;
+
+                transform: translate(-60%, 20%);
+                z-index: -4;
+                filter: blur(2px);
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.abaixo {
+                position: absolute;
+                width: 60%;
+                max-width: 300px;
+
+                top: 65%;
+                left: 75%;
+
+                transform: translate(-30%, 70%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+                filter: blur(1px);
+            }
+
+
+            .secao-1 .content img {
+                width: 240px;
+            }
+
+
+            .content-secao-1 {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+            .secao-1 .content h1 span {
+                font-style: normal;
+                font-weight: 700;
+                color: #2641EA;
+            }
+
+
+        }
+
+        /*------ DESKTOP ------*/
+        @media (min-width: 1280px) {
+
+            /*--- PRÉ-DEFINIDOS ---*/
+
+            .separation-section {
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+            .separation-section svg {
+                scale: 1;
+            }
+
+
+            /* TEXTOS */
+
+            h1 {
+                font-size: 35px;
+                text-align: left;
+                width: 95%;
+                font-family: 'Inter';
+                font-weight: 400;
+                line-height: 40px;
+                color: #171717;
+                margin: 0;
+            }
+
+
+            h2 {
+                font-family: 'Inter';
+                font-size: 35px;
+                font-weight: 400;
+                color: #171717;
+                line-height: 40px;
+            }
+
+
+            h2 span {
+                font-weight: 700;
+                color: #2641EA;
+            }
+
+            h3 {
+                font-family: 'Inter';
+                font-size: 25px;
+                font-weight: 400;
+                color: #171717;
+                line-height: 30px;
+            }
+
+
+            p {
+                font-family: 'Inter';
+                font-size: 18px;
+                color: #4B4B4B;
+                font-weight: 300;
+                line-height: 25px;
+            }
+
+
+            /* CENTRO DE CONTEÚDO */
+            .content {
+                width: 66.67%;
+                height: 100%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+
+            .secao-1 {
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+
+            .secao-1 picture,
+            .secao-1 .fundo1 {
+                position: absolute;
+                width: 100%;
+                height: 110vh;
+                object-fit: cover;
+                top: 0;
+                left: 0;
+                z-index: -5;
+            }
+
+
+            .secao-1 .content {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                min-height: 100vh;
+                text-align: center;
+            }
+
+            .secao-1 .content-secao1 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                width: 490px;
+                gap: 25px;
+            }
+
+            .secao-1 .content .content-secao1 p {
+                text-align: left;
+                color: #4B4B4B;
+                font-weight: 300;
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .person {
+                position: absolute;
+                top: 58%;
+                left: 83%;
+                transform: translate(-50%, -50%);
+
+                height: 100vh;
+                /* usa viewport height para manter proporção */
+                max-height: 100%;
+                width: auto;
+
+                z-index: -3;
+            }
+
+            .notification {
+                position: absolute;
+                width: 60%;
+
+                top: 65%;
+                left: 75%;
+
+                transform: translate(-50%, -50%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.atras {
+                position: absolute;
+                width: 59%;
+                max-width: 300px;
+
+                top: 50%;
+                left: 80%;
+
+                transform: translate(-60%, 20%);
+                z-index: -4;
+                filter: blur(2px);
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.abaixo {
+                position: absolute;
+                width: 60%;
+                max-width: 300px;
+
+                top: 65%;
+                left: 73%;
+
+                transform: translate(-30%, 70%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+                filter: blur(1px);
+            }
+
+
+            .secao-1 .content img {
+                width: 240px;
+            }
+
+
+            .content-secao-1 {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+            .secao-1 .content h1 span {
+                font-style: normal;
+                font-weight: 700;
+                color: #2641EA;
+            }
+
+
+        }
+
+        /*------ DESKTOP G ------*/
+        @media (min-width: 1440px) {
+
+            /*--- PRÉ-DEFINIDOS ---*/
+
+            .separation-section {
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+            .separation-section svg {
+                scale: 1;
+            }
+
+
+            /* TEXTOS */
+
+            h1 {
+                font-size: 40px;
+                text-align: left;
+                width: 95%;
+                font-family: 'Inter';
+                font-weight: 400;
+                line-height: 50px;
+                color: #171717;
+                margin: 0;
+            }
+
+
+            h2 {
+                font-family: 'Inter';
+                font-size: 40px;
+                font-weight: 400;
+                color: #171717;
+                line-height: 50px;
+            }
+
+
+            h2 span {
+                font-weight: 700;
+                color: #2641EA;
+            }
+
+            h3 {
+                font-family: 'Inter';
+                font-size: 25px;
+                font-weight: 400;
+                color: #171717;
+                line-height: 30px;
+            }
+
+
+            p {
+                font-family: 'Inter';
+                font-size: 20px;
+                color: #4B4B4B;
+                font-weight: 300;
+                line-height: 26px;
+            }
+
+
+            /* CENTRO DE CONTEÚDO */
+            .content {
+                width: 66%;
+                height: 100%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+
+            .secao-1 {
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+
+            .secao-1 picture,
+            .secao-1 .fundo1 {
+                position: absolute;
+                width: 100%;
+                height: 110vh;
+                object-fit: cover;
+                top: 0;
+                left: 0;
+                z-index: -5;
+            }
+
+
+            .secao-1 .content {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                min-height: 100vh;
+                text-align: center;
+            }
+
+            .secao-1 .content-secao1 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                width: 490px;
+                gap: 25px;
+            }
+
+            .secao-1 .content .content-secao1 p {
+                text-align: left;
+                color: #4B4B4B;
+                font-weight: 300;
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .person {
+                position: absolute;
+                top: 58%;
+                left: 75%;
+                transform: translate(-50%, -50%);
+
+                height: 100vh;
+                /* usa viewport height para manter proporção */
+                max-height: 100%;
+                width: auto;
+
+                z-index: -3;
+            }
+
+            .notification {
+                position: absolute;
+                width: 60%;
+
+                top: 65%;
+                left: 65%;
+
+                transform: translate(-50%, -50%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.atras {
+                position: absolute;
+                width: 59%;
+                max-width: 300px;
+
+                top: 50%;
+                left: 70%;
+
+                transform: translate(-60%, 20%);
+                z-index: -4;
+                filter: blur(2px);
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.abaixo {
+                position: absolute;
+                width: 60%;
+                max-width: 300px;
+
+                top: 65%;
+                left: 63%;
+
+                transform: translate(-30%, 70%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+                filter: blur(1px);
+            }
+
+
+            .secao-1 .content img {
+                width: 240px;
+            }
+
+
+            .content-secao-1 {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+            .secao-1 .content h1 span {
+                font-style: normal;
+                font-weight: 700;
+                color: #2641EA;
+            }
+
+
+        }
+
+        /*------ DESKTOP FULL HD ------*/
+        @media (min-width: 1920px) {
+            .person {
+                position: absolute;
+                top: 58%;
+                left: 70%;
+                transform: translate(-50%, -50%);
+
+                height: 100vh;
+                /* usa viewport height para manter proporção */
+                max-height: 100%;
+                width: auto;
+
+                z-index: -3;
+            }
+
+            .notification {
+                position: absolute;
+                width: 60%;
+
+                top: 64%;
+                left: 60%;
+
+                transform: translate(-50%, -50%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.atras {
+                position: absolute;
+                width: 59%;
+                max-width: 300px;
+
+                top: 50%;
+                left: 63%;
+
+                transform: translate(-60%, 20%);
+                z-index: -4;
+                filter: blur(2px);
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+            }
+
+            .notification.abaixo {
+                position: absolute;
+                width: 60%;
+                max-width: 300px;
+
+                top: 65%;
+                left: 59%;
+
+                transform: translate(-30%, 70%);
+
+                z-index: 2;
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+                filter: blur(1px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <div class="secao-1"> <!--HERO-->
+                <img src="images/FOTO.webp" class="person" alt="" fetchpriority="high" data-speed="1.1">
+                <img class="notification n1" src="images/notificacao.webp"
+                    srcset="images/notificacao-360.webp 360w, images/notificacao-400.webp 400w, images/notificacao-768.webp 768w, images/notificacao.webp 1200w, images/notificacao.webp 1600w"
+                    sizes="100vw" alt="">
+                <img class="notification abaixo n2" src="images/notificacao.webp"
+                    srcset="images/notificacao-360.webp 360w, images/notificacao-400.webp 400w, images/notificacao-768.webp 768w, images/notificacao.webp 1200w, images/notificacao.webp 1600w"
+                    sizes="100vw" alt="">
+                <img class="notification atras n3" src="images/notificacao.webp"
+                    srcset="images/notificacao-360.webp 360w, images/notificacao-400.webp 400w, images/notificacao-768.webp 768w, images/notificacao.webp 1200w, images/notificacao.webp 1600w"
+                    sizes="100vw" alt="">
+                <picture>
+                    <!-- Mobile -->
+                    <source data-speed="0.5" srcset="images/fundo1-m.webp" media="(max-width: 768px)">
+
+                    <!-- Desktop -->
+                    <img data-speed="0.5" class="fundo1" src="images/fundo1.webp" alt="" fetchpriority="high"
+                        loading="eager" decoding="async">
+                </picture>
+                <div class="content" data-speed="1.1">
+                    <div class="content-secao1">
+                        <h1 class="blur-up">
+                            Transforme seu atendimento em uma máquina que vende todos os dias com o <span>Protocolo de
+                                Conversão para Consultórios!</span>
+                        </h1>
+                        <p class="blur-up">
+                            Implemente uma estrutura validada de atendimento que aumenta seus agendamentos, valoriza sua
+                            consulta e reduz a perda de pacientes por preço.
+                        </p>
+                        <a href="#valor" class="bottom link blur-up">
+                            Quero vender todos os dias
+                            <span>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1H17M17 1V17M17 1L1 17" stroke="#2641EA" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="separation-section">
+                <svg width="1920" height="137" viewBox="0 0 1920 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M1920 63C1920 62.5 1920 62.5 1920 62.5H1600C1550.64 62.5 1525.99 47.0597 1501.45 31.5771C1476.87 16.0617 1452.39 0.5 1403.5 0.5H520.5C472.105 0.5 447.881 16.0627 423.544 31.5781C399.259 47.0606 374.857 62.5 326 62.5H0.00292969C0.00119285 62.5 0 62.5 0 63V62.5H-0.5V136.5H1920.5V62.5H1920V63Z"
+                        fill="url(#paint0_linear_2034_170)" stroke="url(#paint1_linear_2034_170)" />
+                    <defs>
+                        <linearGradient id="paint0_linear_2034_170" x1="960" y1="0.999992" x2="960" y2="136"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="white" />
+                            <stop offset="1" stop-color="#EEEEEE" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_2034_170" x1="910.847" y1="136" x2="910.847" y2="-1.1161"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#EEEEEE" />
+                            <stop offset="1" stop-color="white" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="secao-2">
+                <div class="content">
+                    <div class="content-secao2">
+                        <h2 class="blur-up">
+                            Você não aguenta mais ver pacientes perguntarem o valor da consulta… e simplesmente
+                            <span>sumirem depois da resposta?</span>
+
+                        </h2>
+
+                        <p class="blur-up">
+                            Sente que está sempre sendo comparado por preço, perdendo agendamentos e dependendo de
+                            volume
+                            para manter o faturamento. E o mais frustrante é perceber que o problema não está na sua
+                            competência, está na forma como seu atendimento está estruturado.
+                        </p>
+                    </div>
+
+                    <div class="cel">
+                        <div class="content-ms-client">
+                            <div class="mens-client blur-down">
+                                <span>
+                                    Cliente:
+                                </span>
+                                <p>
+                                    Oi, bom dia! Qual o valor<br>da consulta?
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="content-ms-user">
+                            <div class="mens-usuario blur-down">
+                                <span>
+                                    Seu consultório:
+                                </span>
+                                <p>
+                                    Bom dia! A consulta tem o valor de R$350 e dura em média 50 minutos. Se
+                                    quiser, posso te explicar como funciona e ver os horários disponíveis para você.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="content-ms-client">
+                            <div class="mens-client blur-down">
+                                <span>
+                                    Cliente:
+                                </span>
+                                <p>
+                                    Entendi. Obrigada pelas<br>informações! Estou<br>pesquisando ainda,<br>qualquer
+                                    coisa eu
+                                    retorno.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="separation-section">
+                <svg width="1920" height="100" viewBox="0 0 1920 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M1920 99.9248L1920.22 61.9248H1600.22C1503 61.9248 1502 0 1403.5 0H520.5C423 0 423.5 61.9248 326.22 61.9248H0.219577L0 99.9248H1920Z"
+                        fill="#2641EA" />
+                </svg>
+            </div>
+            <div class="secao-3">
+                <div class="content">
+                    <h2 class="h2-uni1 blur-up">
+                        Se você já passou por isso, saiba que você
+                        <span>
+                            não está sozinho.
+                        </span>
+                    </h2>
+                    <p class="p-uni1 blur-up">
+                        Agora, imagine receber uma estrutura validada onde cada mensagem, cada ligação e cada contato
+                        seguem uma lógica estratégica, fazendo com que o paciente perceba valor antes mesmo de perguntar
+                        o preço.
+                    </p>
+                    <div class="linha-pontilhada">
+                    </div>
+                    <h2 class="h2-uni2 blur-down">
+                        Com o Protocolo, você recebe uma estrutura de atendimento que realmente converte
+                    </h2>
+                    <div class="itens">
+                        <ul>
+                            <li class="blur-left">
+                                <span>
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
+                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <p>
+                                    Como responder “qual o valor da consulta?” sem perder o paciente
+                                </p>
+
+                            </li>
+
+                            <li class="blur-left">
+                                <span>
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
+                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <p>
+                                    Como organizar sua secretária para apresentar valor antes de falar preço
+                                </p>
+
+                            </li>
+
+                            <li class="blur-left">
+                                <span>
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
+                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <p>
+                                    Como aumentar sua taxa de agendamento sem investir mais em marketing
+                                </p>
+
+                            </li>
+
+                            <li class="blur-left">
+                                <span>
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
+                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+
+                                <p>
+                                    Como reduzir faltas e desistências antes da consulta
+                                </p>
+
+                            </li>
+
+                            <li class="blur-left">
+                                <span>
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
+                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+
+                                <p>
+                                    Como atrair pacientes mais qualificados e particulares
+                                </p>
+
+                            </li>
+
+                            <li class="blur-left">
+                                <span>
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
+                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+
+                                <p>
+                                    Como sustentar consultas com maior valor sem gerar resistência
+                                </p>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <p class="p-uni2 blur-up">
+                        O protocolo que transforma atendimentos comuns em um sistema estratégico de conversão está
+                        ao seu alcance e por muito menos do que você imagina.
+                    </p>
+                    <a href="#valor" class="bottom v-white link blur-up">
+                        Quero vender todos os dias
+                        <span>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1H17M17 1V17M17 1L1 17" stroke="#2641EA" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+            <div class="separation-section">
+                <svg width="1920" height="100" viewBox="0 0 1920 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M1920 0L1920.22 38H1600.22C1503 38 1502 99.9248 1403.5 99.9248H520.5C423 99.9248 423.5 38 326.22 38H0.219577L0 0H1920Z"
+                        fill="#2641EA" />
+                </svg>
+            </div>
+            <div class="secao-4">
+                <div class="content">
+                    <h2 class="blur-up">
+                        E o melhor de tudo?
+                    </h2>
+                    <ul>
+                        <li class="blur-right">
+                            <img src="images/check-icon.webp" alt="">
+                            <p>
+                                Sem precisar virar vendedor
+                            </p>
+                        </li>
+                        <li class="blur-down">
+                            <img src="images/check-icon.webp" alt="">
+                            <p>
+                                Sem scripts forçados ou técnicas agressivas
+                            </p>
+                        </li>
+
+                        <li class="blur-left">
+                            <img src="images/check-icon.webp" alt="">
+                            <p>
+                                Sem ferir a ética profissional
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="secao-5">
+                <div class="content">
+                    <div class="comparation">
+                        <div class="errado blur-right">
+                            <h3>Sem o Protocolo de Conversão para Consultórios…</h3>
+                            <ul>
+
+                                <li>
+                                    <span>
+                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.1305 1.52026L1.47943 14.5203M14.1305 1.52026L1.47943 14.5203"
+                                                stroke="#5C5C5C" stroke-width="3" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M1.83078 1.52034L14.4794 14.5178" stroke="#5C5C5C" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <p>Sua secretária responde preço de forma direta e você perde pacientes todos os
+                                        dias sem nem perceber.</p>
+                                </li>
+                                <div class="separation"></div>
+                                <li>
+                                    <span>
+                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.1305 1.52026L1.47943 14.5203M14.1305 1.52026L1.47943 14.5203"
+                                                stroke="#5C5C5C" stroke-width="3" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M1.83078 1.52034L14.4794 14.5178" stroke="#5C5C5C" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <p>Você é constantemente comparado com outros médicos e acaba entrando em guerra de
+                                        preços.</p>
+                                </li>
+                                <div class="separation"></div>
+                                <li>
+                                    <span>
+                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.1305 1.52026L1.47943 14.5203M14.1305 1.52026L1.47943 14.5203"
+                                                stroke="#5C5C5C" stroke-width="3" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M1.83078 1.52034L14.4794 14.5178" stroke="#5C5C5C" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <p>Sua agenda depende de volume, convênios ou descontos para se manter cheia.</p>
+                                </li>
+                                <div class="separation"></div>
+                                <li>
+                                    <span>
+                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.1305 1.52026L1.47943 14.5203M14.1305 1.52026L1.47943 14.5203"
+                                                stroke="#5C5C5C" stroke-width="3" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M1.83078 1.52034L14.4794 14.5178" stroke="#5C5C5C" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    <p>Você sente que entrega excelência na consulta, mas o paciente não enxerga esse
+                                        valor antes de decidir.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="certo blur-left">
+                            <h3>Com o Protocolo de Conversão para Consultórios…</h3>
+                            <ul>
+
+                                <li>
+                                    <img src="images/certo.webp" alt="">
+                                    <p>Sua secretária segue uma estrutura estratégica que constrói valor antes de falar
+                                        preço, aumentando seus agendamentos.</p>
+                                </li>
+                                <div class="separation"></div>
+                                <li>
+                                    <img src="images/certo.webp" alt="">
+                                    <p>Você deixa de ser comparado por valor e passa a ser percebido como referência.
+                                    </p>
+                                </li>
+                                <div class="separation"></div>
+                                <li>
+                                    <img src="images/certo.webp" alt="">
+                                    <p>Sua agenda se mantém previsível com pacientes particulares e mais qualificados.
+                                    </p>
+                                </li>
+                                <div class="separation"></div>
+                                <li>
+                                    <img src="images/certo.webp" alt="">
+                                    <p>O paciente percebe o valor da sua consulta antes mesmo de perguntar quanto custa.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#valor" class="bottom link blur-up">
+                        Quero vender todos os dias
+                        <span>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1H17M17 1V17M17 1L1 17" stroke="#2641EA" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="secao-6"> <!--BÔNUS-->>
+                <div class="content">
+                    <h2 class="blur-up">
+                        Hoje você vai receber
+                        <span>
+                            alguns presentes:
+                        </span>
+                    </h2>
+
+                    <div class="bonus blur-up">
+
+                        <div class="content-bonus">
+                            <div class="tag">
+                                <img src="images/bonus.webp" alt="">
+                                <p>
+                                    Bônus exclusivo 1
+                                </p>
+                            </div>
+                            <h3>
+                                Roteiro Validado de Ligações para Agendamentos
+                            </h3>
+                            <p>
+                                Script pronto para a secretária agendar com segurança, com uma estrutura clara que
+                                conduz a conversa naturalmente até o “sim”. Com frases estratégicas para reduzir a
+                                indecisão do paciente e um modelo adaptável para qualquer especialidade, pronto para
+                                aplicar na rotina.
+                            </p>
+                            <p class="preco">De <span>R$297</span> você leva de graça!</p>
+                        </div>
+                        <img src="images/bonus1.webp" alt="">
+                    </div>
+
+                    <div class="bonus v2 blur-up">
+
+                        <div class="content-bonus">
+                            <div class="tag">
+                                <img src="images/bonus.webp" alt="">
+                                <p>
+                                    Bônus exclusivo 2
+                                </p>
+                            </div>
+                            <h3>
+                                Método de Recuperação de Cancelamentos
+                            </h3>
+                            <p>
+                                Mensagens prontas para reagendar sem gerar fricção, com uma abordagem estratégica que
+                                reduz cancelamentos e protege sua agenda. Com script para recuperar pacientes indecisos
+                                e uma estrutura clara para manter os horários preenchidos com mais segurança.
+                            </p>
+                            <p class="preco">De <span>R$247</span> você leva de graça!</p>
+                        </div>
+                        <img src="images/bonus2.webp" alt="">
+                    </div>
+
+                    <div class="bonus blur-up">
+
+                        <div class="content-bonus">
+                            <div class="tag">
+                                <img src="images/bonus.webp" alt="">
+                                <p>
+                                    Bônus exclusivo 3
+                                </p>
+                            </div>
+                            <h3>
+                                Sistema de Reativação de Pacientes Inativos
+                            </h3>
+                            <p>
+                                Modelo de contato para reativar pacientes antigos com mensagens que despertam urgência e
+                                incentivam o retorno. Traz uma estratégia prática para gerar novos agendamentos rápidos
+                                e um fluxo simples para aplicar todos os meses.
+                            </p>
+                            <p class="preco">De <span>R$397</span> você leva de graça!</p>
+                        </div>
+                        <img src="images/bonus3.webp" alt="">
+                    </div>
+
+                    <div class="bonus v2 blur-up">
+
+                        <div class="content-bonus">
+                            <div class="tag">
+                                <img src="images/bonus.webp" alt="">
+                                <p>
+                                    Bônus exclusivo 4
+                                </p>
+                            </div>
+                            <h3>
+                                Protocolo Vendendo Tratamento Complementares
+                            </h3>
+                            <p>
+                                Estrutura prática para oferecer tratamentos complementares e apresentar serviços premium
+                                de forma estratégica e ética. Inclui uma abordagem para ampliar planos e retornos,
+                                aumentando o faturamento sem precisar aumentar a agenda.
+                            </p>
+                            <p class="preco">De <span>R$447</span> você leva de graça!</p>
+                        </div>
+                        <img src="images/bonus4.webp" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="separation-section">
+                <svg width="1920" height="137" viewBox="0 0 1920 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M1920 74C1920 74.5 1920 74.5 1920 74.5H1600C1550.64 74.5 1525.99 89.9403 1501.45 105.423C1476.87 120.938 1452.39 136.5 1403.5 136.5H520.5C472.105 136.5 447.881 120.937 423.544 105.422C399.259 89.9394 374.857 74.5 326 74.5H0.00292969C0.00119285 74.5 0 74.5 0 74V74.5H-0.5V0.5H1920.5V74.5H1920V74Z"
+                        fill="url(#paint0_linear_2101_110)" stroke="url(#paint1_linear_2101_110)" />
+                    <defs>
+                        <linearGradient id="paint0_linear_2101_110" x1="960" y1="136" x2="960" y2="1"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="white" />
+                            <stop offset="1" stop-color="#EEEEEE" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_2101_110" x1="910.847" y1="1" x2="910.847" y2="138.116"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#EEEEEE" />
+                            <stop offset="1" stop-color="white" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="secao-7">
+                <div class="content">
+                    <h2 class="blur-up">
+                        Somando, tudo isso custaria
+                        <span>R$1.438</span>
+                    </h2>
+                    <p class="blur-up">
+                        Mas hoje, você não vai pagar esse valor
+                    </p>
+                </div>
+            </div>
+            <div class="separation-section">
+                <svg width="1920" height="137" viewBox="0 0 1920 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M1920 63C1920 62.5 1920 62.5 1920 62.5H1600C1550.64 62.5 1525.99 47.0597 1501.45 31.5771C1476.87 16.0617 1452.39 0.5 1403.5 0.5H520.5C472.105 0.5 447.881 16.0627 423.544 31.5781C399.259 47.0606 374.857 62.5 326 62.5H0.00292969C0.00119285 62.5 0 62.5 0 63V62.5H-0.5V136.5H1920.5V62.5H1920V63Z"
+                        fill="url(#paint0_linear_2034_170)" stroke="url(#paint1_linear_2034_170)" />
+                    <defs>
+                        <linearGradient id="paint0_linear_2034_170" x1="960" y1="0.999992" x2="960" y2="136"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="white" />
+                            <stop offset="1" stop-color="#EEEEEE" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_2034_170" x1="910.847" y1="136" x2="910.847" y2="-1.1161"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#EEEEEE" />
+                            <stop offset="1" stop-color="white" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="secao-8" id="valor">
+                <div class="content">
+                    <h2 class="blur-up">
+                        Super oferta com <span>bônus exclusivos</span>
+                    </h2>
+
+                    <ul>
+
+                        <li class="blur-left">
+                            <img src="images/certo.webp" alt="">
+                            <p>
+                                Protocolo de Conversão para Consultórios
+                            </p>
+                        </li>
+                        <div class="separation blur-left"></div>
+                        <li class="blur-left">
+                            <img src="images/certo.webp" alt="">
+                            <p>
+                                Acesso vitalício com atualizações
+                            </p>
+                        </li>
+                        <div class="separation blur-left"></div>
+                        <li class="blur-left">
+                            <img src="images/certo.webp" alt="">
+                            <p>
+                                Roteiro Validado de Ligações para Agendamentos
+                            </p>
+                        </li>
+                        <div class="separation blur-left"></div>
+                        <li class="blur-left">
+                            <img src="images/certo.webp" alt="">
+                            <p>
+                                Método de Recuperação de Cancelamentos
+                            </p>
+                        </li>
+                        <div class="separation blur-left"></div>
+                        <li class="blur-left">
+                            <img src="images/certo.webp" alt="">
+                            <p>
+                                Sistema de Reativação de Pacientes Inativos
+                            </p>
+                        </li>
+                        <div class="separation blur-left"></div>
+                        <li class="blur-left">
+                            <img src="images/certo.webp" alt="">
+                            <p>
+                                Protocolo Vendendo Tratamento Complementares
+                            </p>
+                        </li>
+                    </ul>
+
+                    <p class="pitch blur-up">
+                        você vai investir hoje apenas...
+                    </p>
+                    <p class="preco blur-up">
+                        R$47,00
+                    </p>
+                    <a href="https://pay.kiwify.com.br/xxAzMbz" class="bottom blur-up">
+                        Quero vender todos os dias
+                        <span>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1H17M17 1V17M17 1L1 17" stroke="#2641EA" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </a>
+
+
+                    <img class="selo blur-up" src="images/selo.webp" alt="">
+                    <p class="garantia blur-up">
+                        <span>Risco ZERO. </span> Se você não gostar do Protocolo de Conversão Para Consultórios, basta
+                        pedir o seu dinheiro de volta.
+                    </p>
+                </div>
+            </div>
+            <div class="secao-9"> <!--SOBRE-->
+                <div class="content">
+                    <div class="content-sobre blur-left">
+                        <h2>
+                            Conheça seu mentor
+                            <span>Isaque Rodriges</span>
+                        </h2>
+                        <p>
+                            Empreendedor, Co-fundador da Plataforma
+                            X Performance e Novo Digital, Especialista em Marketing Digital, graduado em Marketing com
+                            várias especializações em Gestão de Projetos e Desenvolvimento Humano.<br>
+                            <br>
+                            Em 2017 criou um Método que já elevou o faturamento de centenas de empresas no Brasil e em 2
+                            continentes do mundo dentro do mercado varejista e criando metodologias para profissionais
+                            de
+                            diversos nichos.
+                        </p>
+                        <a href="#valor" class="bottom link">
+                            Quero vender todos os dias
+                            <span>
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1H17M17 1V17M17 1L1 17" stroke="#2641EA" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+
+                    <img class="blur-right" src="images/foto-sobre.webp" alt="">
+
+                </div>
+            </div>
+            <div class="rodape"> <!--RODAPÉ-->
+                <p>
+                    X Performance - Todos os direitos reservados
+                </p>
+            </div>
+        </div>
+    </div>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
+
+    <script defer src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+    <script defer src="script.js"></script>
+</body>
+
+</html>
+</body>
+
+
+</html>

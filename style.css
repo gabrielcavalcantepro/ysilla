@@ -1,0 +1,2714 @@
+/*------ CELULARES PEQUENOS ------*/
+
+/* BOTÕES */
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.bottom-vsl span {
+    padding: 11px 15px;
+    border-radius: 60px;
+    background-color: #eeeeee;
+    transition: all 0.5s ease;
+
+}
+
+.bottom-vsl span svg {
+    width: 15px;
+}
+
+.bottom-vsl {
+    display: flex;
+    font-family: 'Inter';
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+    background: radial-gradient(circle at 0% 0%, #2C45E2, transparent 50%),
+        radial-gradient(circle at 100% 100%, #6176fa, transparent 50%),
+        radial-gradient(circle at 50% 50%, #2C45E2, #6176fa);
+    background-size: 250% 250%;
+    animation: liquidGradient 4s ease-in-out infinite;
+    gap: 5px;
+}
+
+.bottom-vsl:hover span {
+    transform: rotate(45deg);
+}
+
+
+
+
+.bottom-treinamento span {
+    padding: 11px 15px;
+    border-radius: 60px;
+    background-color: #eeeeee;
+    transition: all 0.5s ease;
+
+}
+
+.bottom-treinamento span svg {
+    width: 15px;
+}
+
+.bottom-treinamento {
+    display: flex;
+    font-family: 'Inter';
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10px 10px 25px;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+    background: radial-gradient(circle at 0% 0%, #2C45E2, transparent 50%),
+        radial-gradient(circle at 100% 100%, #6176fa, transparent 50%),
+        radial-gradient(circle at 50% 50%, #2C45E2, #6176fa);
+    background-size: 250% 250%;
+    animation: liquidGradient 4s ease-in-out infinite;
+    gap: 5px;
+}
+
+.bottom-treinamento:hover span {
+    transform: rotate(45deg);
+}
+
+
+
+
+
+.bottom span {
+    padding: 11px 15px;
+    border-radius: 60px;
+    background-color: #eeeeee;
+    transition: all 0.5s ease;
+
+}
+
+.bottom span svg {
+    width: 15px;
+}
+
+.bottom {
+    display: flex;
+    font-family: 'Inter';
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10px 10px 30px;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+    background: radial-gradient(circle at 0% 0%, #2C45E2, transparent 50%),
+        radial-gradient(circle at 100% 100%, #6176fa, transparent 50%),
+        radial-gradient(circle at 50% 50%, #2C45E2, #6176fa);
+    background-size: 250% 250%;
+    animation: liquidGradient 4s ease-in-out infinite;
+    gap: 5px;
+}
+
+.bottom:hover span {
+    transform: rotate(45deg);
+}
+
+
+
+@keyframes liquidGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* SECÃO 2 */
+.secao-2 {
+    width: 100%;
+    height: fit-content;
+    background-color: #eeeeee;
+    margin-top: 0px;
+    padding: 40px 0px 0px;
+
+}
+
+.secao-2 .content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.secao-2 .content .content-secao2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 525px;
+    gap: 10px;
+}
+
+.secao-2 .content .content-secao2 p {
+    width: 90%;
+}
+
+.secao-2 .content .cel {
+    width: 100%;
+    position: relative;
+    padding: 20px;
+    border-radius: 16px;
+    height: 600px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.secao-2 .content .cel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 40px 40px 0px 0px;
+    padding: 3px;
+    /* espessura da borda */
+
+    background: linear-gradient(0deg, #a2a2a200, #A2A2A2);
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+
+}
+
+.secao-2 .content .cel .content-ms-client {
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+}
+
+.secao-2 .content .cel .content-ms-user {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+}
+
+
+.secao-2 .content .cel .mens-client {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    height: fit-content;
+    border-radius: 0px 20px 20px 20px;
+}
+
+.secao-2 .content .cel .mens-client p {
+    color: #7E7E7E;
+    margin-top: 5px;
+}
+
+.secao-2 .content .cel .mens-client span {
+    color: #2641EA;
+    font-family: 'Inter';
+    font-size: 13px;
+}
+
+.secao-2 .content .cel .mens-usuario {
+    background-color: #CFD6FF;
+    padding: 15px 20px;
+    height: fit-content;
+    border-radius: 20px 0px 20px 20px;
+}
+
+.secao-2 .content .cel .mens-usuario p {
+    color: #636CA4;
+    margin-top: 5px;
+}
+
+.secao-2 .content .cel .mens-usuario span {
+    color: #2641EA;
+    font-family: 'Inter';
+    font-size: 13px;
+}
+
+
+
+/* SECÃO 3 */
+.secao-3 {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 0px;
+    background-color: #2641EA;
+    margin: -5px 0px;
+
+}
+
+.secao-3 .content {
+    align-items: center;
+}
+
+.secao-3 .content .h2-uni1 {
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+}
+
+.secao-3 .content .h2-uni1 span {
+    color: #FFFFFF;
+}
+
+.secao-3 .content .p-uni1 {
+    text-align: center;
+    color: #CBD0F4;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.linha-pontilhada {
+    border-bottom: 2px solid #354FF2;
+    margin: 60px 0px;
+    width: 100%;
+
+}
+
+
+.secao-3 .content .h2-uni2 {
+    color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+}
+
+
+.secao-3 .content ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.secao-3 .content ul li {
+    width: 100%;
+    height: fit-content;
+    background: linear-gradient(130deg, #3b53ee00, #3B54EE);
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 25px;
+    gap: 10px;
+
+}
+
+.secao-3 .content ul li p {
+    width: 253px;
+    color: #CCD2FF;
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.secao-3 .content ul li span {
+    border: 1px solid #ffffff;
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+
+
+.secao-3 .content .p-uni2 {
+    text-align: center;
+    color: #CBD0F4;
+    width: 100%;
+    margin-top: 50px
+}
+
+.v-white {
+    background: radial-gradient(circle at 0% 0%, #CCD2FF, transparent 50%),
+        radial-gradient(circle at 100% 100%, #CCD2FF, transparent 50%),
+        radial-gradient(circle at 50% 50%, #F5F5F5, #CCD2FF);
+    color: #2641EA;
+    background-size: 250% 250%;
+    animation: liquidGradient 4s ease-in-out infinite;
+    margin-top: 25px;
+
+}
+
+.v-white span {
+    background-color: #2641EA;
+}
+
+.v-white span svg path {
+    stroke: white;
+}
+
+
+
+/* SECÃO 4 */
+.secao-4 {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 0px;
+    margin-top: 20px;
+}
+
+.secao-4 .content {
+    align-items: center;
+}
+
+.secao-4 .content ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.secao-4 .content ul li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px 20px;
+    width: 100%;
+
+
+}
+
+.secao-4 .content ul li img {
+    width: 20px;
+}
+
+.secao-4 .content ul li p {
+    color: #5C5C5C;
+    width: 80%;
+}
+
+
+
+
+/* SECÃO 5 */
+.secao-5 {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 0px;
+}
+
+.secao-5 .content {
+    align-items: center;
+
+}
+
+.secao-5 .content .comparation {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 35px;
+    align-items: center;
+    justify-content: center;
+}
+
+.secao-5 .content .comparation .errado {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(169, 169, 169, 0.1);
+    border: 1px solid #A9A9A9;
+    padding: 25px;
+    width: 100%;
+    height: fit-content;
+    border-radius: 20px;
+
+}
+
+.secao-5 .content .comparation .errado h3 {
+    font-family: 'Inter';
+    font-size: 18px;
+    line-height: 23px;
+    color: #171717;
+}
+
+.secao-5 .content .comparation .errado ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+
+}
+
+.secao-5 .content .comparation .errado ul li {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+
+}
+
+.secao-5 .content .comparation .errado ul li span {
+    height: 10px;
+    width: 10px;
+    margin-top: 5px;
+}
+
+.secao-5 .content .comparation .errado ul li span svg {
+    width: 12px;
+}
+
+.secao-5 .content .comparation .errado ul li p {
+    color: #5C5C5C;
+    font-size: 15px;
+}
+
+.secao-5 .content .comparation .errado ul .separation {
+    width: 100%;
+    border-bottom: 1px dotted #CDCDCD;
+    margin: 20px 0px;
+}
+
+
+
+.secao-5 .content .comparation .certo {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(38, 65, 234, 0.1);
+    border: 1px solid #2641EA;
+    padding: 25px;
+    width: 100%;
+    height: fit-content;
+    border-radius: 20px;
+
+}
+
+.secao-5 .content .comparation .certo h3 {
+    font-family: 'Inter';
+    font-size: 18px;
+    line-height: 23px;
+    color: #171717;
+}
+
+.secao-5 .content .comparation .certo ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+
+}
+
+.secao-5 .content .comparation .certo ul li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+}
+
+.secao-5 .content .comparation .certo ul li img {
+    margin-top: 5px;
+    width: 13px;
+}
+
+.secao-5 .content .comparation .certo ul li p {
+    color: #646987;
+    font-size: 15px;
+}
+
+.secao-5 .content .comparation .certo ul .separation {
+    width: 100%;
+    border-bottom: 1px dotted #A7B3FF;
+    margin: 20px 0px;
+}
+
+.secao-5 .content a {
+    margin-top: 40px;
+}
+
+
+
+/* SECÃO 6 */
+.secao-6 {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 0px;
+}
+
+.secao-6 .content {
+    align-items: center;
+
+}
+
+.secao-6 .content h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+.secao-6 .content .bonus {
+    width: 100%;
+    border: 1px solid #C5C5C5;
+    padding: 35px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.secao-6 .content .bonus.v2 {
+    flex-direction: column-reverse;
+}
+
+.secao-6 .content .bonus .content-bonus {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 30px;
+    gap: 15px;
+    width: 100%;
+}
+
+.secao-6 .content .bonus img {
+    width: 100%;
+}
+
+.secao-6 .content .bonus .content-bonus .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 7px 23px;
+    border: 1px solid #2641EA;
+    border-radius: 40px;
+
+}
+
+.secao-6 .content .bonus .content-bonus .tag p {
+    color: #2641EA;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.secao-6 .content .bonus .content-bonus .tag img {
+    width: 15px;
+    height: 15px;
+}
+
+.secao-6 .content .bonus .content-bonus p {
+    font-size: 15px;
+    line-height: 23px;
+}
+
+.secao-6 .content .bonus .content-bonus p span {
+    font-weight: 600;
+    color: #FF4848;
+    text-decoration: line-through;
+}
+
+
+/* SECÃO 7 */
+.secao-7 {
+    width: 100%;
+    height: fit-content;
+    padding: 60px 0px;
+
+}
+
+.secao-7 .content {
+    align-items: center;
+
+}
+
+.secao-7 .content h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.secao-7 .content h2 span {
+    text-decoration: line-through;
+    color: #FF4848;
+}
+
+
+
+/* SECÃO 8 */
+.secao-8 {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 0px;
+}
+
+.secao-8 .content {
+    align-items: center;
+    justify-content: center;
+
+}
+
+.secao-8 .content h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.secao-8 .content h2 span {
+    color: #1E1E1E;
+}
+
+.secao-8 .content ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+}
+
+.secao-8 .content ul li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+}
+
+.secao-8 .content ul li img {
+    margin-top: 5px;
+    width: 14px;
+}
+
+.secao-8 .content ul li p {
+    color: #6d6d6d;
+    font-size: 15px;
+}
+
+.secao-8 .content ul .separation {
+    width: 100%;
+    border-bottom: 1px dotted #C3C3C3;
+    margin: 20px 0px;
+}
+
+.secao-8 .content .pitch {
+    margin-top: 35px;
+    font-size: 14px;
+}
+
+.secao-8 .content .preco {
+    font-size: 50px;
+    line-height: 50px;
+    color: #2641EA;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+
+.secao-8 .content a {
+    margin-top: 30px;
+}
+
+
+.secao-8 .content .selo {
+    margin-top: 70px;
+    width: 45%;
+}
+
+.secao-8 .content .garantia {
+    margin: 15px;
+    width: 100%;
+    text-align: center;
+
+}
+
+.secao-8 .content .garantia span {
+    font-weight: 500;
+}
+
+
+
+/* SECÃO 9 */
+.secao-9 {
+    width: 100%;
+    height: fit-content;
+    padding: 0px 0px 40px;
+}
+
+.secao-9 .content {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.secao-9 .content .content-sobre {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.secao-9 .content .content-sobre a {
+    margin-top: 10px;
+}
+
+.secao-9 .content img {
+    width: 100%;
+}
+
+/* RODAPÉ */
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    font-size: 12px;
+    color: #888888;
+    border-top: 1px solid #CFCFCF;
+}
+
+.rodape p {
+    font-size: 10px;
+    color: #737373;
+}
+
+/*------ CELULAR MAIOR ------*/
+@media (min-width: 400px) {
+
+    .secao-2 .content .cel .mens-usuario {
+        background-color: #CFD6FF;
+        padding: 15px 20px;
+        height: fit-content;
+        border-radius: 20px 0px 20px 20px;
+        width: 90%;
+    }
+
+    .bottom {
+        width: 340px;
+        padding: 10px 10px 10px 30px;
+    }
+
+
+    .bottom-vsl {
+        width: 340px;
+        padding: 10px 10px 10px 20px;
+    }
+
+    .bottom-treinamento {
+        width: 340px;
+        padding: 10px 10px 10px 30px;
+    }
+
+    .secao-3 .content ul li p {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .secao-3 .content .p-uni1 {
+        width: 90%;
+    }
+}
+
+/*------ TABLET ------*/
+@media (min-width: 768px) {
+
+    .secao-2 .content .cel .content-ms-client {
+        display: flex;
+        justify-content: flex-start;
+        width: 90%;
+    }
+
+
+
+    .secao-2 .content .cel .mens-usuario {
+        background-color: #CFD6FF;
+        padding: 15px 20px;
+        height: fit-content;
+        border-radius: 20px 0px 20px 20px;
+        width: 50%;
+    }
+
+
+
+    .secao-3 .content ul li {
+        width: 45%;
+        height: 125px;
+        background: linear-gradient(130deg, #3b53ee00, #3B54EE);
+        border-radius: 10px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        padding: 25px;
+        gap: 10px;
+
+    }
+
+    .secao-3 .content ul li p {
+        width: 100%;
+        color: #CCD2FF;
+        font-family: 'Inter';
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .secao-4 .content ul {
+        justify-content: center;
+    }
+
+    .secao-4 .content ul li {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+        border-radius: 20px;
+        background-color: white;
+        padding: 20px 20px;
+        width: 70%;
+
+
+    }
+
+
+    .secao-5 .content .comparation {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 35px;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+    }
+
+
+    .secao-6 .content .bonus img {
+        width: 70%;
+    }
+
+
+    .secao-7 {
+        width: 100%;
+        height: fit-content;
+        padding: 80px 0px;
+
+    }
+
+    .secao-8 .content .selo {
+        margin-top: 70px;
+        width: 150px;
+    }
+
+    .secao-8 .content .garantia {
+        margin: 15px;
+        width: 70%;
+        text-align: center;
+    }
+
+    .secao-9 {
+        padding: 80px 0px;
+    }
+
+    .secao-9 .content {
+        align-items: flex-start;
+    }
+
+    .secao-9 .content img {
+        width: 70%;
+    }
+
+}
+
+/*------ NOTEBOOK ------*/
+@media (min-width: 1024px) {
+
+    .bottom-treinamento span {
+        padding: 22px 22px 18px 22px;
+        border-radius: 60px;
+        background-color: #eeeeee;
+        transition: all 0.5s ease;
+
+    }
+
+    .bottom-treinamento {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 420px;
+        height: 94px;
+        padding: 25px 23px 25px 45px;
+        font-family: Inter;
+        font-weight: 600;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        border-radius: 50px;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+        transition: all 0.4s ease;
+        background: radial-gradient(circle at 0% 0%, #2C45E2, transparent 50%),
+            radial-gradient(circle at 100% 100%, #6176fa, transparent 50%),
+            radial-gradient(circle at 50% 50%, #2C45E2, #6176fa);
+        background-size: 250% 250%;
+        animation: liquidGradient 4s ease-in-out infinite;
+    }
+
+    .bottom-treinamento:hover span {
+        transform: rotate(45deg);
+    }
+
+
+
+    .secao-2 .content .cel .mens-usuario {
+        background-color: #CFD6FF;
+        padding: 15px 20px;
+        height: fit-content;
+        border-radius: 20px 0px 20px 20px;
+        width: 50%;
+    }
+
+
+
+    .secao-3 .content ul li {
+        width: 40%;
+        height: fit-content;
+        background: linear-gradient(130deg, #3b53ee00, #3B54EE);
+        border-radius: 10px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        padding: 25px;
+        gap: 10px;
+
+    }
+
+    .secao-3 {
+        margin-top: -25px;
+        margin-bottom: -25px;
+    }
+
+    .secao-4 .content ul {
+        justify-content: center;
+    }
+
+    .secao-4 .content ul li {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        border-radius: 20px;
+        background-color: white;
+        padding: 20px 20px;
+        width: 70%;
+
+    }
+
+
+    /* SECÃO 5 */
+    .secao-5 {
+        width: 100%;
+        height: fit-content;
+        padding: 60px 0px;
+    }
+
+    .secao-5 .content {
+        align-items: center;
+    }
+
+    .secao-5 .content .comparation {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 35px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .secao-5 .content .comparation .errado {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(169, 169, 169, 0.1);
+        border: 1px solid #A9A9A9;
+        padding: 25px;
+        width: 70%;
+        height: fit-content;
+        border-radius: 20px;
+
+    }
+
+    .secao-5 .content .comparation .errado h3 {
+        font-family: 'Inter';
+        font-size: 20px;
+        line-height: 25px;
+        color: #171717;
+    }
+
+    .secao-5 .content .comparation .errado ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+
+    }
+
+    .secao-5 .content .comparation .errado ul li {
+        list-style: none;
+        display: flex;
+        gap: 16px;
+
+    }
+
+    .secao-5 .content .comparation .errado ul li span {
+        height: 13px;
+        width: 13px;
+        margin-top: 5px;
+    }
+
+    .secao-5 .content .comparation .errado ul li p {
+        color: #5C5C5C;
+        font-size: 18px;
+    }
+
+    .secao-5 .content .comparation .errado ul .separation {
+        width: 100%;
+        border-bottom: 1px dotted #CDCDCD;
+        margin: 20px 0px;
+    }
+
+
+
+    .secao-5 .content .comparation .certo {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(38, 65, 234, 0.1);
+        border: 1px solid #2641EA;
+        padding: 25px;
+        width: 70%;
+        height: fit-content;
+        border-radius: 20px;
+
+    }
+
+    .secao-5 .content .comparation .certo h3 {
+        font-family: 'Inter';
+        font-size: 20px;
+        line-height: 25px;
+        color: #171717;
+    }
+
+    .secao-5 .content .comparation .certo ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+
+    }
+
+    .secao-5 .content .comparation .certo ul li {
+        list-style: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+
+    }
+
+    .secao-5 .content .comparation .certo ul li img {
+        margin-top: 5px;
+    }
+
+    .secao-5 .content .comparation .certo ul li p {
+        color: #646987;
+        font-size: 18px;
+    }
+
+    .secao-5 .content .comparation .certo ul .separation {
+        width: 100%;
+        border-bottom: 1px dotted #A7B3FF;
+        margin: 20px 0px;
+    }
+
+    .secao-5 .content a {
+        margin-top: 40px;
+    }
+
+
+
+    .secao-6 {
+        padding: 40px 0px 0px;
+    }
+
+
+    .secao-6 .content .bonus img {
+        width: 50%;
+    }
+
+    .secao-6 .content .bonus .content-bonus {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 0px;
+        gap: 15px;
+        width: 45%;
+    }
+
+    .secao-6 .content .bonus {
+        width: 100%;
+        border: 1px solid #C5C5C5;
+        padding: 35px;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .secao-6 .content .bonus.v2 {
+        flex-direction: row-reverse;
+    }
+
+    .secao-7 .content h2 {
+        width: 60%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .secao-8 .content h2 {
+        width: 50%;
+        text-align: center;
+    }
+
+    .secao-8 {
+        width: 100%;
+        height: fit-content;
+        padding: 0px;
+    }
+
+    .secao-8 .content .selo {
+        margin-top: 70px;
+        width: 25%;
+    }
+
+    .secao-8 .content .garantia {
+        margin: 15px;
+        width: 70%;
+        text-align: center;
+
+    }
+
+
+    /* SECÃO 9 */
+    .secao-9 {
+        width: 100%;
+        height: fit-content;
+        padding: 80px 0px;
+    }
+
+    .secao-9 .content {
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .secao-9 .content .content-sobre {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .secao-9 .content .content-sobre a {
+        margin-top: 20px;
+    }
+
+    .secao-9 .content img {
+        width: 60%;
+    }
+
+}
+
+/*------ DESKTOP ------*/
+@media (min-width: 1280px) {
+
+    /* BOTÕES */
+
+    @property --angle {
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    .bottom-valor {
+        padding: 25px 40px !important;
+    }
+
+    .bottom span {
+        padding: 22px 22px 18px 22px;
+        border-radius: 60px;
+        background-color: #eeeeee;
+        transition: all 0.5s ease;
+
+    }
+
+    .bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 420px;
+        height: 94px;
+        padding: 25px 23px 25px 45px;
+        font-family: Inter;
+        font-weight: 600;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        border-radius: 50px;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+        transition: all 0.4s ease;
+        background: radial-gradient(circle at 0% 0%, #2C45E2, transparent 50%),
+            radial-gradient(circle at 100% 100%, #6176fa, transparent 50%),
+            radial-gradient(circle at 50% 50%, #2C45E2, #6176fa);
+        background-size: 250% 250%;
+        animation: liquidGradient 4s ease-in-out infinite;
+    }
+
+    .bottom:hover span {
+        transform: rotate(45deg);
+    }
+
+    @keyframes liquidGradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+
+
+    .bottom-treinamento span {
+        padding: 22px 22px 18px 22px;
+        border-radius: 60px;
+        background-color: #eeeeee;
+        transition: all 0.5s ease;
+
+    }
+
+    .bottom-treinamento {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 420px;
+        height: 94px;
+        padding: 25px 23px 25px 45px;
+        font-family: Inter;
+        font-weight: 600;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        border-radius: 50px;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+        transition: all 0.4s ease;
+        background: radial-gradient(circle at 0% 0%, #2C45E2, transparent 50%),
+            radial-gradient(circle at 100% 100%, #6176fa, transparent 50%),
+            radial-gradient(circle at 50% 50%, #2C45E2, #6176fa);
+        background-size: 250% 250%;
+        animation: liquidGradient 4s ease-in-out infinite;
+    }
+
+    .bottom-treinamento:hover span {
+        transform: rotate(45deg);
+    }
+
+
+
+
+
+    /* SECÃO 2 */
+    .secao-2 {
+        width: 100%;
+        height: fit-content;
+        padding: 0;
+
+    }
+
+    .secao-2 .content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .secao-2 .content .content-secao2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 43%;
+        gap: 10px;
+    }
+
+    .secao-2 .content .content-secao2 p {
+        width: 90%;
+    }
+
+    .secao-2 .content .cel {
+        width: 55%;
+        position: relative;
+        padding: 20px;
+        border-radius: 16px;
+        height: 700px;
+        margin-top: 74px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .secao-2 .content .cel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 40px 40px 0px 0px;
+        padding: 3px;
+        /* espessura da borda */
+
+        background: linear-gradient(0deg, #a2a2a200, #A2A2A2);
+
+        -webkit-mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+
+        pointer-events: none;
+
+    }
+
+    .secao-2 .content .cel .content-ms-client {
+        display: flex;
+        justify-content: flex-start;
+        width: 90%;
+    }
+
+    .secao-2 .content .cel .content-ms-user {
+        display: flex;
+        justify-content: flex-end;
+        width: 90%;
+    }
+
+
+    .secao-2 .content .cel .mens-client {
+        background-color: #ffffff;
+        padding: 15px 20px;
+        height: fit-content;
+        border-radius: 0px 20px 20px 20px;
+    }
+
+    .secao-2 .content .cel .mens-client p {
+        color: #7E7E7E;
+    }
+
+    .secao-2 .content .cel .mens-client span {
+        color: #2641EA;
+        font-family: 'Inter';
+        font-size: 15px;
+    }
+
+
+
+    .secao-2 .content .cel .mens-usuario {
+        background-color: #CFD6FF;
+        padding: 15px 20px;
+        height: fit-content;
+        border-radius: 20px 0px 20px 20px;
+        width: 70%;
+    }
+
+    .secao-2 .content .cel .mens-usuario p {
+        color: #636CA4;
+    }
+
+    .secao-2 .content .cel .mens-usuario span {
+        color: #2641EA;
+        font-family: 'Inter';
+        font-size: 15px;
+    }
+
+
+
+
+
+
+
+
+    /* SECÃO 3 */
+    .secao-3 {
+        width: 100%;
+        height: fit-content;
+        padding: 102px 0px;
+        background-color: #2641EA;
+        margin-top: -17px;
+
+    }
+
+    .secao-3 .content {
+        align-items: center;
+    }
+
+    .secao-3 .content .h2-uni1 {
+        color: #FFFFFF;
+        text-align: center;
+        width: 70%;
+    }
+
+    .secao-3 .content .h2-uni1 span {
+        color: #FFFFFF;
+    }
+
+    .secao-3 .content .p-uni1 {
+        text-align: center;
+        color: #CBD0F4;
+        width: 60%;
+    }
+
+    .linha-pontilhada {
+        border-bottom: 2px solid #354FF2;
+        margin: 90px 0px;
+        width: 60%;
+
+    }
+
+
+    .secao-3 .content .h2-uni2 {
+        color: #FFFFFF;
+        text-align: center;
+        width: 70%;
+    }
+
+
+    .secao-3 .content ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 50px;
+        gap: 20px;
+    }
+
+    .secao-3 .content ul li {
+        width: 343px;
+        height: 122px;
+        background: linear-gradient(130deg, #3b53ee00, #3B54EE);
+        border-radius: 10px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        padding: 25px;
+        gap: 10px;
+
+    }
+
+    .secao-3 .content ul li p {
+        width: 253px;
+        color: #CCD2FF;
+        font-family: 'Inter';
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .secao-3 .content ul li span {
+        border: 1px solid #ffffff;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+
+
+    .secao-3 .content .p-uni2 {
+        text-align: center;
+        color: #CBD0F4;
+        width: 55%;
+        margin-top: 50px
+    }
+
+    .v-white {
+        background: radial-gradient(circle at 0% 0%, #CCD2FF, transparent 50%),
+            radial-gradient(circle at 100% 100%, #CCD2FF, transparent 50%),
+            radial-gradient(circle at 50% 50%, #F5F5F5, #CCD2FF);
+        color: #2641EA;
+        background-size: 250% 250%;
+        animation: liquidGradient 4s ease-in-out infinite;
+        margin-top: 25px;
+
+    }
+
+    .v-white span {
+        background-color: #2641EA;
+    }
+
+    .v-white span svg path {
+        stroke: white;
+    }
+
+
+
+    /* SECÃO 4 */
+    .secao-4 {
+        width: 100%;
+        height: fit-content;
+        padding: 90px 0px;
+        margin-top: 30px;
+    }
+
+    .secao-4 .content {
+        align-items: center;
+    }
+
+    .secao-4 .content ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-top: 50px;
+    }
+
+    .secao-4 .content ul li {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: nowrap;
+        border-radius: 20px;
+        background-color: white;
+        padding: 20px 27px;
+        width: 40%;
+
+    }
+
+    .secao-4 .content ul li p {
+        color: #5C5C5C;
+        width: 90%;
+    }
+
+    .secao-4 .content .bottom {
+        margin-top: 40px;
+    }
+
+
+
+    /* SECÃO 5 */
+    .secao-5 {
+        width: 100%;
+        height: fit-content;
+        padding: 60px 0px;
+    }
+
+    .secao-5 .content {
+        align-items: center;
+    }
+
+    .secao-5 .content .comparation {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 35px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .secao-5 .content .comparation .errado {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(169, 169, 169, 0.1);
+        border: 1px solid #A9A9A9;
+        padding: 25px;
+        width: 60%;
+        max-width: 410px;
+        min-height: fit-content;
+        border-radius: 20px;
+
+    }
+
+    .secao-5 .content .comparation .errado h3 {
+        font-family: 'Inter';
+        font-size: 20px;
+        line-height: 25px;
+        color: #171717;
+    }
+
+    .secao-5 .content .comparation .errado ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+
+    }
+
+    .secao-5 .content .comparation .errado ul li {
+        list-style: none;
+        display: flex;
+        gap: 16px;
+
+    }
+
+    .secao-5 .content .comparation .errado ul li span {
+        height: 13px;
+        width: 13px;
+        margin-top: 5px;
+    }
+
+    .secao-5 .content .comparation .errado ul li p {
+        color: #5C5C5C;
+        font-size: 18px;
+    }
+
+    .secao-5 .content .comparation .errado ul .separation {
+        width: 100%;
+        border-bottom: 1px dotted #CDCDCD;
+        margin: 20px 0px;
+    }
+
+
+
+    .secao-5 .content .comparation .certo {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(38, 65, 234, 0.1);
+        border: 1px solid #2641EA;
+        padding: 25px;
+        width: 60%;
+        max-width: 410px;
+        min-height: fit-content;
+        border-radius: 20px;
+
+    }
+
+    .secao-5 .content .comparation .certo h3 {
+        font-family: 'Inter';
+        font-size: 20px;
+        line-height: 25px;
+        color: #171717;
+    }
+
+    .secao-5 .content .comparation .certo ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+
+    }
+
+    .secao-5 .content .comparation .certo ul li {
+        list-style: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+
+    }
+
+    .secao-5 .content .comparation .certo ul li img {
+        margin-top: 5px;
+    }
+
+    .secao-5 .content .comparation .certo ul li p {
+        color: #646987;
+        font-size: 18px;
+    }
+
+    .secao-5 .content .comparation .certo ul .separation {
+        width: 100%;
+        border-bottom: 1px dotted #A7B3FF;
+        margin: 20px 0px;
+    }
+
+    .secao-5 .content a {
+        margin-top: 40px;
+    }
+
+
+
+    /* SECÃO 6 */
+    .secao-6 {
+        width: 100%;
+        height: fit-content;
+        padding: 40px 0px 0px;
+    }
+
+    .secao-6 .content {
+        align-items: center;
+
+    }
+
+    .secao-6 .content h2 {
+        margin-bottom: 10px;
+    }
+
+
+    .secao-6 .content .bonus {
+        width: 90%;
+        border: 1px solid #C5C5C5;
+        padding: 37px;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .secao-6 .content .bonus.v2 {
+        flex-direction: row-reverse;
+    }
+
+    .secao-6 .content .bonus .content-bonus {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        width: 45%;
+    }
+
+    .secao-6 .content .bonus .content-bonus .tag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 7px 23px;
+        border: 1px solid #2641EA;
+        border-radius: 40px;
+
+    }
+
+    .secao-6 .content .bonus .content-bonus .tag p {
+        color: #2641EA;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .secao-6 .content .bonus .content-bonus .tag img {
+        width: 15px;
+        height: 15px;
+    }
+
+    .secao-6 .content .bonus .content-bonus p {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .secao-6 .content .bonus .content-bonus p span {
+        font-weight: 600;
+        color: #FF4848;
+        text-decoration: line-through;
+    }
+
+
+
+
+    /* SECÃO 7 */
+    .secao-7 {
+        width: 100%;
+        height: fit-content;
+        padding: 40px 0px;
+
+    }
+
+    .secao-7 .content {
+        align-items: center;
+
+    }
+
+    .secao-7 .content h2 {
+        width: 45%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .secao-7 .content h2 span {
+        text-decoration: line-through;
+        color: #FF4848;
+    }
+
+
+
+    /* SECÃO 8 */
+    .secao-8 {
+        width: 100%;
+        height: fit-content;
+        padding: 0px 0px 40px;
+    }
+
+    .secao-8 .content {
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .secao-8 .content h2 {
+        width: 40%;
+        text-align: center;
+    }
+
+    .secao-8 .content h2 span {
+        color: #1E1E1E;
+    }
+
+    .secao-8 .content ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+
+    }
+
+    .secao-8 .content ul li {
+        list-style: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+
+    }
+
+    .secao-8 .content ul li img {
+        margin-top: 5px;
+    }
+
+    .secao-8 .content ul li p {
+        color: #6d6d6d;
+        font-size: 20px;
+    }
+
+    .secao-8 .content ul .separation {
+        width: 100%;
+        border-bottom: 1px dotted #C3C3C3;
+        margin: 20px 0px;
+    }
+
+    .secao-8 .content .pitch {
+        margin-top: 35px;
+    }
+
+    .secao-8 .content .preco {
+        font-size: 50px;
+        line-height: 51px;
+        color: #2641EA;
+        font-weight: 700;
+        margin-top: 5px;
+    }
+
+
+    .secao-8 .content a {
+        margin-top: 30px;
+    }
+
+
+    .secao-8 .content .selo {
+        margin-top: 90px;
+        width: 21%;
+    }
+
+    .secao-8 .content .garantia {
+        margin: 15px;
+        width: 50%;
+        text-align: center;
+
+    }
+
+    .secao-8 .content .garantia span {
+        font-weight: 500;
+    }
+
+
+    /* SECÃO 9 */
+    .secao-9 {
+        width: 100%;
+        height: fit-content;
+        padding: 40px 0px
+    }
+
+    .secao-9 .content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .secao-9 .content img {
+        width: 45%;
+    }
+
+    .secao-9 .content .content-sobre {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 50%;
+    }
+
+    .secao-9 .content .content-sobre h2 {
+        width: 300px;
+    }
+
+    .secao-9 .content .content-sobre a {
+        margin-top: 10px;
+    }
+
+    /* RODAPÉ */
+    .rodape {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        font-size: 12px;
+        color: #888888;
+        border-top: 1px solid #CFCFCF;
+    }
+
+    .rodape p {
+        font-size: 12px;
+        color: #737373;
+    }
+}
+
+/*------ DESKTOP G ------*/
+@media (min-width: 1440px) {
+
+    /*BOTTOM VSL*/
+    .bottom-vsl span {
+        padding: 11px 15px;
+        border-radius: 60px;
+        background-color: #eeeeee;
+        transition: all 0.5s ease;
+
+    }
+
+    .bottom-vsl span svg {
+        width: 15px;
+    }
+
+    .bottom-vsl {
+        display: flex;
+        font-family: 'Inter';
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        padding: 10px 10px 10px 25px;
+        font-weight: 600;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        border-radius: 50px;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+        transition: all 0.4s ease;
+        background: radial-gradient(circle at 0% 0%, #2C45E2, transparent 50%),
+            radial-gradient(circle at 100% 100%, #6176fa, transparent 50%),
+            radial-gradient(circle at 50% 50%, #2C45E2, #6176fa);
+        background-size: 250% 250%;
+        animation: liquidGradient 4s ease-in-out infinite;
+        gap: 5px;
+    }
+
+    .bottom-vsl:hover span {
+        transform: rotate(45deg);
+    }
+
+
+
+    .secao-4 .content ul li {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        border-radius: 20px;
+        background-color: white;
+        padding: 20px 20px;
+        width: 30%;
+
+    }
+
+    .secao-4 .content ul li p {
+        color: #5C5C5C;
+        width: 90%;
+    }
+
+
+    /* SECÃO 5 */
+    .secao-5 {
+        width: 100%;
+        height: fit-content;
+        padding: 60px 0px;
+    }
+
+    .secao-5 .content {
+        align-items: center;
+    }
+
+    .secao-5 .content .comparation {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 700px;
+        gap: 35px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .secao-5 .content .comparation .errado {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(169, 169, 169, 0.1);
+        border: 1px solid #A9A9A9;
+        padding: 25px;
+        width: 45%;
+        height: 100%;
+        border-radius: 20px;
+
+    }
+
+    .secao-5 .content .comparation .errado h3 {
+        font-family: 'Inter';
+        font-size: 25px;
+        line-height: 30px;
+        color: #171717;
+    }
+
+    .secao-5 .content .comparation .errado ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+
+    }
+
+    .secao-5 .content .comparation .errado ul li {
+        list-style: none;
+        display: flex;
+        gap: 16px;
+
+    }
+
+    .secao-5 .content .comparation .errado ul li span {
+        height: 13px;
+        width: 13px;
+        margin-top: 5px;
+    }
+
+    .secao-5 .content .comparation .errado ul li p {
+        color: #5C5C5C;
+        font-size: 20px;
+    }
+
+    .secao-5 .content .comparation .errado ul .separation {
+        width: 100%;
+        border-bottom: 1px dotted #CDCDCD;
+        margin: 20px 0px;
+    }
+
+
+
+    .secao-5 .content .comparation .certo {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(38, 65, 234, 0.1);
+        border: 1px solid #2641EA;
+        padding: 25px;
+        width: 45%;
+        height: 100%;
+        border-radius: 20px;
+
+    }
+
+    .secao-5 .content .comparation .certo h3 {
+        font-family: 'Inter';
+        font-size: 25px;
+        line-height: 30px;
+        color: #171717;
+    }
+
+    .secao-5 .content .comparation .certo ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+
+    }
+
+    .secao-5 .content .comparation .certo ul li {
+        list-style: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+
+    }
+
+    .secao-5 .content .comparation .certo ul li img {
+        margin-top: 5px;
+    }
+
+    .secao-5 .content .comparation .certo ul li p {
+        color: #646987;
+        font-size: 20px;
+    }
+
+    .secao-5 .content .comparation .certo ul .separation {
+        width: 100%;
+        border-bottom: 1px dotted #A7B3FF;
+        margin: 20px 0px;
+    }
+
+    .secao-5 .content a {
+        margin-top: 40px;
+    }
+
+    .secao-6 .content .bonus img {
+        width: 50%;
+        max-width: 400px;
+    }
+}
+
+/*------ DESKTOP FULL HD ------*/
+@media (min-width: 1920px) {
+
+    /* SECÃO 2 */
+    .secao-2 {
+        width: 100%;
+        height: fit-content;
+        padding: 0;
+
+    }
+
+    .secao-2 .content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .secao-2 .content .content-secao2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 40%;
+        max-width: 600px;
+        gap: 10px;
+    }
+
+    .secao-2 .content .content-secao2 p {
+        width: 90%;
+    }
+
+    .secao-2 .content .cel {
+        width: 55%;
+        max-width: 800px;
+        position: relative;
+        padding: 20px;
+        border-radius: 16px;
+        height: 700px;
+        margin-top: 74px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .secao-2 .content .cel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 40px 40px 0px 0px;
+        padding: 3px;
+        /* espessura da borda */
+
+        background: linear-gradient(0deg, #a2a2a200, #A2A2A2);
+
+        -webkit-mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+
+        pointer-events: none;
+
+    }
+
+    .secao-2 .content .cel .content-ms-client {
+        display: flex;
+        justify-content: flex-start;
+        width: 90%;
+    }
+
+    .secao-2 .content .cel .content-ms-user {
+        display: flex;
+        justify-content: flex-end;
+        width: 90%;
+    }
+
+
+    .secao-2 .content .cel .mens-client {
+        background-color: #ffffff;
+        padding: 15px 20px;
+        height: fit-content;
+        border-radius: 0px 20px 20px 20px;
+    }
+
+    .secao-2 .content .cel .mens-client p {
+        color: #7E7E7E;
+    }
+
+    .secao-2 .content .cel .mens-client span {
+        color: #2641EA;
+        font-family: 'Inter';
+        font-size: 15px;
+    }
+
+
+
+    .secao-2 .content .cel .mens-usuario {
+        background-color: #CFD6FF;
+        padding: 15px 20px;
+        height: fit-content;
+        border-radius: 20px 0px 20px 20px;
+        width: 70%;
+    }
+
+    .secao-2 .content .cel .mens-usuario p {
+        color: #636CA4;
+    }
+
+    .secao-2 .content .cel .mens-usuario span {
+        color: #2641EA;
+        font-family: 'Inter';
+        font-size: 15px;
+    }
+
+
+    /* SECÃO 3 */
+    .secao-3 {
+        width: 100%;
+        height: fit-content;
+        padding: 102px 0px;
+        background-color: #2641EA;
+        margin-top: -17px;
+
+    }
+
+    .secao-3 .content {
+        align-items: center;
+    }
+
+    .secao-3 .content .h2-uni1 {
+        color: #FFFFFF;
+        text-align: center;
+        width: 70%;
+    }
+
+    .secao-3 .content .h2-uni1 span {
+        color: #FFFFFF;
+    }
+
+    .secao-3 .content .p-uni1 {
+        text-align: center;
+        color: #CBD0F4;
+        width: 60%;
+    }
+
+    .linha-pontilhada {
+        border-bottom: 2px solid #354FF2;
+        margin: 90px 0px;
+        width: 60%;
+
+    }
+
+
+    .secao-3 .content .h2-uni2 {
+        color: #FFFFFF;
+        text-align: center;
+        width: 70%;
+    }
+
+    .secao-3 .content .itens {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .secao-3 .content ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 50px;
+        width: 90%;
+        max-width: 1200px;
+        gap: 20px;
+    }
+
+    .secao-3 .content ul li {
+        width: 343px;
+        height: 122px;
+        background: linear-gradient(130deg, #3b53ee00, #3B54EE);
+        border-radius: 10px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        padding: 25px;
+        gap: 10px;
+
+    }
+
+    .secao-3 .content ul li p {
+        width: 253px;
+        color: #CCD2FF;
+        font-family: 'Inter';
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .secao-3 .content ul li span {
+        border: 1px solid #ffffff;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+
+
+    .secao-3 .content .p-uni2 {
+        text-align: center;
+        color: #CBD0F4;
+        width: 55%;
+        margin-top: 50px
+    }
+
+    .v-white {
+        background: radial-gradient(circle at 0% 0%, #CCD2FF, transparent 50%),
+            radial-gradient(circle at 100% 100%, #CCD2FF, transparent 50%),
+            radial-gradient(circle at 50% 50%, #F5F5F5, #CCD2FF);
+        color: #2641EA;
+        background-size: 250% 250%;
+        animation: liquidGradient 4s ease-in-out infinite;
+        margin-top: 25px;
+
+    }
+
+    .v-white span {
+        background-color: #2641EA;
+    }
+
+    .v-white span svg path {
+        stroke: white;
+    }
+
+
+    /* SECÃO 5 */
+    .secao-5 {
+        width: 100%;
+        height: fit-content;
+        padding: 60px 0px;
+    }
+
+    .secao-5 .content {
+        align-items: center;
+    }
+
+    .secao-5 .content .comparation {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 35px;
+        height: 600px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .secao-5 .content .comparation .errado {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(169, 169, 169, 0.1);
+        border: 1px solid #A9A9A9;
+        padding: 25px;
+        width: 45%;
+        max-width: 600px;
+        height: 100%;
+        border-radius: 20px;
+
+    }
+
+    .secao-5 .content .comparation .errado h3 {
+        font-family: 'Inter';
+        font-size: 25px;
+        line-height: 30px;
+        color: #171717;
+    }
+
+    .secao-5 .content .comparation .errado ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+
+    }
+
+    .secao-5 .content .comparation .errado ul li {
+        list-style: none;
+        display: flex;
+        gap: 16px;
+
+    }
+
+    .secao-5 .content .comparation .errado ul li span {
+        height: 13px;
+        width: 13px;
+        margin-top: 5px;
+    }
+
+    .secao-5 .content .comparation .errado ul li p {
+        color: #5C5C5C;
+        font-size: 20px;
+    }
+
+    .secao-5 .content .comparation .errado ul .separation {
+        width: 100%;
+        border-bottom: 1px dotted #CDCDCD;
+        margin: 20px 0px;
+    }
+
+
+
+    .secao-5 .content .comparation .certo {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(38, 65, 234, 0.1);
+        border: 1px solid #2641EA;
+        padding: 25px;
+        width: 45%;
+        max-width: 600px;
+        height: 100%;
+        border-radius: 20px;
+
+    }
+
+    .secao-5 .content .comparation .certo h3 {
+        font-family: 'Inter';
+        font-size: 25px;
+        line-height: 30px;
+        color: #171717;
+    }
+
+    .secao-5 .content .comparation .certo ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+
+    }
+
+    .secao-5 .content .comparation .certo ul li {
+        list-style: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+
+    }
+
+    .secao-5 .content .comparation .certo ul li img {
+        margin-top: 5px;
+    }
+
+    .secao-5 .content .comparation .certo ul li p {
+        color: #646987;
+        font-size: 20px;
+    }
+
+    .secao-5 .content .comparation .certo ul .separation {
+        width: 100%;
+        border-bottom: 1px dotted #A7B3FF;
+        margin: 20px 0px;
+    }
+
+    .secao-5 .content a {
+        margin-top: 40px;
+    }
+
+    .secao-6 .content .bonus img {
+        width: 60%;
+        max-width: 450px;
+    }
+
+    .secao-6 .content .bonus {
+        width: 75%;
+        max-width: 1000px;
+        border: 1px solid #C5C5C5;
+        padding: 37px;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .secao-7 {
+        padding: 80px 0px;
+    }
+
+    .secao-7 .content h2 {
+        width: 40%;
+        max-width: 400px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .secao-8 .content h2 {
+        width: 40%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .secao-8 .content .selo {
+        margin-top: 90px;
+        width: 15%;
+        max-width: 200px;
+    }
+
+    .secao-8 .content .garantia {
+        margin: 15px;
+        width: 40%;
+        max-width: 400px;
+        text-align: center;
+
+    }
+
+    .secao-8 .content .garantia span {
+        font-weight: 500;
+    }
+
+
+    /* SECÃO 9 */
+    .secao-9 {
+        width: 100%;
+        height: fit-content;
+        padding: 40px 0px
+    }
+
+    .secao-9 .content {
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        align-items: center;
+    }
+
+    .secao-9 .content img {
+        width: 40%;
+        max-width: 600px;
+    }
+
+    .secao-9 .content .content-sobre {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 40%;
+        max-width: 530px;
+    }
+
+    .secao-9 .content .content-sobre a {
+        margin-top: 10px;
+    }
+
+    .secao-9 .content .content-sobre h2 {
+        width: 400px;
+    }
+
+}
