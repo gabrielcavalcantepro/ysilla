@@ -5,1861 +5,713 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protocolo de Conversão</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sora:wght@100..800&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        /*DEFINIDOS*/
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        body {
-            background-color: #eeeeee;
-            color: #D9D9D9;
-        }
-
-        html,
-        body {
-            overflow-x: hidden;
-        }
-
-
-        @font-face {
-            font-family: 'Inter';
-            src: url(fonts/Inter_18pt-Medium.woff2) format('woff2');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-
-
-        @font-face {
-            font-family: 'Inter';
-            src: url(fonts/Inter_18pt-Bold.woff2);
-            font-weight: 600;
-            font-style: normal;
-            font-display: swap;
-        }
-
-
-        @font-face {
-            font-family: 'Inter';
-            src: url(fonts/Inter_18pt-Regular.woff2);
-            font-weight: 300;
-            font-style: normal;
-            font-display: swap;
-        }
-
-
-        .blur-up,
-        .blur-down,
-        .blur-left,
-        .blur-right {
-            opacity: 0;
-            will-change: transform, opacity;
-        }
-
-
-
-        /* ---- HERO Critical CSS ---- */
-
-        /*------ CELULARES PEQUENOS ------*/
-
-        /*--- PRÉ-DEFINIDOS ---*/
-
-        .separation-section {
-            width: 100%;
-            height: 35px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-
-        .separation-section svg {
-            scale: 1.7;
-        }
-
-
-
-        /* TEXTOS */
-
-        h1 {
-            font-size: 25px;
-            text-align: left;
-            width: 100%;
-            font-family: 'Inter';
-            font-weight: 400;
-            line-height: 30px;
-            color: #171717;
-            margin: 0;
-        }
-
-
-        h2 {
-            font-family: 'Inter';
-            font-size: 25px;
-            font-weight: 400;
-            color: #171717;
-            line-height: 30px;
-        }
-
-
-        h2 span {
-            font-weight: 700;
-            color: #2641EA;
-        }
-
-        h3 {
-            font-family: 'Inter';
-            font-size: 20px;
-            font-weight: 400;
-            color: #171717;
-            line-height: 25px;
-        }
-
-
-        p {
-            font-family: 'Inter';
-            font-size: 15px;
-            color: #4B4B4B;
-            font-weight: 300;
-            line-height: 20px;
-        }
-
-
-        /* CENTRO DE CONTEÚDO */
-        .content {
-            width: 90%;
-            height: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-
-        .secao-1 {
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-
-        .secao-1 picture,
-        .secao-1 .fundo1 {
-            position: absolute;
-            width: 100%;
-            height: 110vh;
-            object-fit: cover;
-            top: 0;
-            left: 0;
-            z-index: -5;
-        }
-
-
-        .secao-1 .content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            margin-top: 40px;
-            min-height: 100vh;
-            text-align: center;
-        }
-
-        .secao-1 .content-secao1 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            width: 100%;
-            gap: 15px;
-        }
-
-        .secao-1 .content .content-secao1 p {
-            text-align: left;
-            color: #4B4B4B;
-            font-weight: 300;
-            font-size: 15px;
-            line-height: 20px;
-        }
-
-        .person {
-            position: absolute;
-            top: 82%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 68vh;
-            /* usa viewport height para manter proporção */
-            max-height: 700px;
-            width: auto;
-
-            z-index: -3;
-        }
-
-        .notification {
-            position: absolute;
-            width: 60%;
-            max-width: 300px;
-
-            top: 80%;
-            left: 50%;
-
-            transform: translate(-50%, -50%);
-
-            z-index: 2;
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-        }
-
-        .notification.atras {
-            position: absolute;
-            width: 60%;
-            max-width: 300px;
-
-            top: 69%;
-            left: 50%;
-
-            transform: translate(-60%, 20%);
-            z-index: -4;
-            filter: blur(2px);
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-        }
-
-        .notification.abaixo {
-            position: absolute;
-            width: 60%;
-            max-width: 300px;
-
-            top: 81%;
-            left: 50%;
-
-            transform: translate(-30%, 70%);
-            filter: blur(1px);
-
-            z-index: 2;
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-        }
-
-
-        .secao-1 .content img {
-            width: 240px;
-        }
-
-
-        .content-secao-1 {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-        }
-
-
-        .secao-1 .content h1 span {
-            font-style: normal;
-            font-weight: 700;
-            color: #2641EA;
-        }
-
-
-        /*------ CELULAR MAIOR ------*/
-        @media (min-width: 400px) {
-            /*--- PRÉ-DEFINIDOS ---*/
-
-            /* TEXTOS */
-
-            h1 {
-                font-size: 25px;
-                text-align: left;
-                width: 100%;
-                font-family: 'Inter';
-                font-weight: 400;
-                line-height: 30px;
-                color: #171717;
-                margin: 0;
-            }
-
-
-            h2 {
-                font-family: 'Inter';
-                font-size: 25px;
-                font-weight: 400;
-                color: #171717;
-                line-height: 30px;
-            }
-
-
-            h2 span {
-                font-weight: 700;
-                color: #2641EA;
-            }
-
-            h3 {
-                font-family: 'Inter';
-                font-size: 20px;
-                font-weight: 400;
-                color: #171717;
-                line-height: 25px;
-            }
-
-
-            p {
-                font-family: 'Inter';
-                font-size: 15px;
-                color: #4B4B4B;
-                font-weight: 300;
-                line-height: 20px;
-            }
-
-
-            /* CENTRO DE CONTEÚDO */
-            .content {
-                width: 90%;
-                height: 100%;
-                margin: 0 auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-
-            .secao-1 {
-                width: 100%;
-                height: 100vh;
-                position: relative;
-                overflow: hidden;
-                margin-bottom: -60px;
-            }
-
-
-            .secao-1 picture,
-            .secao-1 .fundo1 {
-                position: absolute;
-                width: 100%;
-                height: 110vh;
-                object-fit: cover;
-                top: 0;
-                left: 0;
-                z-index: -5;
-            }
-
-
-            .secao-1 .content {
-                position: relative;
-                z-index: 2;
-                display: flex;
-                align-items: flex-start;
-                justify-content: flex-start;
-                margin-top: 40px;
-                min-height: 100vh;
-                text-align: center;
-            }
-
-            .secao-1 .content-secao1 {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                width: 100%;
-                gap: 15px;
-            }
-
-            .secao-1 .content .content-secao1 p {
-                text-align: left;
-                color: #4B4B4B;
-                font-weight: 300;
-                font-size: 15px;
-                line-height: 20px;
-            }
-
-            .person {
-                position: absolute;
-                top: 70%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-
-                height: 68vh;
-                /* usa viewport height para manter proporção */
-                max-height: 700px;
-                width: auto;
-
-                z-index: -3;
-            }
-
-            .notification {
-                position: absolute;
-                width: 60%;
-
-                top: 75%;
-                left: 50%;
-
-                transform: translate(-50%, -50%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.atras {
-                position: absolute;
-                width: 60%;
-
-                top: 63%;
-                left: 50%;
-
-                transform: translate(-60%, 20%);
-                z-index: -4;
-                filter: blur(2px);
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.abaixo {
-                position: absolute;
-                width: 60%;
-
-                top: 76%;
-                left: 50%;
-
-                transform: translate(-30%, 70%);
-
-                z-index: 2;
-                filter: blur(1px);
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-
-            .content-secao-1 {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-            }
-
-
-            .secao-1 .content h1 span {
-                font-style: normal;
-                font-weight: 700;
-                color: #2641EA;
-            }
-        }
-
-        /*------ TABLET ------*/
-        @media (min-width: 440px) and (max-width: 768px) {
-
-
-            .separation-section {
-                width: 100%;
-                height: 35px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-
-            .separation-section svg {
-                scale: 1.5;
-            }
-
-            .content {
-                width: 80%;
-            }
-
-
-
-            .person {
-                position: absolute;
-                top: 65%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-
-                height: 68vh;
-                /* usa viewport height para manter proporção */
-                max-height: 700px;
-                width: auto;
-
-                z-index: -3;
-            }
-
-            .notification {
-                position: absolute;
-                width: 60%;
-
-                top: 75%;
-                left: 50%;
-
-                transform: translate(-50%, -50%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.atras {
-                position: absolute;
-                width: 59%;
-                max-width: 300px;
-
-                top: 60%;
-                left: 50%;
-
-                transform: translate(-60%, 20%);
-                z-index: -4;
-                filter: blur(2px);
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.abaixo {
-                position: absolute;
-                width: 60%;
-                max-width: 300px;
-
-                top: 76%;
-                left: 50%;
-
-                transform: translate(-30%, 70%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-                filter: blur(1px);
-            }
-
-        }
-
-        /*------ NOTEBOOK ------*/
-        @media (min-width: 1024px) {
-
-            /*--- PRÉ-DEFINIDOS ---*/
-
-            .separation-section {
-                width: 100%;
-                height: fit-content;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-
-            .separation-section svg {
-                scale: 1;
-            }
-
-
-            /* TEXTOS */
-
-            h1 {
-                font-size: 35px;
-                text-align: left;
-                width: 95%;
-                font-family: 'Inter';
-                font-weight: 400;
-                line-height: 40px;
-                color: #171717;
-                margin: 0;
-            }
-
-
-            h2 {
-                font-family: 'Inter';
-                font-size: 35px;
-                font-weight: 400;
-                color: #171717;
-                line-height: 40px;
-            }
-
-
-            h2 span {
-                font-weight: 700;
-                color: #2641EA;
-            }
-
-            h3 {
-                font-family: 'Inter';
-                font-size: 25px;
-                font-weight: 400;
-                color: #171717;
-                line-height: 30px;
-            }
-
-
-            p {
-                font-family: 'Inter';
-                font-size: 18px;
-                color: #4B4B4B;
-                font-weight: 300;
-                line-height: 23px;
-            }
-
-
-            /* CENTRO DE CONTEÚDO */
-            .content {
-                width: 70%;
-                height: 100%;
-                margin: 0 auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-
-            .secao-1 {
-                width: 100%;
-                height: 100vh;
-                overflow: hidden;
-                margin-bottom: -65px;
-            }
-
-
-            .secao-1 picture,
-            .secao-1 .fundo1 {
-                position: absolute;
-                width: 100%;
-                height: 110vh;
-                object-fit: cover;
-                top: 0;
-                left: 0;
-                z-index: -5;
-            }
-
-
-            .secao-1 .content {
-                position: relative;
-                z-index: 2;
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                text-align: center;
-            }
-
-            .secao-1 .content-secao1 {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                width: 60%;
-                gap: 25px;
-                margin-bottom: 100px;
-            }
-
-            .secao-1 .content .content-secao1 p {
-                text-align: left;
-                color: #4B4B4B;
-                font-weight: 300;
-                font-size: 18px;
-                line-height: 20px;
-            }
-
-            .person {
-                position: absolute;
-                top: 58%;
-                left: 90%;
-                transform: translate(-50%, -50%);
-
-                height: 100vh;
-                /* usa viewport height para manter proporção */
-                max-height: 100%;
-                width: auto;
-
-                z-index: -3;
-            }
-
-            .notification {
-                position: absolute;
-                width: 60%;
-
-                top: 65%;
-                left: 77%;
-
-                transform: translate(-50%, -50%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.atras {
-                position: absolute;
-                width: 59%;
-                max-width: 300px;
-
-                top: 50%;
-                left: 84%;
-
-                transform: translate(-60%, 20%);
-                z-index: -4;
-                filter: blur(2px);
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.abaixo {
-                position: absolute;
-                width: 60%;
-                max-width: 300px;
-
-                top: 65%;
-                left: 75%;
-
-                transform: translate(-30%, 70%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-                filter: blur(1px);
-            }
-
-
-            .secao-1 .content img {
-                width: 240px;
-            }
-
-
-            .content-secao-1 {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-            }
-
-
-            .secao-1 .content h1 span {
-                font-style: normal;
-                font-weight: 700;
-                color: #2641EA;
-            }
-
-
-        }
-
-        /*------ DESKTOP ------*/
-        @media (min-width: 1280px) {
-
-            /*--- PRÉ-DEFINIDOS ---*/
-
-            .separation-section {
-                width: 100%;
-                height: fit-content;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-
-            .separation-section svg {
-                scale: 1;
-            }
-
-
-            /* TEXTOS */
-
-            h1 {
-                font-size: 35px;
-                text-align: left;
-                width: 95%;
-                font-family: 'Inter';
-                font-weight: 400;
-                line-height: 40px;
-                color: #171717;
-                margin: 0;
-            }
-
-
-            h2 {
-                font-family: 'Inter';
-                font-size: 35px;
-                font-weight: 400;
-                color: #171717;
-                line-height: 40px;
-            }
-
-
-            h2 span {
-                font-weight: 700;
-                color: #2641EA;
-            }
-
-            h3 {
-                font-family: 'Inter';
-                font-size: 25px;
-                font-weight: 400;
-                color: #171717;
-                line-height: 30px;
-            }
-
-
-            p {
-                font-family: 'Inter';
-                font-size: 18px;
-                color: #4B4B4B;
-                font-weight: 300;
-                line-height: 25px;
-            }
-
-
-            /* CENTRO DE CONTEÚDO */
-            .content {
-                width: 66.67%;
-                height: 100%;
-                margin: 0 auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-
-            .secao-1 {
-                width: 100%;
-                height: 100vh;
-                overflow: hidden;
-            }
-
-
-            .secao-1 picture,
-            .secao-1 .fundo1 {
-                position: absolute;
-                width: 100%;
-                height: 110vh;
-                object-fit: cover;
-                top: 0;
-                left: 0;
-                z-index: -5;
-            }
-
-
-            .secao-1 .content {
-                position: relative;
-                z-index: 2;
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                min-height: 100vh;
-                text-align: center;
-            }
-
-            .secao-1 .content-secao1 {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                width: 490px;
-                gap: 25px;
-            }
-
-            .secao-1 .content .content-secao1 p {
-                text-align: left;
-                color: #4B4B4B;
-                font-weight: 300;
-                font-size: 20px;
-                line-height: 25px;
-            }
-
-            .person {
-                position: absolute;
-                top: 58%;
-                left: 83%;
-                transform: translate(-50%, -50%);
-
-                height: 100vh;
-                /* usa viewport height para manter proporção */
-                max-height: 100%;
-                width: auto;
-
-                z-index: -3;
-            }
-
-            .notification {
-                position: absolute;
-                width: 60%;
-
-                top: 65%;
-                left: 75%;
-
-                transform: translate(-50%, -50%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.atras {
-                position: absolute;
-                width: 59%;
-                max-width: 300px;
-
-                top: 50%;
-                left: 80%;
-
-                transform: translate(-60%, 20%);
-                z-index: -4;
-                filter: blur(2px);
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.abaixo {
-                position: absolute;
-                width: 60%;
-                max-width: 300px;
-
-                top: 65%;
-                left: 73%;
-
-                transform: translate(-30%, 70%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-                filter: blur(1px);
-            }
-
-
-            .secao-1 .content img {
-                width: 240px;
-            }
-
-
-            .content-secao-1 {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-            }
-
-
-            .secao-1 .content h1 span {
-                font-style: normal;
-                font-weight: 700;
-                color: #2641EA;
-            }
-
-
-        }
-
-        /*------ DESKTOP G ------*/
-        @media (min-width: 1440px) {
-
-            /*--- PRÉ-DEFINIDOS ---*/
-
-            .separation-section {
-                width: 100%;
-                height: fit-content;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-
-            .separation-section svg {
-                scale: 1;
-            }
-
-
-            /* TEXTOS */
-
-            h1 {
-                font-size: 40px;
-                text-align: left;
-                width: 95%;
-                font-family: 'Inter';
-                font-weight: 400;
-                line-height: 50px;
-                color: #171717;
-                margin: 0;
-            }
-
-
-            h2 {
-                font-family: 'Inter';
-                font-size: 40px;
-                font-weight: 400;
-                color: #171717;
-                line-height: 50px;
-            }
-
-
-            h2 span {
-                font-weight: 700;
-                color: #2641EA;
-            }
-
-            h3 {
-                font-family: 'Inter';
-                font-size: 25px;
-                font-weight: 400;
-                color: #171717;
-                line-height: 30px;
-            }
-
-
-            p {
-                font-family: 'Inter';
-                font-size: 20px;
-                color: #4B4B4B;
-                font-weight: 300;
-                line-height: 26px;
-            }
-
-
-            /* CENTRO DE CONTEÚDO */
-            .content {
-                width: 66%;
-                height: 100%;
-                margin: 0 auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-
-            .secao-1 {
-                width: 100%;
-                height: 100vh;
-                overflow: hidden;
-            }
-
-
-            .secao-1 picture,
-            .secao-1 .fundo1 {
-                position: absolute;
-                width: 100%;
-                height: 110vh;
-                object-fit: cover;
-                top: 0;
-                left: 0;
-                z-index: -5;
-            }
-
-
-            .secao-1 .content {
-                position: relative;
-                z-index: 2;
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                min-height: 100vh;
-                text-align: center;
-            }
-
-            .secao-1 .content-secao1 {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: center;
-                width: 490px;
-                gap: 25px;
-            }
-
-            .secao-1 .content .content-secao1 p {
-                text-align: left;
-                color: #4B4B4B;
-                font-weight: 300;
-                font-size: 20px;
-                line-height: 25px;
-            }
-
-            .person {
-                position: absolute;
-                top: 58%;
-                left: 75%;
-                transform: translate(-50%, -50%);
-
-                height: 100vh;
-                /* usa viewport height para manter proporção */
-                max-height: 100%;
-                width: auto;
-
-                z-index: -3;
-            }
-
-            .notification {
-                position: absolute;
-                width: 60%;
-
-                top: 65%;
-                left: 65%;
-
-                transform: translate(-50%, -50%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.atras {
-                position: absolute;
-                width: 59%;
-                max-width: 300px;
-
-                top: 50%;
-                left: 70%;
-
-                transform: translate(-60%, 20%);
-                z-index: -4;
-                filter: blur(2px);
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.abaixo {
-                position: absolute;
-                width: 60%;
-                max-width: 300px;
-
-                top: 65%;
-                left: 63%;
-
-                transform: translate(-30%, 70%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-                filter: blur(1px);
-            }
-
-
-            .secao-1 .content img {
-                width: 240px;
-            }
-
-
-            .content-secao-1 {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-            }
-
-
-            .secao-1 .content h1 span {
-                font-style: normal;
-                font-weight: 700;
-                color: #2641EA;
-            }
-
-
-        }
-
-        /*------ DESKTOP FULL HD ------*/
-        @media (min-width: 1920px) {
-            .person {
-                position: absolute;
-                top: 58%;
-                left: 70%;
-                transform: translate(-50%, -50%);
-
-                height: 100vh;
-                /* usa viewport height para manter proporção */
-                max-height: 100%;
-                width: auto;
-
-                z-index: -3;
-            }
-
-            .notification {
-                position: absolute;
-                width: 60%;
-
-                top: 64%;
-                left: 60%;
-
-                transform: translate(-50%, -50%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.atras {
-                position: absolute;
-                width: 59%;
-                max-width: 300px;
-
-                top: 50%;
-                left: 63%;
-
-                transform: translate(-60%, 20%);
-                z-index: -4;
-                filter: blur(2px);
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-            }
-
-            .notification.abaixo {
-                position: absolute;
-                width: 60%;
-                max-width: 300px;
-
-                top: 65%;
-                left: 59%;
-
-                transform: translate(-30%, 70%);
-
-                z-index: 2;
-                backdrop-filter: blur(5px);
-                border-radius: 20px;
-                filter: blur(1px);
-            }
-        }
-    </style>
 </head>
 
 <body>
     <div id="smooth-wrapper">
         <div id="smooth-content">
             <div class="secao-1"> <!--HERO-->
-                <img src="images/FOTO.webp" class="person" alt="" fetchpriority="high" data-speed="1.1">
-                <img class="notification n1" src="images/notificacao.webp"
-                    srcset="images/notificacao-360.webp 360w, images/notificacao-400.webp 400w, images/notificacao-768.webp 768w, images/notificacao.webp 1200w, images/notificacao.webp 1600w"
-                    sizes="100vw" alt="">
-                <img class="notification abaixo n2" src="images/notificacao.webp"
-                    srcset="images/notificacao-360.webp 360w, images/notificacao-400.webp 400w, images/notificacao-768.webp 768w, images/notificacao.webp 1200w, images/notificacao.webp 1600w"
-                    sizes="100vw" alt="">
-                <img class="notification atras n3" src="images/notificacao.webp"
-                    srcset="images/notificacao-360.webp 360w, images/notificacao-400.webp 400w, images/notificacao-768.webp 768w, images/notificacao.webp 1200w, images/notificacao.webp 1600w"
-                    sizes="100vw" alt="">
-                <picture>
-                    <!-- Mobile -->
-                    <source data-speed="0.5" srcset="images/fundo1-m.webp" media="(max-width: 768px)">
-
-                    <!-- Desktop -->
-                    <img data-speed="0.5" class="fundo1" src="images/fundo1.webp" alt="" fetchpriority="high"
-                        loading="eager" decoding="async">
+                <img data-speed="0.5" class="fundo1" src="images/SEÇÃO 1.png" alt="" fetchpriority="high"
+                    loading="eager" decoding="async">
                 </picture>
+
                 <div class="content" data-speed="1.1">
                     <div class="content-secao1">
+                        <img src="images/LOGO.png" alt="">
                         <h1 class="blur-up">
-                            Transforme seu atendimento em uma máquina que vende todos os dias com o <span>Protocolo de
-                                Conversão para Consultórios!</span>
+                            Transforme o TikTok em uma fonte de renda prospera semanal com o método Rica com TikTok Shop
                         </h1>
                         <p class="blur-up">
-                            Implemente uma estrutura validada de atendimento que aumenta seus agendamentos, valoriza sua
-                            consulta e reduz a perda de pacientes por preço.
+                            Aprenda a usar o próprio sistema do TikTok para gerar vendas e receber PIX de comissões toda
+                            semana sem estoque, sem produto próprio e sem precisar ser influencer.
                         </p>
                         <a href="#valor" class="bottom link blur-up">
                             Quero vender todos os dias
-                            <span>
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 1H17M17 1V17M17 1L1 17" stroke="#2641EA" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                            <span class="icon-badge">
+                                <span class="icon icon-dollar">
+                                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.10672 15.5V0H5.04998V15.5H4.10672ZM6.82725 4.95879C6.77356 4.43002 6.54733 4.0183 6.14857 3.72364C5.75361 3.42897 5.23977 3.28164 4.60708 3.28164C4.16232 3.28164 3.78078 3.35228 3.46251 3.49356C3.14426 3.63483 2.90077 3.82656 2.73205 4.06875C2.56333 4.31093 2.47706 4.58744 2.47322 4.89826C2.47322 5.15657 2.52882 5.3806 2.64002 5.57033C2.75506 5.76001 2.91035 5.92147 3.10591 6.05468C3.30147 6.18387 3.51811 6.29282 3.75585 6.38165C3.99359 6.47044 4.23326 6.54512 4.47479 6.60569L5.57913 6.89631C6.02393 7.00526 6.45148 7.15261 6.86175 7.33829C7.2759 7.52396 7.64591 7.75806 7.97183 8.04062C8.3016 8.32318 8.56233 8.66427 8.75405 9.06388C8.94578 9.46348 9.04167 9.93172 9.04167 10.4686C9.04167 11.1951 8.86525 11.8349 8.51248 12.3879C8.15971 12.9369 7.64976 13.3667 6.98254 13.6776C6.3192 13.9843 5.51588 14.1377 4.57258 14.1377C3.65615 14.1377 2.8605 13.9883 2.18564 13.6897C1.51461 13.391 0.989291 12.955 0.60968 12.3818C0.233902 11.8087 0.0306757 11.1103 0 10.2869H2.09936C2.13004 10.7188 2.25658 11.0781 2.47897 11.3646C2.70138 11.6513 2.99088 11.8652 3.34748 12.0065C3.70792 12.1477 4.11053 12.2184 4.55533 12.2184C5.01929 12.2184 5.42575 12.1457 5.7747 12.0004C6.12747 11.851 6.40354 11.6452 6.60292 11.3828C6.80231 11.1164 6.90394 10.8056 6.90779 10.4504C6.90394 10.1275 6.81385 9.86109 6.63746 9.65116C6.46104 9.43723 6.21372 9.25965 5.89549 9.11835C5.58103 8.97304 5.21296 8.84389 4.79116 8.73085L3.45101 8.3676C2.48089 8.1052 1.714 7.70763 1.15033 7.17482C0.590507 6.63796 0.310591 5.92552 0.310591 5.03752C0.310591 4.30692 0.498481 3.66713 0.874257 3.11817C1.25387 2.56921 1.7696 2.14336 2.42146 1.84063C3.07332 1.53386 3.81145 1.38047 4.63587 1.38047C5.47178 1.38047 6.20416 1.53386 6.833 1.84063C7.46568 2.14336 7.96224 2.56517 8.3227 3.10606C8.68311 3.64291 8.86909 4.26049 8.88059 4.95879H6.82725Z"
+                                            fill="white" />
+                                    </svg>
+                                </span>
+                                <span class="icon icon-arrow">
+                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 9L9 1M9 1V9M9 1L1 1" stroke="white" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
                             </span>
                         </a>
                     </div>
+                </div>
 
+                <div class="elements" data-speed="0.2">
+                    <div class="laterais">
+                        <ul>
+                            <li>
+                                <span>
+                                    <img src="images/FOTO DE PERFIL.webp" alt="">
+                                </span>
+                            </li>
+
+                            <li>
+                                <span class="curtida">
+                                    <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <mask id="mask0_152_384" style="mask-type:luminance" maskUnits="userSpaceOnUse"
+                                            x="0" y="0" width="33" height="33">
+                                            <path d="M32.1027 0H0V32.1027H32.1027V0Z" fill="white" />
+                                        </mask>
+                                        <g mask="url(#mask0_152_384)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M10.0322 3.00964C14.045 3.00964 16.0514 5.68487 16.0514 5.68487C16.0514 5.68487 18.0578 3.00964 22.0707 3.00964C26.7523 3.00964 30.0964 6.68807 30.0964 11.3697C30.0964 16.7202 25.7238 21.4897 21.7363 25.0803C19.2744 27.297 17.389 28.7587 16.0514 28.7587C14.7138 28.7587 12.7749 27.2859 10.3666 25.0803C6.44666 21.4904 2.00647 16.7202 2.00647 11.3697C2.00647 6.68807 5.3505 3.00964 10.0322 3.00964Z"
+                                                fill="#FE2C55" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M3.21277 16.3186C4.80082 19.6584 7.70369 22.6417 10.3665 25.0803C12.7748 27.2859 14.7137 28.7587 16.0513 28.7587C17.3889 28.7587 19.2743 27.297 21.7362 25.0803C25.7238 21.4897 30.0963 16.7202 30.0963 11.3697C30.0963 11.2528 30.0941 11.1365 30.09 11.0209C27.5109 18.2744 18.2969 24.7459 15.7171 24.7459C13.7945 24.7459 7.50528 21.1518 3.21277 16.3186Z"
+                                                fill="black" fill-opacity="0.03" />
+                                        </g>
+                                    </svg>
+                                </span>
+                                10,5K
+                            </li>
+
+                            <li>
+                                <span>
+                                    <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M1.33765 14.3793C1.33765 7.54414 7.94546 2.34082 16.0514 2.34082C24.1573 2.34082 30.7651 7.54414 30.7651 14.3793C30.7651 18.1447 28.6317 21.5623 25.8695 24.2777C23.1419 26.9008 19.9299 28.968 16.4126 30.3638C16.2605 30.4225 16.0965 30.4432 15.9347 30.4243C15.7729 30.4053 15.6181 30.3472 15.4837 30.255C15.3494 30.1628 15.2395 30.0393 15.1636 29.8951C15.0878 29.7509 15.0481 29.5904 15.0482 29.4275V26.0567C7.44385 25.6822 1.33765 20.9604 1.33765 14.3793ZM9.36333 16.7202C9.62682 16.7202 9.88772 16.6683 10.1312 16.5674C10.3746 16.4666 10.5958 16.3188 10.7821 16.1325C10.9684 15.9462 11.1162 15.725 11.217 15.4816C11.3179 15.2381 11.3697 14.9772 11.3697 14.7137C11.3697 14.4503 11.3179 14.1894 11.217 13.9459C11.1162 13.7025 10.9684 13.4813 10.7821 13.295C10.5958 13.1087 10.3746 12.9609 10.1312 12.8601C9.88772 12.7592 9.62682 12.7073 9.36333 12.7073C8.83119 12.7073 8.32085 12.9187 7.94457 13.295C7.5683 13.6713 7.35691 14.1816 7.35691 14.7137C7.35691 15.2459 7.5683 15.7562 7.94457 16.1325C8.32085 16.5088 8.83119 16.7202 9.36333 16.7202ZM16.0514 16.7202C16.3149 16.7202 16.5758 16.6683 16.8192 16.5674C17.0627 16.4666 17.2838 16.3188 17.4702 16.1325C17.6565 15.9462 17.8043 15.725 17.9051 15.4816C18.0059 15.2381 18.0578 14.9772 18.0578 14.7137C18.0578 14.4503 18.0059 14.1894 17.9051 13.9459C17.8043 13.7025 17.6565 13.4813 17.4702 13.295C17.2838 13.1087 17.0627 12.9609 16.8192 12.8601C16.5758 12.7592 16.3149 12.7073 16.0514 12.7073C15.5193 12.7073 15.0089 12.9187 14.6326 13.295C14.2564 13.6713 14.045 14.1816 14.045 14.7137C14.045 15.2459 14.2564 15.7562 14.6326 16.1325C15.0089 16.5088 15.5193 16.7202 16.0514 16.7202ZM24.7459 14.7137C24.7459 15.2459 24.5345 15.7562 24.1582 16.1325C23.7819 16.5088 23.2716 16.7202 22.7395 16.7202C22.2073 16.7202 21.697 16.5088 21.3207 16.1325C20.9444 15.7562 20.733 15.2459 20.733 14.7137C20.733 14.1816 20.9444 13.6713 21.3207 13.295C21.697 12.9187 22.2073 12.7073 22.7395 12.7073C23.2716 12.7073 23.7819 12.9187 24.1582 13.295C24.5345 13.6713 24.7459 14.1816 24.7459 14.7137Z"
+                                            fill="white" />
+                                    </svg>
+                                </span>
+                                598
+                            </li>
+
+                            <li>
+                                <span>
+                                    <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5.35046 6.01928C5.35046 5.30977 5.63232 4.62931 6.13402 4.12761C6.63572 3.62591 7.31618 3.34406 8.02569 3.34406H24.0771C24.7866 3.34406 25.467 3.62591 25.9687 4.12761C26.4704 4.62931 26.7523 5.30977 26.7523 6.01928V26.2574C26.7521 26.4994 26.6862 26.7369 26.5617 26.9444C26.4371 27.152 26.2586 27.3219 26.0451 27.436C25.8316 27.55 25.5912 27.6041 25.3494 27.5923C25.1077 27.5805 24.8736 27.5033 24.6723 27.3689L16.4232 21.858C16.3132 21.7844 16.1838 21.7451 16.0514 21.7451C15.919 21.7451 15.7896 21.7844 15.6795 21.858L7.43045 27.3689C7.2291 27.5033 6.99507 27.5805 6.75331 27.5923C6.51154 27.6041 6.27111 27.55 6.05763 27.436C5.84415 27.3219 5.66562 27.152 5.54109 26.9444C5.41655 26.7369 5.35067 26.4994 5.35046 26.2574V6.01928Z"
+                                            fill="white" />
+                                        <path
+                                            d="M5.39327 5.5431C5.36473 5.69737 5.35046 5.8561 5.35046 6.01929V26.2574C5.35067 26.4994 5.41655 26.7369 5.54109 26.9444C5.66562 27.152 5.84415 27.3219 6.05763 27.436C6.27111 27.5501 6.51154 27.6041 6.75331 27.5923C6.99507 27.5805 7.2291 27.5033 7.43045 27.3689L15.6795 21.858C15.7593 21.8048 15.8495 21.7694 15.9441 21.7542C16.0387 21.739 16.1355 21.7442 16.2279 21.7697L15.6568 21.5048C15.3657 21.3695 15.0462 21.3065 14.7255 21.3212C14.4048 21.3358 14.0924 21.4278 13.8149 21.5891C13.0377 22.0426 11.8753 22.7261 10.8053 23.3802C10.0161 23.8604 8.89648 24.3098 7.87989 24.667C6.63725 25.1017 5.39193 24.1493 5.39193 22.8344L5.39327 5.5431ZM16.4299 21.8647L24.6723 27.3689C24.8736 27.5033 25.1077 27.5805 25.3494 27.5923C25.5912 27.6041 25.8316 27.5501 26.0451 27.436C26.2586 27.3219 26.4371 27.152 26.5617 26.9444C26.6862 26.7369 26.7521 26.4994 26.7523 26.2574V6.01929C26.7524 5.51793 26.6117 5.02661 26.3461 4.60138C26.0805 4.17615 25.7007 3.8341 25.2501 3.61426C25.531 3.95401 25.6969 4.39007 25.6916 4.86626C25.636 10.8625 25.2358 16.8506 24.4931 22.801C24.3272 24.1252 22.928 24.8783 21.7162 24.3165L16.4299 21.8647Z"
+                                            fill="black" fill-opacity="0.03" />
+                                    </svg>
+                                </span>
+                                490
+                            </li>
+
+                            <li>
+                                <span>
+                                    <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M17.5569 5.0963C17.5572 4.88484 17.6194 4.67811 17.7359 4.50164C17.8524 4.32517 18.0181 4.18671 18.2124 4.10337C18.4068 4.02004 18.6213 3.99548 18.8294 4.03273C19.0376 4.06999 19.2302 4.16742 19.3836 4.31299L29.8587 14.2889C30.7801 15.1669 30.748 16.6485 29.7897 17.4847L19.3483 26.5955C19.1917 26.7315 18.9993 26.8196 18.7941 26.8494C18.5888 26.8792 18.3794 26.8493 18.1906 26.7634C18.0018 26.6775 17.8418 26.5391 17.7294 26.3648C17.6171 26.1904 17.5572 25.9875 17.5569 25.7801V21.6533C17.5569 21.6533 6.34507 19.634 2.74956 26.2343C2.41409 26.8507 1.10751 27.0658 1.37396 23.9952C2.48471 18.3451 4.75438 9.52166 17.5569 9.52166V5.0963Z"
+                                            fill="white" />
+                                        <path opacity="0.03" fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M25.2873 9.97113L27.366 14.1284C27.5453 14.4858 27.6003 14.8927 27.5224 15.2849C27.4445 15.6771 27.2381 16.0321 26.9358 16.2938L17.6276 24.3869C17.6276 24.3869 17.1782 26.6389 18.5297 26.6389C19.8812 26.6389 30.6934 16.7288 30.6934 16.7288C30.6934 16.7288 31.1429 15.3772 29.7929 14.0257C28.4398 12.6742 25.2873 9.97113 25.2873 9.97113Z"
+                                            fill="#161823" />
+                                        <path opacity="0.09" fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M17.5554 10V21.7127C17.5554 21.7127 6.82831 20.2006 3.46715 25.3178C0.234406 30.2392 0.531355 19.7576 5.39813 14.5377C10.2649 9.31781 17.5554 10 17.5554 10Z"
+                                            fill="url(#paint0_radial_152_403)" />
+                                        <defs>
+                                            <radialGradient id="paint0_radial_152_403" cx="0" cy="0" r="1"
+                                                gradientUnits="userSpaceOnUse"
+                                                gradientTransform="translate(17.9509 29.3028) rotate(-113.046) scale(14.338 14.0943)">
+                                                <stop />
+                                                <stop offset="0.995" stop-opacity="0.01" />
+                                                <stop offset="1" stop-opacity="0.01" />
+                                            </radialGradient>
+                                        </defs>
+                                    </svg>
+                                </span>
+                                389
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="baixo">
+                        <div class="perfil">
+                            <p>
+                                Ysilla Milane
+                            </p>
+                            <span>
+                                <img src="images/VERIFICAR.webp" alt="">
+                            </span>
+                        </div>
+                        <p class="tags">
+                            #rendaextra #tiktokshop #6digitos #tiktok
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="separation-section">
-                <svg width="1920" height="137" viewBox="0 0 1920 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M1920 63C1920 62.5 1920 62.5 1920 62.5H1600C1550.64 62.5 1525.99 47.0597 1501.45 31.5771C1476.87 16.0617 1452.39 0.5 1403.5 0.5H520.5C472.105 0.5 447.881 16.0627 423.544 31.5781C399.259 47.0606 374.857 62.5 326 62.5H0.00292969C0.00119285 62.5 0 62.5 0 63V62.5H-0.5V136.5H1920.5V62.5H1920V63Z"
-                        fill="url(#paint0_linear_2034_170)" stroke="url(#paint1_linear_2034_170)" />
-                    <defs>
-                        <linearGradient id="paint0_linear_2034_170" x1="960" y1="0.999992" x2="960" y2="136"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" />
-                            <stop offset="1" stop-color="#EEEEEE" />
-                        </linearGradient>
-                        <linearGradient id="paint1_linear_2034_170" x1="910.847" y1="136" x2="910.847" y2="-1.1161"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EEEEEE" />
-                            <stop offset="1" stop-color="white" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
+
             <div class="secao-2">
+                <img class="fundo2" src="images/twins.png" alt="">
                 <div class="content">
+
+                    <h2 class="blur-up">
+                        Você já percebeu quantas horas por dia as <span>pessoas passam</span> no TikTok?
+
+                    </h2>
+
                     <div class="content-secao2">
-                        <h2 class="blur-up">
-                            Você não aguenta mais ver pacientes perguntarem o valor da consulta… e simplesmente
-                            <span>sumirem depois da resposta?</span>
+                        <img class="foto" src="images/FOTO-1.png" alt="">
 
-                        </h2>
-
+                        <img class="tiktok" src="images/TIKTOK-GRANDE.png" alt="">
                         <p class="blur-up">
-                            Sente que está sempre sendo comparado por preço, perdendo agendamentos e dependendo de
-                            volume
-                            para manter o faturamento. E o mais frustrante é perceber que o problema não está na sua
-                            competência, está na forma como seu atendimento está estruturado.
+                            Vídeos sendo assistidos, produtos sendo descobertos e compras acontecendo. E enquanto
+                            milhões de pessoas usam o aplicativo apenas para passar o tempo… existe um grupo de mulheres
+                            comuns muitas tímidas, sem experiência e sem dinheiro para investir que estão usando o
+                            TikTok para faturar MUITO, e conseguindo sair do absoluto zero para os seus R$2 mil em 7
+                            dias com o TikTok Shop.
+                            <br>
+                            <br>
+                            O problema é que a maioria das pessoas não faz ideia de como esse sistema funciona. E por
+                            isso acabam apenas assistindo vídeos… enquanto outras pessoas estão faturando e recebendo
+                            PIX na conta semanalmente.
                         </p>
                     </div>
 
-                    <div class="cel">
-                        <div class="content-ms-client">
-                            <div class="mens-client blur-down">
-                                <span>
-                                    Cliente:
-                                </span>
-                                <p>
-                                    Oi, bom dia! Qual o valor<br>da consulta?
-                                </p>
-                            </div>
+                </div>
+            </div>
+
+            <div class="secao-3">
+                <div class="content">
+                    <div class="comparacao">
+                        <div class="lista-comparacao blur-right">
+                            <h3>
+                                Se você já pensou em <span class="azul">ganhar dinheiro</span> pela internet mas sempre
+                                sentiu que:
+
+                                <ul>
+                                    <li>
+                                        <span>
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="40" height="40" rx="5" fill="#FE2B54" />
+                                                <path d="M28.0001 12L12 28.0001" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" />
+                                                <path d="M28 28.0001L12 12" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                        <p>Precisa ter <span> muitos seguidores</span></p>
+                                    </li>
+
+                                    <div class="separacao">
+                                    </div>
+
+                                    <li>
+                                        <span>
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="40" height="40" rx="5" fill="#FE2B54" />
+                                                <path d="M28.0001 12L12 28.0001" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" />
+                                                <path d="M28 28.0001L12 12" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                        <p>Precisa <span> aparecer nos vídeos</span></p>
+                                    </li>
+
+                                    <div class="separacao">
+                                    </div>
+
+                                    <li>
+                                        <span>
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="40" height="40" rx="5" fill="#FE2B54" />
+                                                <path d="M28.0001 12L12 28.0001" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" />
+                                                <path d="M28 28.0001L12 12" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                        <p>Precisa investir <span> dinheiro em estoque</span></p>
+                                    </li>
+
+                                    <div class="separacao">
+                                    </div>
+
+                                    <li>
+                                        <span>
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="40" height="40" rx="5" fill="#FE2B54" />
+                                                <path d="M28.0001 12L12 28.0001" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" />
+                                                <path d="M28 28.0001L12 12" stroke="white" stroke-width="2"
+                                                    stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                        <p>Precisa entender <span> muito de marketing</span></p>
+                                    </li>
+
+                                    <div class="separation"></div>
+                                </ul>
                         </div>
 
-                        <div class="content-ms-user">
-                            <div class="mens-usuario blur-down">
-                                <span>
-                                    Seu consultório:
-                                </span>
-                                <p>
-                                    Bom dia! A consulta tem o valor de R$350 e dura em média 50 minutos. Se
-                                    quiser, posso te explicar como funciona e ver os horários disponíveis para você.
-                                </p>
-                            </div>
+                        <div class="lista-comparacao blur-left">
+                            <h3>
+                                Saiba que você não precisa de nada disso. E a melhor parte é que o próprio TikTok
+                                <span>cuida de tudo:</span>
+
+                                <ul>
+                                    <li>
+                                        <span>
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="40" height="40" rx="5" fill="#24F5EF" />
+                                                <path
+                                                    d="M28 14.5L17.8278 24.8431C17.4628 25.2143 16.8741 25.2433 16.4743 24.9099L11 20.3438"
+                                                    stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+
+                                        </span>
+                                        <p>Sem precisar <span> comprar estoque</span></p>
+                                    </li>
+
+                                    <div class="separacao">
+                                    </div>
+
+                                    <li>
+                                        <span>
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="40" height="40" rx="5" fill="#24F5EF" />
+                                                <path
+                                                    d="M28 14.5L17.8278 24.8431C17.4628 25.2143 16.8741 25.2433 16.4743 24.9099L11 20.3438"
+                                                    stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+
+                                        </span>
+                                        <p>Sem precisar <span> enviar nada</span></p>
+                                    </li>
+
+                                    <div class="separacao">
+                                    </div>
+
+                                    <li>
+                                        <span>
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="40" height="40" rx="5" fill="#24F5EF" />
+                                                <path
+                                                    d="M28 14.5L17.8278 24.8431C17.4628 25.2143 16.8741 25.2433 16.4743 24.9099L11 20.3438"
+                                                    stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+
+                                        </span>
+                                        <p>sem precisar <span> lidar com clientes</span></p>
+                                    </li>
+
+                                    <div class="separation"></div>
+                                </ul>
                         </div>
 
-                        <div class="content-ms-client">
-                            <div class="mens-client blur-down">
-                                <span>
-                                    Cliente:
+
+                    </div>
+
+                    <a href="#valor" class="bottom link blur-up">
+                        Quero vender todos os dias
+                        <span class="icon-badge">
+                            <span class="icon icon-dollar">
+                                <svg width="10" height="16" viewBox="0 0 10 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.10672 15.5V0H5.04998V15.5H4.10672ZM6.82725 4.95879C6.77356 4.43002 6.54733 4.0183 6.14857 3.72364C5.75361 3.42897 5.23977 3.28164 4.60708 3.28164C4.16232 3.28164 3.78078 3.35228 3.46251 3.49356C3.14426 3.63483 2.90077 3.82656 2.73205 4.06875C2.56333 4.31093 2.47706 4.58744 2.47322 4.89826C2.47322 5.15657 2.52882 5.3806 2.64002 5.57033C2.75506 5.76001 2.91035 5.92147 3.10591 6.05468C3.30147 6.18387 3.51811 6.29282 3.75585 6.38165C3.99359 6.47044 4.23326 6.54512 4.47479 6.60569L5.57913 6.89631C6.02393 7.00526 6.45148 7.15261 6.86175 7.33829C7.2759 7.52396 7.64591 7.75806 7.97183 8.04062C8.3016 8.32318 8.56233 8.66427 8.75405 9.06388C8.94578 9.46348 9.04167 9.93172 9.04167 10.4686C9.04167 11.1951 8.86525 11.8349 8.51248 12.3879C8.15971 12.9369 7.64976 13.3667 6.98254 13.6776C6.3192 13.9843 5.51588 14.1377 4.57258 14.1377C3.65615 14.1377 2.8605 13.9883 2.18564 13.6897C1.51461 13.391 0.989291 12.955 0.60968 12.3818C0.233902 11.8087 0.0306757 11.1103 0 10.2869H2.09936C2.13004 10.7188 2.25658 11.0781 2.47897 11.3646C2.70138 11.6513 2.99088 11.8652 3.34748 12.0065C3.70792 12.1477 4.11053 12.2184 4.55533 12.2184C5.01929 12.2184 5.42575 12.1457 5.7747 12.0004C6.12747 11.851 6.40354 11.6452 6.60292 11.3828C6.80231 11.1164 6.90394 10.8056 6.90779 10.4504C6.90394 10.1275 6.81385 9.86109 6.63746 9.65116C6.46104 9.43723 6.21372 9.25965 5.89549 9.11835C5.58103 8.97304 5.21296 8.84389 4.79116 8.73085L3.45101 8.3676C2.48089 8.1052 1.714 7.70763 1.15033 7.17482C0.590507 6.63796 0.310591 5.92552 0.310591 5.03752C0.310591 4.30692 0.498481 3.66713 0.874257 3.11817C1.25387 2.56921 1.7696 2.14336 2.42146 1.84063C3.07332 1.53386 3.81145 1.38047 4.63587 1.38047C5.47178 1.38047 6.20416 1.53386 6.833 1.84063C7.46568 2.14336 7.96224 2.56517 8.3227 3.10606C8.68311 3.64291 8.86909 4.26049 8.88059 4.95879H6.82725Z"
+                                        fill="white" />
+                                </svg>
+                            </span>
+                            <span class="icon icon-arrow">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 9L9 1M9 1V9M9 1L1 1" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </span>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="secao-4">
+                <div class="content">
+                    <h2>
+                        O próprio TikTok cuida da venda, da entrega e do pagamento. E quando alguém compra através
+                        da
+                        sua indicação… você recebe por isso.
+                    </h2>
+                </div>
+
+
+            </div>
+
+            <div class="secao-5">
+                <div class="content">
+                    <div class="header">
+                        <h2>
+                            Com o <span class="azul">Rica com TikTok Shop</span> você aprende:
+                        </h2>
+
+                        <div class="line">
+                        </div>
+
+                        <div class="botoes">
+                            <button class="seta">
+                                <span class="esquerda">
+                                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.99988 1L0.999948 6.99993L6.99988 12.9999" stroke="#EBEBEB"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
                                 </span>
-                                <p>
-                                    Entendi. Obrigada pelas<br>informações! Estou<br>pesquisando ainda,<br>qualquer
-                                    coisa eu
-                                    retorno.
-                                </p>
-                            </div>
+                            </button>
+
+                            <button class="seta">
+                                <span class="direita">
+                                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1L6.99993 6.99993L1 12.9999" stroke="#EBEBEB" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+
+                                </span>
+                            </button>
                         </div>
 
                     </div>
+
+                    <div class="carrossel">
+                        <ul>
+                            <li>
+                                <img src="images/M 0.png" alt="">
+                            </li>
+                            <li>
+                                <img src="images/M 1.png" alt="">
+                            </li>
+                            <li>
+                                <img src="images/M 2.png" alt="">
+                            </li>
+                            <li>
+                                <img src="images/M 3.png" alt="">
+                            </li>
+                            <li>
+                                <img src="images/M 4.png" alt="">
+                            </li>
+                            <li>
+                                <img src="images/M 5.png" alt="">
+                            </li>
+                            <li>
+                                <img src="images/M 6.png" alt="">
+                            </li>
+                            <li>
+                                <img src="images/M 7.png" alt="">
+                            </li>
+                            <li>
+                                <img src="images/M 8.png" alt="">
+                            </li>
+                            <li>
+                                <img src="images/M 9.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secao-6">
+                <div class="content">
+                    <h2 class="blur-up">
+                        E o melhor, você
+                        <span>
+                            não precisa:
+                        </span>
+                    </h2>
+
+                    <ul>
+                        <li>
+                            <span>
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="30" height="30" rx="5" fill="#FE2B54" />
+                                    <path
+                                        d="M23 10L13.4829 20.2818C13.1135 20.681 12.4928 20.7117 12.0858 20.3509L7 15.8438"
+                                        stroke="white" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <p>
+                                Ter muitos seguidores
+                            </p>
+
+                        </li>
+                        <li>
+                            <span>
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="30" height="30" rx="5" fill="#FE2B54" />
+                                    <path
+                                        d="M23 10L13.4829 20.2818C13.1135 20.681 12.4928 20.7117 12.0858 20.3509L7 15.8438"
+                                        stroke="white" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <p>
+                                Investir dinheiro em estoque
+                            </p>
+                        </li>
+                        <li>
+                            <span>
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="30" height="30" rx="5" fill="#FE2B54" />
+                                    <path
+                                        d="M23 10L13.4829 20.2818C13.1135 20.681 12.4928 20.7117 12.0858 20.3509L7 15.8438"
+                                        stroke="white" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <p>
+                                Aparecer nos vídeos
+                            </p>
+                        </li>
+                        <li>
+                            <span>
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="30" height="30" rx="5" fill="#FE2B54" />
+                                    <path
+                                        d="M23 10L13.4829 20.2818C13.1135 20.681 12.4928 20.7117 12.0858 20.3509L7 15.8438"
+                                        stroke="white" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <p>
+                                Entender muito de marketing
+                            </p>
+                        </li>
+                    </ul>
 
                 </div>
             </div>
-            <div class="separation-section">
-                <svg width="1920" height="100" viewBox="0 0 1920 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M1920 99.9248L1920.22 61.9248H1600.22C1503 61.9248 1502 0 1403.5 0H520.5C423 0 423.5 61.9248 326.22 61.9248H0.219577L0 99.9248H1920Z"
-                        fill="#2641EA" />
-                </svg>
-            </div>
-            <div class="secao-3">
+
+            <div class="secao-7">
+                <img class="fundo7" src="images/twins2.png" alt="">
+                <img class="fundo7v2" src="images/twins2.png" alt="">
                 <div class="content">
-                    <h2 class="h2-uni1 blur-up">
-                        Se você já passou por isso, saiba que você
-                        <span>
-                            não está sozinho.
-                        </span>
-                    </h2>
-                    <p class="p-uni1 blur-up">
-                        Agora, imagine receber uma estrutura validada onde cada mensagem, cada ligação e cada contato
-                        seguem uma lógica estratégica, fazendo com que o paciente perceba valor antes mesmo de perguntar
-                        o preço.
-                    </p>
-                    <div class="linha-pontilhada">
-                    </div>
-                    <h2 class="h2-uni2 blur-down">
-                        Com o Protocolo, você recebe uma estrutura de atendimento que realmente converte
-                    </h2>
-                    <div class="itens">
-                        <ul>
-                            <li class="blur-left">
-                                <span>
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
-                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <p>
-                                    Como responder “qual o valor da consulta?” sem perder o paciente
-                                </p>
+                    <img src="images/MACBOOK.png" alt="">
+                    <div class="comparacao">
+                        <ul class="errado">
+                            <h2>
+                                <span>Sem</span> o método Rica com TikTok Shop…
+                            </h2>
 
+                            <li>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#FE2B54" />
+                                    <path d="M28.0001 12L12 28.0001" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                    <path d="M28 28.0001L12 12" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                                <p>
+                                    Você continua rolando o TikTok de graça enquanto outras mulheres recebem PIX pelo
+                                    mesmo app.
+                                </p>
                             </li>
 
-                            <li class="blur-left">
-                                <span>
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
-                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <p>
-                                    Como organizar sua secretária para apresentar valor antes de falar preço
-                                </p>
+                            <div class="line"></div>
 
+                            <li>
+
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#FE2B54" />
+                                    <path d="M28.0001 12L12 28.0001" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                    <path d="M28 28.0001L12 12" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                                <p>
+                                    Você continua acreditando que precisa ser influencer ou ter milhares de seguidores
+                                    para trabalhar com a internet
+                                </p>
                             </li>
 
-                            <li class="blur-left">
-                                <span>
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
-                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                                <p>
-                                    Como aumentar sua taxa de agendamento sem investir mais em marketing
-                                </p>
+                            <div class="line"></div>
 
+                            <li>
+
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#FE2B54" />
+                                    <path d="M28.0001 12L12 28.0001" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                    <path d="M28 28.0001L12 12" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                                <p>
+                                    Você perde a janela de oportunidade e descobre esse mercado só quando todo mundo já
+                                    estiver nele.
+                                </p>
                             </li>
 
-                            <li class="blur-left">
-                                <span>
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
-                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </span>
+                            <div class="line"></div>
 
+                            <li>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#FE2B54" />
+                                    <path d="M28.0001 12L12 28.0001" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                    <path d="M28 28.0001L12 12" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
                                 <p>
-                                    Como reduzir faltas e desistências antes da consulta
+                                    Você continua dependendo de salário, de cliente ou de outra pessoa para pagar suas
+                                    contas.
                                 </p>
-
                             </li>
 
-                            <li class="blur-left">
-                                <span>
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
-                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </span>
+                            <div class="line"></div>
 
+                            <li>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#FE2B54" />
+                                    <path d="M28.0001 12L12 28.0001" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                    <path d="M28 28.0001L12 12" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
                                 <p>
-                                    Como atrair pacientes mais qualificados e particulares
+                                    Você fica mais um mês sem dar o primeiro passo e a sensação de "podia ter começado
+                                    antes" só aumenta.
                                 </p>
-
                             </li>
 
-                            <li class="blur-left">
-                                <span>
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M6.65686 1L12.3137 6.65685M12.3137 6.65685L6.65686 12.3137M12.3137 6.65685L1.00001 6.65685"
-                                            stroke="#D9DEFF" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </span>
+                        </ul>
+
+                        <ul class="correto">
+                            <h2>
+                                <span class="azul">Com</span> o método Rica com TikTok Shop…
+                            </h2>
+
+                            <li>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#24F5EF" />
+                                    <path
+                                        d="M28 14.5L17.8278 24.8431C17.4628 25.2143 16.8741 25.2433 16.4743 24.9099L11 20.3438"
+                                        stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" />
+                                </svg>
 
                                 <p>
-                                    Como sustentar consultas com maior valor sem gerar resistência
+                                    Você começa a receber PIX de comissões toda semana usando o TikTok que você já abria
+                                    por hábito.
                                 </p>
+                            </li>
 
+                            <div class="line"></div>
+
+                            <li>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#24F5EF" />
+                                    <path
+                                        d="M28 14.5L17.8278 24.8431C17.4628 25.2143 16.8741 25.2433 16.4743 24.9099L11 20.3438"
+                                        stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+
+                                <p>
+                                    Você entende que não precisa aparecer, não precisa de milhões de seguidores e não
+                                    precisa de estoque para vender.
+                                </p>
+                            </li>
+
+                            <div class="line"></div>
+
+                            <li>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#24F5EF" />
+                                    <path
+                                        d="M28 14.5L17.8278 24.8431C17.4628 25.2143 16.8741 25.2433 16.4743 24.9099L11 20.3438"
+                                        stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+
+                                <p>
+                                    Você entra cedo nesse mercado e aproveita a oportunidade antes que fique saturado.
+                                </p>
+                            </li>
+
+                            <div class="line"></div>
+
+                            <li>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#24F5EF" />
+                                    <path
+                                        d="M28 14.5L17.8278 24.8431C17.4628 25.2143 16.8741 25.2433 16.4743 24.9099L11 20.3438"
+                                        stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+
+                                <p>
+                                    Você constrói sua própria fonte de renda e passa a tomar decisões sem depender de
+                                    ninguém.
+                                </p>
+                            </li>
+
+                            <div class="line"></div>
+
+                            <li>
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="5" fill="#24F5EF" />
+                                    <path
+                                        d="M28 14.5L17.8278 24.8431C17.4628 25.2143 16.8741 25.2433 16.4743 24.9099L11 20.3438"
+                                        stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+
+                                <p>
+                                    Você dá o primeiro passo hoje e em até 7 dias já pode estar faturando seus primeiros
+                                    R$2k
+                                </p>
                             </li>
 
                         </ul>
 
                     </div>
-                    <p class="p-uni2 blur-up">
-                        O protocolo que transforma atendimentos comuns em um sistema estratégico de conversão está
-                        ao seu alcance e por muito menos do que você imagina.
-                    </p>
-                    <a href="#valor" class="bottom v-white link blur-up">
-                        Quero vender todos os dias
-                        <span>
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1H17M17 1V17M17 1L1 17" stroke="#2641EA" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </a>
-                </div>
-
-            </div>
-            <div class="separation-section">
-                <svg width="1920" height="100" viewBox="0 0 1920 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M1920 0L1920.22 38H1600.22C1503 38 1502 99.9248 1403.5 99.9248H520.5C423 99.9248 423.5 38 326.22 38H0.219577L0 0H1920Z"
-                        fill="#2641EA" />
-                </svg>
-            </div>
-            <div class="secao-4">
-                <div class="content">
-                    <h2 class="blur-up">
-                        E o melhor de tudo?
-                    </h2>
-                    <ul>
-                        <li class="blur-right">
-                            <img src="images/check-icon.webp" alt="">
-                            <p>
-                                Sem precisar virar vendedor
-                            </p>
-                        </li>
-                        <li class="blur-down">
-                            <img src="images/check-icon.webp" alt="">
-                            <p>
-                                Sem scripts forçados ou técnicas agressivas
-                            </p>
-                        </li>
-
-                        <li class="blur-left">
-                            <img src="images/check-icon.webp" alt="">
-                            <p>
-                                Sem ferir a ética profissional
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-            <div class="secao-5">
-                <div class="content">
-                    <div class="comparation">
-                        <div class="errado blur-right">
-                            <h3>Sem o Protocolo de Conversão para Consultórios…</h3>
-                            <ul>
-
-                                <li>
-                                    <span>
-                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M14.1305 1.52026L1.47943 14.5203M14.1305 1.52026L1.47943 14.5203"
-                                                stroke="#5C5C5C" stroke-width="3" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M1.83078 1.52034L14.4794 14.5178" stroke="#5C5C5C" stroke-width="3"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                    <p>Sua secretária responde preço de forma direta e você perde pacientes todos os
-                                        dias sem nem perceber.</p>
-                                </li>
-                                <div class="separation"></div>
-                                <li>
-                                    <span>
-                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M14.1305 1.52026L1.47943 14.5203M14.1305 1.52026L1.47943 14.5203"
-                                                stroke="#5C5C5C" stroke-width="3" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M1.83078 1.52034L14.4794 14.5178" stroke="#5C5C5C" stroke-width="3"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                    <p>Você é constantemente comparado com outros médicos e acaba entrando em guerra de
-                                        preços.</p>
-                                </li>
-                                <div class="separation"></div>
-                                <li>
-                                    <span>
-                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M14.1305 1.52026L1.47943 14.5203M14.1305 1.52026L1.47943 14.5203"
-                                                stroke="#5C5C5C" stroke-width="3" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M1.83078 1.52034L14.4794 14.5178" stroke="#5C5C5C" stroke-width="3"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                    <p>Sua agenda depende de volume, convênios ou descontos para se manter cheia.</p>
-                                </li>
-                                <div class="separation"></div>
-                                <li>
-                                    <span>
-                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M14.1305 1.52026L1.47943 14.5203M14.1305 1.52026L1.47943 14.5203"
-                                                stroke="#5C5C5C" stroke-width="3" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M1.83078 1.52034L14.4794 14.5178" stroke="#5C5C5C" stroke-width="3"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                    <p>Você sente que entrega excelência na consulta, mas o paciente não enxerga esse
-                                        valor antes de decidir.</p>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="certo blur-left">
-                            <h3>Com o Protocolo de Conversão para Consultórios…</h3>
-                            <ul>
-
-                                <li>
-                                    <img src="images/certo.webp" alt="">
-                                    <p>Sua secretária segue uma estrutura estratégica que constrói valor antes de falar
-                                        preço, aumentando seus agendamentos.</p>
-                                </li>
-                                <div class="separation"></div>
-                                <li>
-                                    <img src="images/certo.webp" alt="">
-                                    <p>Você deixa de ser comparado por valor e passa a ser percebido como referência.
-                                    </p>
-                                </li>
-                                <div class="separation"></div>
-                                <li>
-                                    <img src="images/certo.webp" alt="">
-                                    <p>Sua agenda se mantém previsível com pacientes particulares e mais qualificados.
-                                    </p>
-                                </li>
-                                <div class="separation"></div>
-                                <li>
-                                    <img src="images/certo.webp" alt="">
-                                    <p>O paciente percebe o valor da sua consulta antes mesmo de perguntar quanto custa.
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     <a href="#valor" class="bottom link blur-up">
                         Quero vender todos os dias
-                        <span>
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1H17M17 1V17M17 1L1 17" stroke="#2641EA" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                        <span class="icon-badge">
+                            <span class="icon icon-dollar">
+                                <svg width="10" height="16" viewBox="0 0 10 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.10672 15.5V0H5.04998V15.5H4.10672ZM6.82725 4.95879C6.77356 4.43002 6.54733 4.0183 6.14857 3.72364C5.75361 3.42897 5.23977 3.28164 4.60708 3.28164C4.16232 3.28164 3.78078 3.35228 3.46251 3.49356C3.14426 3.63483 2.90077 3.82656 2.73205 4.06875C2.56333 4.31093 2.47706 4.58744 2.47322 4.89826C2.47322 5.15657 2.52882 5.3806 2.64002 5.57033C2.75506 5.76001 2.91035 5.92147 3.10591 6.05468C3.30147 6.18387 3.51811 6.29282 3.75585 6.38165C3.99359 6.47044 4.23326 6.54512 4.47479 6.60569L5.57913 6.89631C6.02393 7.00526 6.45148 7.15261 6.86175 7.33829C7.2759 7.52396 7.64591 7.75806 7.97183 8.04062C8.3016 8.32318 8.56233 8.66427 8.75405 9.06388C8.94578 9.46348 9.04167 9.93172 9.04167 10.4686C9.04167 11.1951 8.86525 11.8349 8.51248 12.3879C8.15971 12.9369 7.64976 13.3667 6.98254 13.6776C6.3192 13.9843 5.51588 14.1377 4.57258 14.1377C3.65615 14.1377 2.8605 13.9883 2.18564 13.6897C1.51461 13.391 0.989291 12.955 0.60968 12.3818C0.233902 11.8087 0.0306757 11.1103 0 10.2869H2.09936C2.13004 10.7188 2.25658 11.0781 2.47897 11.3646C2.70138 11.6513 2.99088 11.8652 3.34748 12.0065C3.70792 12.1477 4.11053 12.2184 4.55533 12.2184C5.01929 12.2184 5.42575 12.1457 5.7747 12.0004C6.12747 11.851 6.40354 11.6452 6.60292 11.3828C6.80231 11.1164 6.90394 10.8056 6.90779 10.4504C6.90394 10.1275 6.81385 9.86109 6.63746 9.65116C6.46104 9.43723 6.21372 9.25965 5.89549 9.11835C5.58103 8.97304 5.21296 8.84389 4.79116 8.73085L3.45101 8.3676C2.48089 8.1052 1.714 7.70763 1.15033 7.17482C0.590507 6.63796 0.310591 5.92552 0.310591 5.03752C0.310591 4.30692 0.498481 3.66713 0.874257 3.11817C1.25387 2.56921 1.7696 2.14336 2.42146 1.84063C3.07332 1.53386 3.81145 1.38047 4.63587 1.38047C5.47178 1.38047 6.20416 1.53386 6.833 1.84063C7.46568 2.14336 7.96224 2.56517 8.3227 3.10606C8.68311 3.64291 8.86909 4.26049 8.88059 4.95879H6.82725Z"
+                                        fill="white" />
+                                </svg>
+                            </span>
+                            <span class="icon icon-arrow">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 9L9 1M9 1V9M9 1L1 1" stroke="white" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
                         </span>
                     </a>
                 </div>
             </div>
-            <div class="secao-6"> <!--BÔNUS-->>
-                <div class="content">
-                    <h2 class="blur-up">
-                        Hoje você vai receber
-                        <span>
-                            alguns presentes:
-                        </span>
-                    </h2>
 
-                    <div class="bonus blur-up">
-
-                        <div class="content-bonus">
-                            <div class="tag">
-                                <img src="images/bonus.webp" alt="">
-                                <p>
-                                    Bônus exclusivo 1
-                                </p>
-                            </div>
-                            <h3>
-                                Roteiro Validado de Ligações para Agendamentos
-                            </h3>
-                            <p>
-                                Script pronto para a secretária agendar com segurança, com uma estrutura clara que
-                                conduz a conversa naturalmente até o “sim”. Com frases estratégicas para reduzir a
-                                indecisão do paciente e um modelo adaptável para qualquer especialidade, pronto para
-                                aplicar na rotina.
-                            </p>
-                            <p class="preco">De <span>R$297</span> você leva de graça!</p>
-                        </div>
-                        <img src="images/bonus1.webp" alt="">
-                    </div>
-
-                    <div class="bonus v2 blur-up">
-
-                        <div class="content-bonus">
-                            <div class="tag">
-                                <img src="images/bonus.webp" alt="">
-                                <p>
-                                    Bônus exclusivo 2
-                                </p>
-                            </div>
-                            <h3>
-                                Método de Recuperação de Cancelamentos
-                            </h3>
-                            <p>
-                                Mensagens prontas para reagendar sem gerar fricção, com uma abordagem estratégica que
-                                reduz cancelamentos e protege sua agenda. Com script para recuperar pacientes indecisos
-                                e uma estrutura clara para manter os horários preenchidos com mais segurança.
-                            </p>
-                            <p class="preco">De <span>R$247</span> você leva de graça!</p>
-                        </div>
-                        <img src="images/bonus2.webp" alt="">
-                    </div>
-
-                    <div class="bonus blur-up">
-
-                        <div class="content-bonus">
-                            <div class="tag">
-                                <img src="images/bonus.webp" alt="">
-                                <p>
-                                    Bônus exclusivo 3
-                                </p>
-                            </div>
-                            <h3>
-                                Sistema de Reativação de Pacientes Inativos
-                            </h3>
-                            <p>
-                                Modelo de contato para reativar pacientes antigos com mensagens que despertam urgência e
-                                incentivam o retorno. Traz uma estratégia prática para gerar novos agendamentos rápidos
-                                e um fluxo simples para aplicar todos os meses.
-                            </p>
-                            <p class="preco">De <span>R$397</span> você leva de graça!</p>
-                        </div>
-                        <img src="images/bonus3.webp" alt="">
-                    </div>
-
-                    <div class="bonus v2 blur-up">
-
-                        <div class="content-bonus">
-                            <div class="tag">
-                                <img src="images/bonus.webp" alt="">
-                                <p>
-                                    Bônus exclusivo 4
-                                </p>
-                            </div>
-                            <h3>
-                                Protocolo Vendendo Tratamento Complementares
-                            </h3>
-                            <p>
-                                Estrutura prática para oferecer tratamentos complementares e apresentar serviços premium
-                                de forma estratégica e ética. Inclui uma abordagem para ampliar planos e retornos,
-                                aumentando o faturamento sem precisar aumentar a agenda.
-                            </p>
-                            <p class="preco">De <span>R$447</span> você leva de graça!</p>
-                        </div>
-                        <img src="images/bonus4.webp" alt="">
-                    </div>
-
-                </div>
-            </div>
-            <div class="separation-section">
-                <svg width="1920" height="137" viewBox="0 0 1920 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M1920 74C1920 74.5 1920 74.5 1920 74.5H1600C1550.64 74.5 1525.99 89.9403 1501.45 105.423C1476.87 120.938 1452.39 136.5 1403.5 136.5H520.5C472.105 136.5 447.881 120.937 423.544 105.422C399.259 89.9394 374.857 74.5 326 74.5H0.00292969C0.00119285 74.5 0 74.5 0 74V74.5H-0.5V0.5H1920.5V74.5H1920V74Z"
-                        fill="url(#paint0_linear_2101_110)" stroke="url(#paint1_linear_2101_110)" />
-                    <defs>
-                        <linearGradient id="paint0_linear_2101_110" x1="960" y1="136" x2="960" y2="1"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" />
-                            <stop offset="1" stop-color="#EEEEEE" />
-                        </linearGradient>
-                        <linearGradient id="paint1_linear_2101_110" x1="910.847" y1="1" x2="910.847" y2="138.116"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EEEEEE" />
-                            <stop offset="1" stop-color="white" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-            <div class="secao-7">
-                <div class="content">
-                    <h2 class="blur-up">
-                        Somando, tudo isso custaria
-                        <span>R$1.438</span>
-                    </h2>
-                    <p class="blur-up">
-                        Mas hoje, você não vai pagar esse valor
-                    </p>
-                </div>
-            </div>
-            <div class="separation-section">
-                <svg width="1920" height="137" viewBox="0 0 1920 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M1920 63C1920 62.5 1920 62.5 1920 62.5H1600C1550.64 62.5 1525.99 47.0597 1501.45 31.5771C1476.87 16.0617 1452.39 0.5 1403.5 0.5H520.5C472.105 0.5 447.881 16.0627 423.544 31.5781C399.259 47.0606 374.857 62.5 326 62.5H0.00292969C0.00119285 62.5 0 62.5 0 63V62.5H-0.5V136.5H1920.5V62.5H1920V63Z"
-                        fill="url(#paint0_linear_2034_170)" stroke="url(#paint1_linear_2034_170)" />
-                    <defs>
-                        <linearGradient id="paint0_linear_2034_170" x1="960" y1="0.999992" x2="960" y2="136"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="white" />
-                            <stop offset="1" stop-color="#EEEEEE" />
-                        </linearGradient>
-                        <linearGradient id="paint1_linear_2034_170" x1="910.847" y1="136" x2="910.847" y2="-1.1161"
-                            gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EEEEEE" />
-                            <stop offset="1" stop-color="white" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-            <div class="secao-8" id="valor">
-                <div class="content">
-                    <h2 class="blur-up">
-                        Super oferta com <span>bônus exclusivos</span>
-                    </h2>
-
-                    <ul>
-
-                        <li class="blur-left">
-                            <img src="images/certo.webp" alt="">
-                            <p>
-                                Protocolo de Conversão para Consultórios
-                            </p>
-                        </li>
-                        <div class="separation blur-left"></div>
-                        <li class="blur-left">
-                            <img src="images/certo.webp" alt="">
-                            <p>
-                                Acesso vitalício com atualizações
-                            </p>
-                        </li>
-                        <div class="separation blur-left"></div>
-                        <li class="blur-left">
-                            <img src="images/certo.webp" alt="">
-                            <p>
-                                Roteiro Validado de Ligações para Agendamentos
-                            </p>
-                        </li>
-                        <div class="separation blur-left"></div>
-                        <li class="blur-left">
-                            <img src="images/certo.webp" alt="">
-                            <p>
-                                Método de Recuperação de Cancelamentos
-                            </p>
-                        </li>
-                        <div class="separation blur-left"></div>
-                        <li class="blur-left">
-                            <img src="images/certo.webp" alt="">
-                            <p>
-                                Sistema de Reativação de Pacientes Inativos
-                            </p>
-                        </li>
-                        <div class="separation blur-left"></div>
-                        <li class="blur-left">
-                            <img src="images/certo.webp" alt="">
-                            <p>
-                                Protocolo Vendendo Tratamento Complementares
-                            </p>
-                        </li>
-                    </ul>
-
-                    <p class="pitch blur-up">
-                        você vai investir hoje apenas...
-                    </p>
-                    <p class="preco blur-up">
-                        R$47,00
-                    </p>
-                    <a href="https://pay.kiwify.com.br/xxAzMbz" class="bottom blur-up">
-                        Quero vender todos os dias
-                        <span>
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1H17M17 1V17M17 1L1 17" stroke="#2641EA" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </a>
-
-
-                    <img class="selo blur-up" src="images/selo.webp" alt="">
-                    <p class="garantia blur-up">
-                        <span>Risco ZERO. </span> Se você não gostar do Protocolo de Conversão Para Consultórios, basta
-                        pedir o seu dinheiro de volta.
-                    </p>
-                </div>
-            </div>
             <div class="secao-9"> <!--SOBRE-->
                 <div class="content">
                     <div class="content-sobre blur-left">
@@ -1893,6 +745,7 @@
 
                 </div>
             </div>
+
             <div class="rodape"> <!--RODAPÉ-->
                 <p>
                     X Performance - Todos os direitos reservados
