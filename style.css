@@ -590,7 +590,9 @@ p span {
     overflow: hidden;
     padding: 50px 0px;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .secao-1 .fundo1 {
@@ -601,6 +603,7 @@ p span {
     left: 0;
     object-fit: cover;
     z-index: 0;
+    content: url(images/SECAO-1-M.png);
 }
 
 .secao-1::after {
@@ -628,6 +631,7 @@ p span {
 .secao-1 .content {
     position: relative;
     z-index: 2;
+    flex-direction: column;
 }
 
 .secao-1 .content .content-secao1 img {
@@ -666,9 +670,10 @@ p span {
     width: 90%;
     max-width: 470px;
     height: fit-content;
-    position: absolute;
-    left: 6%;
-    bottom: -60%;
+    position: static;
+    left: 0;
+    top: 0;
+    bottom: 0;
     z-index: 0;
 
 }
