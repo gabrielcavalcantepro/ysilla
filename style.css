@@ -3538,6 +3538,8 @@ p span {
 
 .secao-12 .content .valor .parte-1 h2 {
     text-align: center;
+    font-size: 25px;
+    line-height: 30px;
 }
 
 .secao-12 .content .valor .parte-1 ul {
