@@ -104,6 +104,29 @@ ScrollTrigger.create({
 });
 
 
+// SOMA DE VALORES
+document.addEventListener("DOMContentLoaded", function () {
+
+    const span = document.querySelector(".secao-11 .content h4 span");
+
+    let counter = { value: 500 };
+
+    gsap.to(counter, {
+        value: 1135,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".secao-7",
+            start: "top 80%", 
+            toggleActions: "play none none none"
+        },
+        onUpdate: function () {
+            span.textContent = "R$" + Math.floor(counter.value).toLocaleString("pt-BR");
+        }
+    });
+
+});
+
 
 
 

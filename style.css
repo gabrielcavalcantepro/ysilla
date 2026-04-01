@@ -1073,7 +1073,7 @@ p span {
     left: 0;
     object-fit: cover;
     z-index: 0;
-    content: url(images/SECAO-1-M.png);
+    content: url(images/SECAO-1-M.webp);
 }
 
 .secao-1::after {
@@ -1234,7 +1234,7 @@ p span {
         left: 0;
         object-fit: cover;
         z-index: 0;
-        content: url(images/SECAO-1-T.png);
+        content: url(images/SECAO-1-T.webp);
     }
 
     .secao-1 .content {
@@ -1292,7 +1292,7 @@ p span {
         left: 0;
         object-fit: cover;
         z-index: 0;
-        content: url(images/SEÇÃO\ 1.png);
+        content: url(images/SEÇÃO\ 1.webp);
     }
 
     .secao-1 .content {
@@ -3112,23 +3112,23 @@ p span {
 }
 
 .secao-10 .content .grid ul li.bonus1 {
-    background-image: url(images/BONUS-1-m.png);
+    background-image: url(images/BONUS-1-m.webp);
 }
 
 .secao-10 .content .grid ul li.bonus2 {
-    background-image: url(images/BONUS-2-m.png);
+    background-image: url(images/BONUS-2-m.webp);
 }
 
 .secao-10 .content .grid ul li.bonus3 {
-    background-image: url(images/BONUS-3-m.png);
+    background-image: url(images/BONUS-3-m.webp);
 }
 
 .secao-10 .content .grid ul li.bonus4 {
-    background-image: url(images/BONUS-4-m.png);
+    background-image: url(images/BONUS-4-m.webp);
 }
 
 .secao-10 .content .grid ul li.bonus5 {
-    background-image: url(images/BONUS-5-m.png);
+    background-image: url(images/BONUS-5-m.webp);
 }
 
 .secao-10 .content ul li::after {
@@ -3328,23 +3328,23 @@ p span {
     }
 
     .secao-10 .content .grid ul li.bonus1 {
-        background-image: url(images/BONUS-1.png);
+        background-image: url(images/BONUS-1.webp);
     }
 
     .secao-10 .content .grid ul li.bonus2 {
-        background-image: url(images/BONUS-2.png);
+        background-image: url(images/BONUS-2.webp);
     }
 
     .secao-10 .content .grid ul li.bonus3 {
-        background-image: url(images/BONUS-3.png);
+        background-image: url(images/BONUS-3.webp);
     }
 
     .secao-10 .content .grid ul li.bonus4 {
-        background-image: url(images/BONUS-4.png);
+        background-image: url(images/BONUS-4.webp);
     }
 
     .secao-10 .content .grid ul li.bonus5 {
-        background-image: url(images/BONUS-5.png);
+        background-image: url(images/BONUS-5.webp);
     }
 
     .secao-10 .content ul li::after {
