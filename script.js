@@ -107,5 +107,144 @@ ScrollTrigger.create({
 
 
 
+// CARROSSEL SEÇÃO 1
 
 
+(function () {
+    const ul = document.querySelector('.secao-5 .carrossel ul');
+    const btnEsquerda = document.querySelector('.secao-5 .seta:first-child');
+    const btnDireita  = document.querySelector('.secao-5 .seta:last-child');
+
+    const itemWidth  = 250; // largura do card
+    const itemGap    = 20;  // gap entre cards
+    const passo      = itemWidth + itemGap; // 270px por clique
+
+    let posicaoAtual = 0;
+
+    function getMaxScroll() {
+        const totalItens      = ul.children.length;
+        const larguraVisivel  = ul.parentElement.offsetWidth;
+        const larguraTotal    = totalItens * passo - itemGap;
+        return Math.max(0, larguraTotal - larguraVisivel);
+    }
+
+    function atualizar() {
+        ul.style.transform = `translateX(-${posicaoAtual}px)`;
+    }
+
+    btnDireita.addEventListener('click', () => {
+        const max = getMaxScroll();
+        posicaoAtual = Math.min(posicaoAtual + passo, max);
+        atualizar();
+    });
+
+    btnEsquerda.addEventListener('click', () => {
+        posicaoAtual = Math.max(posicaoAtual - passo, 0);
+        atualizar();
+    });
+})();
+
+
+
+
+
+// CARROSSEL SEÇÃO 8
+
+(function () {
+    const trilho = document.querySelector('.secao-8 .depoimentos');
+    const ul = trilho.querySelector('ul');
+
+    // 1. Duplica os itens para criar o loop infinito
+    const itensOriginais = Array.from(ul.children);
+    itensOriginais.forEach(item => {
+        ul.appendChild(item.cloneNode(true));
+    });
+
+    const GAP = 20;
+    const totalOriginais = itensOriginais.length;
+
+    function getLarguraItem() {
+        return itensOriginais[0].offsetWidth + GAP;
+    }
+
+    function getLarguraBloco() {
+        return getLarguraItem() * totalOriginais;
+    }
+
+    let posicao = 0;
+    let velocidade = 0.5; // px por frame — ajuste para mais rápido/lento
+    let animando = true;
+    let rafId = null;
+    let timerRetorno = null;
+
+    // Drag state
+    let arrastando = false;
+    let inicioX = 0;
+    let posicaoAoIniciar = 0;
+
+    function loop() {
+        if (animando) {
+            posicao += velocidade;
+        }
+
+        // Loop infinito: quando passa o bloco original, volta ao início
+        const bloco = getLarguraBloco();
+        if (posicao >= bloco) {
+            posicao -= bloco;
+        } else if (posicao < 0) {
+            posicao += bloco;
+        }
+
+        ul.style.transform = `translateX(-${posicao}px)`;
+        rafId = requestAnimationFrame(loop);
+    }
+
+    function pausar() {
+        animando = false;
+        clearTimeout(timerRetorno);
+        timerRetorno = setTimeout(() => {
+            animando = true;
+        }, 2000); // retoma após 2s sem interação
+    }
+
+    // ── Mouse ──
+    trilho.addEventListener('mousedown', (e) => {
+        arrastando = true;
+        inicioX = e.clientX;
+        posicaoAoIniciar = posicao;
+        trilho.classList.add('arrastando');
+        pausar();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!arrastando) return;
+        const delta = inicioX - e.clientX;
+        posicao = posicaoAoIniciar + delta;
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (!arrastando) return;
+        arrastando = false;
+        trilho.classList.remove('arrastando');
+        pausar(); // reinicia o timer de retorno
+    });
+
+    // ── Touch ──
+    trilho.addEventListener('touchstart', (e) => {
+        inicioX = e.touches[0].clientX;
+        posicaoAoIniciar = posicao;
+        pausar();
+    }, { passive: true });
+
+    trilho.addEventListener('touchmove', (e) => {
+        const delta = inicioX - e.touches[0].clientX;
+        posicao = posicaoAoIniciar + delta;
+    }, { passive: true });
+
+    trilho.addEventListener('touchend', () => {
+        pausar();
+    });
+
+    // Inicia o loop
+    rafId = requestAnimationFrame(loop);
+})();
