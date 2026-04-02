@@ -13,6 +13,7 @@ html {
 body {
     background-color: #eeeeee;
     color: #D9D9D9;
+    overflow: auto;
 }
 
 .reveal {
@@ -2564,9 +2565,22 @@ p span {
     max-width: 384px;
 }
 
+.secao-8 .depoimentos ul li .perfil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .secao-8 .depoimentos ul li .perfil p {
     color: #ffffff;
     font-weight: 400;
+    margin-left: 15px;
+}
+
+.secao-8 .depoimentos ul li .perfil p span {
+    font-weight: 300;
+    margin-left: 5px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -2814,7 +2828,7 @@ p span {
     background-size: 100%;
     background-position: top center;
     background-repeat: no-repeat;
-    transition: background-size 0.5s ease;
+    transition: all 0.5s ease !important;
 
 }
 
@@ -3031,7 +3045,7 @@ p span {
         border: solid 1px #3D3D3D;
         background-size: 100%;
         background-position: top center;
-        transition: background-size 0.5s ease;
+        transition: all 0.5s ease;
 
     }
 
@@ -3050,6 +3064,7 @@ p span {
 
     .secao-10 .content .grid ul li.bonus1 {
         background-image: url(images/BONUS-1.webp);
+        
     }
 
     .secao-10 .content .grid ul li.bonus2 {
