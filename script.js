@@ -6,12 +6,6 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 // para evitar recálculos de layout
 // ==============================
 
-const smoother = ScrollSmoother.create({
-  smooth: 1,
-  effects: true,
-  smoothTouch: 0.1
-});
-
 
 // ==============================
 // SCROLL SUAVE — LINKS
