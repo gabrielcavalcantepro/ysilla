@@ -79,19 +79,19 @@ document.querySelectorAll('.bottom').forEach(btn => {
 // ANIMAÇÃO DE PALAVRAS — SEÇÃO 4
 // ==============================
 
-// Usa textContent em vez de innerText para evitar reflow
 const h2 = document.querySelector('.secao-4 .content h2');
 const palavras = h2.textContent.trim().split(/\s+/);
 h2.innerHTML = palavras.map(p => `<span class="palavra">${p}</span>`).join(' ');
 const spans = document.querySelectorAll('.secao-4 .content h2 .palavra');
 const total = spans.length;
 
+// Agora o trigger é o WRAPPER (que tem 300vh)
+// O sticky cuida do "grudar", o GSAP só lê o progresso do scroll
 ScrollTrigger.create({
-  trigger: '.secao-4',
+  trigger: '.secao-4-wrapper',
   start: 'top top',
-  end: '+=200%',
-  pin: true,
-  scrub: true,
+  end: 'bottom bottom',
+  scrub: 1,
   onUpdate: (self) => {
     const palavrasAtivas = Math.round(self.progress * total);
     spans.forEach((span, i) => {
@@ -105,8 +105,6 @@ ScrollTrigger.create({
 // CONTADOR — SEÇÃO 11
 // ==============================
 
-// DOMContentLoaded é desnecessário aqui pois o script já roda após o DOM estar pronto
-// (coloque seu <script> antes do </body> ou use defer no atributo da tag)
 const span = document.querySelector(".secao-11 .content h4 span");
 
 if (span) {
@@ -117,8 +115,8 @@ if (span) {
     duration: 1,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: ".secao-7",
-      start: "top 80%",
+      trigger: ".secao-11",  // ← trigger correto
+      start: "top 80%",      // dispara quando a seção entra 80% da tela
       toggleActions: "play none none none"
     },
     onUpdate: function () {

@@ -1143,7 +1143,7 @@ p span {
     width: 90%;
     max-width: 470px;
     height: fit-content;
-    margin-top: 15em;
+    margin-top: 4em;
     left: 0;
     top: 0;
     bottom: 0;
@@ -1174,6 +1174,7 @@ p span {
     font-weight: 300;
     font-size: 11px;
     scale: 0.7;
+    animation: float 2.3s ease-in infinite;
 }
 
 .secao-1 .elements .laterais ul .curtida {
@@ -1218,6 +1219,12 @@ p span {
     font-family: 'Inter';
     font-weight: 300;
     font-size: 12px;
+    line-height: 10px;
+    animation: float 4s ease-in infinite;
+}
+
+.secao-1 .elements .baixo .perfil img {
+    animation: float 4.1s ease-in infinite;
 }
 
 .secao-1 .elements .baixo .tags {
@@ -1225,12 +1232,33 @@ p span {
     font-family: 'Inter';
     font-weight: 200;
     font-size: 12px;
+    animation: float 4s ease-in infinite;
+}
+
+.secao-1 .elements .laterais ul li.coracao {
+    animation-delay: 0.1s;
+}
+
+.secao-1 .elements .laterais ul li.comentario {
+    animation-delay: 0.2s;
+}
+
+.secao-1 .elements .laterais ul li.salvar {
+    animation-delay: 0.3s;
+}
+
+.secao-1 .elements .laterais ul li.compartilhar {
+    animation-delay: 0.4s;
 }
 
 
 @media (min-width: 768px) {
+    .secao-1{
+        height: 115vh;
+    }
+
     .secao-1 .fundo1 {
-        height: 105vh;
+        height: 115vh;
         width: 100%;
         position: absolute;
         top: 0;
@@ -1271,7 +1299,7 @@ p span {
 
     .secao-1 .elements {
         width: 400px;
-        margin-top: 21em;
+        margin-top: 5em;
     }
 
 
@@ -1331,7 +1359,7 @@ p span {
         position: absolute;
         width: 400px;
         margin-top: 0;
-        top: 70%;
+        top: 53%;
         left: 61%;
     }
 
@@ -1346,7 +1374,7 @@ p span {
 
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1180px) {
 
 
     .secao-1 .content .content-secao1 {
@@ -1474,8 +1502,9 @@ p span {
         height: fit-content;
         position: absolute;
         left: 55%;
-        bottom: -49%;
+        bottom: 0;
         z-index: 2;
+        top: 47%;
 
     }
 
@@ -1547,6 +1576,7 @@ p span {
         font-family: 'Inter';
         font-weight: 300;
         font-size: 12px;
+        line-height: 10px;
     }
 
     .secao-1 .elements .baixo .tags {
@@ -1619,38 +1649,6 @@ p span {
     text-align: center;
 }
 
-.secao-2 .tiktok {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    top: -1%;
-    left: 0;
-    width: 30em;
-    transition: all 1s ease;
-    opacity: 0.4;
-}
-
-
-.secao-2 .content .content-secao2:hover .tiktok {
-    scale: 1.2;
-    transition: all 1s ease;
-    transform: rotate(5deg);
-}
-
-
-
-
-@property --x {
-    syntax: '<percentage>';
-    inherits: false;
-    initial-value: 20%;
-}
-
-@property --y {
-    syntax: '<percentage>';
-    inherits: false;
-    initial-value: 50%;
-}
 
 .secao-2 .fundo2 {
     position: absolute;
@@ -1659,36 +1657,8 @@ p span {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.1;
 
-    mask-image: radial-gradient(ellipse 30% 50% at var(--x) var(--y),
-            black 0%,
-            transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 30% 50% at var(--x) var(--y),
-            black 0%,
-            transparent 100%);
-
-    animation: reflexo 5s ease-in-out infinite;
 }
-
-@keyframes reflexo {
-    0% {
-        --x: 20%;
-        --y: 50%;
-    }
-
-    50% {
-        --x: 90%;
-        --y: 80%;
-    }
-
-    100% {
-        --x: 20%;
-        --y: 50%;
-    }
-}
-
-
 @media (min-width: 768px) {
 
     .secao-2 .content h2 {
@@ -1785,37 +1755,6 @@ p span {
         text-align: center;
     }
 
-    .secao-2 .tiktok {
-        position: absolute;
-        z-index: 1;
-        top: -1%;
-        left: 0;
-        width: 30em;
-        transition: all 1s ease;
-        opacity: 0.4;
-    }
-
-
-    .secao-2 .content .content-secao2:hover .tiktok {
-        scale: 1.2;
-        transition: all 1s ease;
-        transform: rotate(5deg);
-    }
-
-
-
-
-    @property --x {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 20%;
-    }
-
-    @property --y {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 50%;
-    }
 
     .secao-2 .fundo2 {
         position: absolute;
@@ -1824,33 +1763,6 @@ p span {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0.1;
-
-        mask-image: radial-gradient(ellipse 30% 50% at var(--x) var(--y),
-                black 0%,
-                transparent 100%);
-        -webkit-mask-image: radial-gradient(ellipse 30% 50% at var(--x) var(--y),
-                black 0%,
-                transparent 100%);
-
-        animation: reflexo 5s ease-in-out infinite;
-    }
-
-    @keyframes reflexo {
-        0% {
-            --x: 20%;
-            --y: 50%;
-        }
-
-        50% {
-            --x: 90%;
-            --y: 80%;
-        }
-
-        100% {
-            --x: 20%;
-            --y: 50%;
-        }
     }
 }
 
@@ -2003,13 +1915,13 @@ p span {
 /*------ SEÇÃO 4 ------*/
 
 .secao-4-wrapper {
-    height: 100vh;
-    /* altura extra para capturar o scroll */
     position: relative;
-    background-color: transparent;
+    height: 300vh; /* espaço para o scroll acontecer */
 }
 
 .secao-4 {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 100vh;
     padding: 40px 0px;
@@ -2031,10 +1943,8 @@ p span {
     max-width: 931px;
     text-align: left;
     color: #0E7875;
-    /* cor original */
 }
 
-/* Cada palavra vira um span */
 .secao-4 .content h2 .palavra {
     display: inline;
     color: #0E7875;
@@ -2045,9 +1955,7 @@ p span {
     color: #ffffff;
 }
 
-
 @media (min-width: 768px) {
-
     .secao-4 .content h2 {
         font-size: 30px;
         line-height: 45px;
@@ -2055,46 +1963,11 @@ p span {
 }
 
 @media (min-width: 1440px) {
-
-    .secao-4-wrapper {
-        height: 300vh;
-        /* altura extra para capturar o scroll */
-        position: relative;
-    }
-
-    .secao-4 {
-        width: 100%;
-        height: 100vh;
-        padding: 40px 0px;
-        background: linear-gradient(75deg, #0F9D99 50%, #24F5EF 130%);
-    }
-
-    .secao-4 .content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-
     .secao-4 .content h2 {
-        font-family: 'Krub';
         font-size: 50px;
         line-height: 65px;
         width: 931px;
         text-align: center;
-        color: #0E7875;
-        /* cor original */
-    }
-
-    /* Cada palavra vira um span */
-    .secao-4 .content h2 .palavra {
-        display: inline;
-        color: #0E7875;
-        transition: color 0.1s ease;
-    }
-
-    .secao-4 .content h2 .palavra.ativa {
-        color: #ffffff;
     }
 }
 
@@ -2424,100 +2297,19 @@ p span {
 }
 
 .secao-7 .fundo7 {
-    display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     object-fit: cover;
-    opacity: 0.1;
-
-    mask-image: radial-gradient(ellipse 30% 50% at var(--x) var(--y),
-            black 0%,
-            transparent 100%);
-
-    -webkit-mask-image: radial-gradient(ellipse 30% 50% at var(--x) var(--y),
-            black 0%,
-            transparent 100%);
-
-    animation: reflexo2 3s ease-in-out infinite;
+    z-index: 0;
 }
-
-@keyframes reflexo2 {
-    0% {
-        --x: 20%;
-        --y: 40%;
-    }
-
-    50% {
-        --x: 20%;
-        --y: 80%;
-    }
-
-    100% {
-        --x: 20%;
-        --y: 40%;
-    }
-}
-
-
-@property --x2 {
-    syntax: '<percentage>';
-    inherits: false;
-    initial-value: 90%;
-}
-
-@property --y2 {
-    syntax: '<percentage>';
-    inherits: false;
-    initial-value: 80%;
-}
-
-
-
-.secao-7 .fundo7v2 {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.1;
-
-    mask-image: radial-gradient(ellipse 30% 50% at var(--x2) var(--y2),
-            black 0%,
-            transparent 100%);
-
-    -webkit-mask-image: radial-gradient(ellipse 30% 50% at var(--x2) var(--y2),
-            black 0%,
-            transparent 100%);
-
-    animation: reflexo3 3s ease-in-out infinite;
-}
-
-@keyframes reflexo3 {
-    0% {
-        --x2: 90%;
-        --y2: 80%;
-    }
-
-    50% {
-        --x2: 90%;
-        --y2: 20%;
-    }
-
-    100% {
-        --x2: 90%;
-        --y2: 80%;
-    }
-}
-
 
 
 .secao-7 .content {
     align-items: center;
+    position: relative;
+    z-index: 2;
 
 }
 
@@ -2608,93 +2400,9 @@ p span {
 
     .secao-7 .fundo7 {
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
         object-fit: cover;
-        opacity: 0.1;
-
-        mask-image: radial-gradient(ellipse 30% 50% at var(--x) var(--y),
-                black 0%,
-                transparent 100%);
-
-        -webkit-mask-image: radial-gradient(ellipse 30% 50% at var(--x) var(--y),
-                black 0%,
-                transparent 100%);
-
-        animation: reflexo2 3s ease-in-out infinite;
     }
-
-    @keyframes reflexo2 {
-        0% {
-            --x: 20%;
-            --y: 40%;
-        }
-
-        50% {
-            --x: 20%;
-            --y: 80%;
-        }
-
-        100% {
-            --x: 20%;
-            --y: 40%;
-        }
-    }
-
-
-    @property --x2 {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 90%;
-    }
-
-    @property --y2 {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 80%;
-    }
-
-
-
-    .secao-7 .fundo7v2 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.1;
-
-        mask-image: radial-gradient(ellipse 30% 50% at var(--x2) var(--y2),
-                black 0%,
-                transparent 100%);
-
-        -webkit-mask-image: radial-gradient(ellipse 30% 50% at var(--x2) var(--y2),
-                black 0%,
-                transparent 100%);
-
-        animation: reflexo3 3s ease-in-out infinite;
-    }
-
-    @keyframes reflexo3 {
-        0% {
-            --x2: 90%;
-            --y2: 80%;
-        }
-
-        50% {
-            --x2: 90%;
-            --y2: 20%;
-        }
-
-        100% {
-            --x2: 90%;
-            --y2: 80%;
-        }
-    }
-
 
 
     .secao-7 .content {
@@ -3659,6 +3367,8 @@ p span {
 
     .secao-12 .content .valor .parte-1 h2 {
         text-align: center;
+        font-size: 40px;
+        line-height: 45px;
     }
 
     .secao-12 .content .valor .parte-1 ul {
