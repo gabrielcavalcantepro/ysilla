@@ -1,30 +1,9 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-// ==============================
-// SCROLL SMOOTHER PRIMEIRO
-// Deve ser criado ANTES dos ScrollTriggers
-// para evitar recálculos de layout
-// ==============================
-
-
-// ==============================
-// SCROLL SUAVE — LINKS
-// ==============================
-
-document.querySelectorAll(".link").forEach(btn => {
-  btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    smoother.scrollTo("#valor", true);
-  });
-});
-
+gsap.registerPlugin(ScrollTrigger);
 
 // ==============================
 // ANIMAÇÕES DE ENTRADA
 // ==============================
 
-// gsap.set() para todos os estados iniciais ANTES de criar qualquer ScrollTrigger
-// Isso evita que o GSAP leia geometria durante a criação das animações
 gsap.set(".blur-up, .blur-down, .blur-left, .blur-right", {
   autoAlpha: 0,
   scale: 0.98
@@ -47,7 +26,6 @@ function animateEntry(selector) {
         trigger: el,
         start: "top 85%",
         once: true
-        // invalidateOnRefresh removido — evita releitura de layout a cada resize
       }
     });
   });
@@ -57,6 +35,19 @@ animateEntry(".blur-up");
 animateEntry(".blur-down");
 animateEntry(".blur-left");
 animateEntry(".blur-right");
+
+
+// ==============================
+// SCROLL SUAVE — LINKS
+// Substitui o smoother.scrollTo() pelo scrollIntoView nativo
+// ==============================
+
+document.querySelectorAll(".link").forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector("#valor")?.scrollIntoView({ behavior: "smooth" });
+  });
+});
 
 
 // ==============================
@@ -85,8 +76,6 @@ h2.innerHTML = palavras.map(p => `<span class="palavra">${p}</span>`).join(' ');
 const spans = document.querySelectorAll('.secao-4 .content h2 .palavra');
 const total = spans.length;
 
-// Agora o trigger é o WRAPPER (que tem 300vh)
-// O sticky cuida do "grudar", o GSAP só lê o progresso do scroll
 ScrollTrigger.create({
   trigger: '.secao-4-wrapper',
   start: 'top top',
@@ -115,8 +104,8 @@ if (span) {
     duration: 1,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: ".secao-11",  // ← trigger correto
-      start: "top 80%",      // dispara quando a seção entra 80% da tela
+      trigger: ".secao-11",
+      start: "top 80%",
       toggleActions: "play none none none"
     },
     onUpdate: function () {
@@ -140,9 +129,6 @@ if (span) {
   const passo     = itemWidth + itemGap;
 
   let posicaoAtual = 0;
-
-  // Lê offsetWidth UMA vez e recalcula só no resize (via ResizeObserver)
-  // evitando leitura de geometria a cada clique
   let larguraVisivel = ul.parentElement.offsetWidth;
 
   const ro = new ResizeObserver(entries => {
@@ -151,13 +137,12 @@ if (span) {
   ro.observe(ul.parentElement);
 
   function getMaxScroll() {
-    const totalItens  = ul.children.length;
+    const totalItens   = ul.children.length;
     const larguraTotal = totalItens * passo - itemGap;
     return Math.max(0, larguraTotal - larguraVisivel);
   }
 
   function atualizar() {
-    // transform não causa reflow — só composite
     ul.style.transform = `translateX(-${posicaoAtual}px)`;
   }
 
@@ -181,15 +166,12 @@ if (span) {
   const trilho = document.querySelector('.secao-8 .depoimentos');
   const ul = trilho.querySelector('ul');
 
-  // Duplica itens para loop infinito
   const itensOriginais = Array.from(ul.children);
   itensOriginais.forEach(item => ul.appendChild(item.cloneNode(true)));
 
   const GAP = 20;
   const totalOriginais = itensOriginais.length;
 
-  // Lê largura UMA vez — atualiza só no resize via ResizeObserver
-  // Em vez de chamar offsetWidth a cada frame (causa reflow a cada tick!)
   let larguraItem = itensOriginais[0].offsetWidth + GAP;
 
   const ro = new ResizeObserver(() => {
@@ -201,24 +183,22 @@ if (span) {
     return larguraItem * totalOriginais;
   }
 
-  let posicao     = 0;
-  let velocidade  = 0.5;
-  let animando    = true;
+  let posicao      = 0;
+  let velocidade   = 0.5;
+  let animando     = true;
   let timerRetorno = null;
 
-  // Drag state
-  let arrastando      = false;
-  let inicioX         = 0;
+  let arrastando       = false;
+  let inicioX          = 0;
   let posicaoAoIniciar = 0;
 
   function loop() {
     if (animando) posicao += velocidade;
 
     const bloco = getLarguraBloco();
-    if (posicao >= bloco)  posicao -= bloco;
-    else if (posicao < 0)  posicao += bloco;
+    if (posicao >= bloco) posicao -= bloco;
+    else if (posicao < 0) posicao += bloco;
 
-    // translateX não provoca reflow — opera só na camada de composição
     ul.style.transform = `translateX(-${posicao}px)`;
     requestAnimationFrame(loop);
   }
@@ -229,7 +209,6 @@ if (span) {
     timerRetorno = setTimeout(() => { animando = true; }, 2000);
   }
 
-  // Mouse
   trilho.addEventListener('mousedown', (e) => {
     arrastando = true;
     inicioX = e.clientX;
@@ -250,7 +229,6 @@ if (span) {
     pausar();
   });
 
-  // Touch
   trilho.addEventListener('touchstart', (e) => {
     inicioX = e.touches[0].clientX;
     posicaoAoIniciar = posicao;
@@ -269,8 +247,6 @@ if (span) {
 
 // ==============================
 // REFRESH ÚNICO AO FINAL
-// Chama ScrollTrigger.refresh() uma única vez
-// depois que tudo está carregado e pintado
 // ==============================
 
 window.addEventListener("load", () => {
