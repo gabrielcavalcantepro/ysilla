@@ -7,7 +7,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -1241,7 +1241,7 @@ p span {
 
 
 @media (min-width: 768px) {
-    .secao-1{
+    .secao-1 {
         height: 115vh;
     }
 
@@ -1647,6 +1647,7 @@ p span {
     object-fit: cover;
 
 }
+
 @media (min-width: 768px) {
 
     .secao-2 .content h2 {
@@ -1904,7 +1905,8 @@ p span {
 
 .secao-4-wrapper {
     position: relative;
-    height: 300vh; /* espaço para o scroll acontecer */
+    height: 300vh;
+    /* espaço para o scroll acontecer */
 }
 
 .secao-4 {
@@ -2021,7 +2023,8 @@ p span {
 
 .secao-5 .content .carrossel {
     margin-top: 64px;
-    overflow: hidden; /* esconde os itens fora da área visível */
+    overflow: hidden;
+    /* esconde os itens fora da área visível */
 }
 
 .secao-5 .content .carrossel ul {
@@ -2493,7 +2496,8 @@ p span {
     align-items: center;
     gap: 20px;
     margin-top: 60px;
-    width: max-content; /* largura total dos itens */
+    width: max-content;
+    /* largura total dos itens */
     will-change: transform;
 }
 
@@ -2517,8 +2521,10 @@ p span {
     align-items: flex-start;
     padding: 30px 30px;
     flex-shrink: 0;
-    width: 320px; /* largura fixa para o loop funcionar */
-    pointer-events: none; /* evita conflito com o drag */
+    width: 320px;
+    /* largura fixa para o loop funcionar */
+    pointer-events: none;
+    /* evita conflito com o drag */
 }
 
 /* reativa pointer-events nos elementos internos se precisar */
@@ -3523,7 +3529,8 @@ p span {
     justify-content: center;
     flex-direction: column-reverse;
     gap: 60px;
-    position: relative; /* confirme que está aqui */
+    position: relative;
+    /* confirme que está aqui */
     height: 100%;
 }
 
@@ -3556,13 +3563,13 @@ p span {
     position: absolute;
     width: 88%;
     max-width: 470px;
-    height: 305px; 
+    height: 305px;
     left: 8%;
     top: 15%;
     z-index: 2;
-    display: flex;         
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 .secao-14 .elements .laterais {
@@ -3665,6 +3672,13 @@ p span {
     }
 }
 
+@media (min-width: 375px) {
+    .secao-14 .elements {
+        left: 8%;
+        top: 22%;
+    }
+}
+
 
 @media (min-width: 400px) {
     .secao-14 .elements {
@@ -3692,7 +3706,7 @@ p span {
 
     .secao-14 .elements {
         left: 28%;
-        top: 29%;
+        top: 26%;
         width: 46%;
     }
 
@@ -3701,15 +3715,15 @@ p span {
 
 @media (min-width: 1024px) {
     .secao-14 .elements {
-        width: 35%;
-        left: 33%;
+        width: 365px;
+        left: 24%;
     }
 }
 
 @media (min-width: 1180px) {
     .secao-14 .elements {
-        width: 31%;
-        left: 35%;
+        width: 365px;
+        left: 27%;
     }
 }
 
@@ -3753,8 +3767,8 @@ p span {
 
     .secao-14 .elements {
         max-width: 370px;
-        width: 26%;
-        left: 57%;
+        width: 365px;
+        left: 60%;
         top: 48%;
     }
 }
@@ -3762,8 +3776,8 @@ p span {
 @media (min-width: 1920px) {
 
     .secao-14 .elements {
-        width: 370px;
-        left: 57%;
+        width: 365px;
+        left: 60.5%;
     }
 }
 
