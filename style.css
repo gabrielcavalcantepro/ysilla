@@ -15,6 +15,23 @@ body {
     color: #D9D9D9;
 }
 
+/* Estado inicial — elemento invisível e deslocado */
+.reveal {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.from-left   { transform: translateX(-60px); }
+.reveal.from-right  { transform: translateX(60px); }
+.reveal.from-top    { transform: translateY(-60px); }
+.reveal.from-bottom { transform: translateY(60px); }
+
+/* Estado final — elemento visível na posição original */
+.reveal.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
 
 
 @font-face {
