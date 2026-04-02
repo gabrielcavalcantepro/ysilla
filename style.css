@@ -3524,6 +3524,7 @@ p span {
     flex-direction: column-reverse;
     gap: 60px;
     position: relative; /* confirme que está aqui */
+    height: 100%;
 }
 
 .secao-14 .content img {
@@ -3555,13 +3556,13 @@ p span {
     position: absolute;
     width: 88%;
     max-width: 470px;
-    height: 305px; /* altura explícita */
+    height: 305px; 
     left: 8%;
     top: 15%;
     z-index: 2;
-    display: flex;          /* adicionar */
-    flex-direction: column; /* adicionar */
-    justify-content: space-between; /* empurra .baixo pro fundo */
+    display: flex;         
+    flex-direction: column;
+    justify-content: space-between; 
 }
 
 .secao-14 .elements .laterais {
