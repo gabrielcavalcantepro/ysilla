@@ -8,7 +8,7 @@
 
 html {
     scroll-behavior: smooth;
-    overflow: auto;
+    overflow-x: hidden;
 }
 
 body {
