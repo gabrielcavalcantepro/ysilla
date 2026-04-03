@@ -8,12 +8,15 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
+    
 }
 
 body {
     background-color: #eeeeee;
     color: #D9D9D9;
+    overflow-x: clip;
+
 }
 
 .reveal {
