@@ -40,10 +40,9 @@ animateEntry(".blur-right");
 // ==============================
 // SCROLL SUAVE — LINKS
 // Substitui o smoother.scrollTo() pelo scrollIntoView nativo
-// Só intercepta âncoras internas (#), links externos como o da Kiwify seguem normalmente
 // ==============================
 
-document.querySelectorAll('.link[href^="#"]').forEach(btn => {
+document.querySelectorAll(".link").forEach(btn => {
   btn.addEventListener("click", function (e) {
     e.preventDefault();
     document.querySelector("#valor")?.scrollIntoView({ behavior: "smooth" });
@@ -65,6 +64,98 @@ document.querySelectorAll('.bottom').forEach(btn => {
     isBlue = !isBlue;
   });
 });
+
+
+// ==============================
+// ANIMAÇÃO DE PALAVRAS — SEÇÃO 4
+// ==============================
+
+const h2 = document.querySelector('.secao-4 .content h2');
+const palavras = h2.textContent.trim().split(/\s+/);
+h2.innerHTML = palavras.map(p => `<span class="palavra">${p}</span>`).join(' ');
+const spans = document.querySelectorAll('.secao-4 .content h2 .palavra');
+const total = spans.length;
+
+ScrollTrigger.create({
+  trigger: '.secao-4-wrapper',
+  start: 'top top',
+  end: 'bottom bottom',
+  scrub: 1,
+  onUpdate: (self) => {
+    const palavrasAtivas = Math.round(self.progress * total);
+    spans.forEach((span, i) => {
+      span.classList.toggle('ativa', i < palavrasAtivas);
+    });
+  }
+});
+
+
+// ==============================
+// CONTADOR — SEÇÃO 11
+// ==============================
+
+const span = document.querySelector(".secao-11 .content h4 span");
+
+if (span) {
+  let counter = { value: 500 };
+
+  gsap.to(counter, {
+    value: 1135,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".secao-11",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    onUpdate: function () {
+      span.textContent = "R$" + Math.floor(counter.value).toLocaleString("pt-BR");
+    }
+  });
+}
+
+
+// ==============================
+// CARROSSEL — SEÇÃO 5
+// ==============================
+
+(function () {
+  const ul = document.querySelector('.secao-5 .carrossel ul');
+  const btnEsquerda = document.querySelector('.secao-5 .seta:first-child');
+  const btnDireita  = document.querySelector('.secao-5 .seta:last-child');
+
+  const itemWidth = 250;
+  const itemGap   = 20;
+  const passo     = itemWidth + itemGap;
+
+  let posicaoAtual = 0;
+  let larguraVisivel = ul.parentElement.offsetWidth;
+
+  const ro = new ResizeObserver(entries => {
+    larguraVisivel = entries[0].contentRect.width;
+  });
+  ro.observe(ul.parentElement);
+
+  function getMaxScroll() {
+    const totalItens   = ul.children.length;
+    const larguraTotal = totalItens * passo - itemGap;
+    return Math.max(0, larguraTotal - larguraVisivel);
+  }
+
+  function atualizar() {
+    ul.style.transform = `translateX(-${posicaoAtual}px)`;
+  }
+
+  btnDireita.addEventListener('click', () => {
+    posicaoAtual = Math.min(posicaoAtual + passo, getMaxScroll());
+    atualizar();
+  });
+
+  btnEsquerda.addEventListener('click', () => {
+    posicaoAtual = Math.max(posicaoAtual - passo, 0);
+    atualizar();
+  });
+})();
 
 
 // ==============================
