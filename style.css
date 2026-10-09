@@ -1828,7 +1828,7 @@ p span {
 
 
 
-/*------ PASSOS ------*/
+/*------ PASSOS (trilha) ------*/
 
 .secao-passos {
     width: 100%;
@@ -1857,15 +1857,16 @@ p span {
 .secao-passos .content .passos {
     list-style: none;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
     width: 100%;
     margin-top: 50px;
 }
 
 .secao-passos .content .passos li {
+    --cor: #24F5EF;
+    position: relative;
     width: 100%;
     max-width: 548px;
     display: flex;
@@ -1873,51 +1874,73 @@ p span {
     align-items: flex-start;
     padding: 30px;
     background: linear-gradient(125deg, #6b6b6b1f 0%, #6b6b6b00 30%);
+    background-color: #151515;
+    border: solid 1px #3D3D3D;
+    border-top: solid 6px var(--cor);
     border-radius: 20px;
-    border: solid #3D3D3D 1px;
-    transition: background-color 0.5s ease;
+    z-index: 1;
 }
 
-.secao-passos .content .passos li:hover {
-    background-color: #1E1E1E;
+.secao-passos .content .passos li.passo-rosa {
+    --cor: #FE2B54;
 }
 
-/* ícone redondo de vidro — mesmo padrão dos bônus */
+.secao-passos .content .passos li.passo-branco {
+    --cor: #ffffff;
+}
+
+.secao-passos .content .passos .topo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.secao-passos .content .passos .etiqueta {
+    padding: 7px 16px;
+    border-radius: 40px;
+    background-color: var(--cor);
+    color: #151515;
+    font-family: 'Krub';
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.secao-passos .content .passos .passo-rosa .etiqueta {
+    color: #ffffff;
+}
+
+/* ícone em quadrado colorido (mesmo formato dos checks da página) */
 .secao-passos .content .passos .icone {
-    border-radius: 50%;
-    height: 55px;
-    width: 55px;
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(20px);
-    position: relative;
-    z-index: 0;
+    background-color: var(--cor);
 }
 
-.secao-passos .content .passos .icone::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    padding: 2px;
-    border-radius: inherit;
-    background: linear-gradient(180deg,
-            #6B6B6B -10%,
-            #6b6b6b00 60%);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
+.secao-passos .content .passos .icone img {
+    height: 24px;
+    width: auto;
+}
+
+/* ícone branco fica preto sobre o azul */
+.secao-passos .content .passos .passo-azul .icone img,
+.secao-passos .content .passos .passo-branco .icone img {
+    filter: brightness(0);
 }
 
 .secao-passos .content .passos h3 {
     margin-top: 25px;
+    color: #ffffff;
 }
 
 .secao-passos .content .passos h3 span.azul {
-    color: #24F5EF;
+    color: var(--cor);
 }
 
 .secao-passos .content .passos .separacao {
@@ -1932,13 +1955,17 @@ p span {
 
 @media (min-width: 1180px) {
     .secao-passos .content .passos {
-        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 40px;
     }
 
     .secao-passos .content .passos li {
         width: 33.3%;
         padding: 40px;
     }
+
+
 
     .secao-passos .content .passos h3 {
         font-size: 28px;
@@ -2075,6 +2102,8 @@ p span {
 }
 
 .secao-sozinha .content .recursos li {
+    --cor: #24F5EF;
+    position: relative;
     width: 100%;
     max-width: 400px;
     display: flex;
@@ -2086,6 +2115,12 @@ p span {
     overflow: hidden;
     transition: background-color 0.5s ease;
 }
+
+/* cores alternadas: azul, rosa, azul, rosa, azul */
+.secao-sozinha .content .recursos li:nth-child(even) {
+    --cor: #FE2B54;
+}
+
 
 .secao-sozinha .content .recursos li:hover {
     background-color: #1E1E1E;
@@ -2133,27 +2168,19 @@ p span {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(21, 21, 21, 0.6);
-    backdrop-filter: blur(20px);
+    background-color: var(--cor);
     position: relative;
     z-index: 0;
 }
 
-.secao-sozinha .content .recursos .icone::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    padding: 2px;
-    border-radius: inherit;
-    background: linear-gradient(180deg,
-            #6B6B6B -10%,
-            #6b6b6b00 60%);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
+.secao-sozinha .content .recursos .icone img {
+    height: 24px;
+    width: auto;
+}
+
+/* ícone branco fica preto sobre o azul */
+.secao-sozinha .content .recursos li:nth-child(odd) .icone img {
+    filter: brightness(0);
 }
 
 .secao-sozinha .content .recursos h3 {
@@ -3533,6 +3560,319 @@ p span {
 @media (min-width: 1180px) {
     .secao-16 {
         padding: 110px 0px 40px;
+    }
+}
+
+
+
+/* -preço: escassez e âncora- */
+
+.secao-12 .content .valor .parte-2 .vagas {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    border-radius: 40px;
+    border: solid 1px #FE2B54;
+    background-color: rgba(254, 43, 84, 0.12);
+    color: #FE2B54;
+    font-family: 'Krub';
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.secao-12 .content .valor .parte-2 .vagas .ponto {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #FE2B54;
+    animation: vagas-piscar 1.2s ease-in-out infinite;
+}
+
+@keyframes vagas-piscar {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+.secao-12 .content .valor .parte-2 .de span {
+    color: #FE2B54;
+    text-decoration: line-through;
+}
+
+.secao-12 .content .valor .parte-2 h4 {
+    line-height: 1.1;
+}
+
+.secao-12 .content .valor .parte-2 .unico {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #8A8A8A;
+}
+
+
+
+/* -botão abaixo das fases- */
+
+.secao-5 .content > a {
+    margin-top: 50px;
+    align-self: center;
+}
+
+/* -depoimentos em vídeo (formato vertical) - */
+
+.secao-8 .content .videos {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.secao-8 .content .videos .video {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 9 / 16;
+    border-radius: 20px;
+    border: solid 1px #3D3D3D;
+    overflow: hidden;
+    background-color: #1E1E1E;
+}
+
+.secao-8 .content .videos .video iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* marcador de onde entram os próximos vídeos */
+.secao-8 .content .videos .em-breve {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: dashed 2px #3D3D3D;
+    background: linear-gradient(125deg, #6b6b6b1f 0%, #6b6b6b00 30%);
+    background-color: #1E1E1E;
+}
+
+.secao-8 .content .videos .em-breve .play {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #24F5EF;
+}
+
+.secao-8 .content .videos .em-breve p {
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.secao-8 .content .videos .em-breve > span:last-child {
+    font-family: 'Krub';
+    font-size: 13px;
+    color: #8A8A8A;
+}
+
+@media (min-width: 1024px) {
+    .secao-8 .content .videos {
+        flex-wrap: nowrap;
+        gap: 24px;
+    }
+
+    .secao-8 .content .videos .video {
+        width: 33.3%;
+    }
+}
+
+
+
+/* -botão abaixo dos depoimentos- */
+
+.secao-8 .content.cta {
+    margin-top: 50px;
+}
+
+/* -botão abaixo do texto da expert- */
+
+.secao-14 .content .conteudo a {
+    margin-top: 40px;
+}
+
+
+
+/*------ RITMO DAS SEÇÕES (fundos alternados) ------*/
+
+/* escuro: secao-2, secao-5, secao-8, secao-12, secao-final
+   claro:  secao-passos, secao-sozinha, secao-14, secao-16 */
+.secao-passos,
+.secao-sozinha,
+.secao-14,
+.secao-16 {
+    background-color: #1F1F1F;
+}
+
+/* com cores diferentes, FAQ e chamada final precisam de respiro próprio */
+.secao-16 {
+    padding: 70px 0px;
+}
+
+.secao-final {
+    padding: 70px 0px 80px;
+}
+
+.secao-final .content .content-secao2 {
+    margin-top: 0px;
+}
+
+@media (min-width: 1180px) {
+    .secao-16 {
+        padding: 110px 0px 90px;
+    }
+
+    .secao-final {
+        padding: 90px 0px 100px;
+    }
+}
+
+
+
+/*------ BOTÃO GIRATÓRIO (azul <-> rosa) ------*/
+
+/* o <a> vira só o "palco" 3D; quem tem cor são as duas faces */
+.bottom {
+    background: none;
+    box-shadow: none;
+    perspective: 900px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.bottom:hover {
+    box-shadow: none;
+}
+
+.bottom .flip {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: botao-giro 6s ease-in-out infinite;
+}
+
+.bottom .face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 80px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: filter 0.3s ease;
+}
+
+.bottom .frente {
+    background-color: #24F5EF;
+    color: #151515;
+}
+
+.bottom .verso {
+    background-color: #FE2B54;
+    color: #ffffff;
+    transform: rotateX(180deg);
+}
+
+/* hover: para de girar e cresce um pouco */
+.bottom {
+    transition: scale 0.3s ease;
+}
+
+.bottom:hover {
+    scale: 1.04;
+}
+
+.bottom:hover .flip {
+    animation-play-state: paused;
+}
+
+/* botão de compra: sempre rosa, não gira, pulsa suavemente
+   (a pulsação fica no .flip para o hover do <a> ter transição própria) */
+.bottom.checkout .flip {
+    animation: botao-pulso 2.4s ease-in-out infinite;
+}
+
+.bottom.checkout .frente {
+    background-color: #FE2B54;
+    color: #ffffff;
+}
+
+
+@keyframes botao-pulso {
+    0%,
+    100% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.035;
+    }
+}
+
+.bottom .icon-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #151515;
+}
+
+/* 3s em cada face, giro de ~0,3s entre elas */
+@keyframes botao-giro {
+    0%,
+    45% {
+        transform: rotateX(0deg);
+    }
+
+    50%,
+    95% {
+        transform: rotateX(180deg);
+    }
+
+    100% {
+        transform: rotateX(360deg);
+    }
+}
+
+/* botão de compra dentro do card de preço: cabe na largura do card */
+@media (min-width: 1180px) {
+    .secao-12 .content .valor .parte-2 a {
+        font-size: 17px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bottom .flip,
+    .bottom.checkout .flip {
+        animation: none;
     }
 }
 
