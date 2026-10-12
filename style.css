@@ -3612,10 +3612,22 @@ p span {
     line-height: 1.1;
 }
 
+.secao-12 .content .valor .parte-2 h4 small {
+    margin-right: 10px;
+    font-size: 0.34em;
+    font-weight: 400;
+    color: #ffffff;
+}
+
 .secao-12 .content .valor .parte-2 .unico {
-    margin-top: 8px;
-    font-size: 13px;
-    color: #8A8A8A;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #B9B9B9;
+}
+
+.secao-12 .content .valor .parte-2 .unico strong {
+    font-weight: 400;
+    color: #ffffff;
 }
 
 
